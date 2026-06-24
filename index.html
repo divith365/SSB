@@ -43,22 +43,85 @@
   /* HEADER */
   header {
     background: linear-gradient(135deg, #FFF9F0 0%, #FFFDF8 40%, #FFF5E6 100%);
-    padding: 20px 40px;
+    padding: 16px 40px;
     display: flex; align-items: center; justify-content: space-between;
     box-shadow: 0 2px 20px rgba(232,114,42,0.12);
     position: sticky; top: 0; z-index: 100;
-    overflow: hidden;
+    overflow: hidden; gap: 16px;
   }
-  .logo-wrap { display:flex; align-items:center; gap:18px; position:relative; z-index:2; }
-  .logo-circle { width:72px; height:72px; background:linear-gradient(135deg,var(--saffron),var(--gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:white; box-shadow:0 4px 16px rgba(232,114,42,0.4); flex-shrink:0; }
-  .logo-text h1 { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--saffron); line-height:1.2; }
-  .logo-text p { font-size:12px; color:var(--muted); letter-spacing:1px; }
-  .govt-badge { font-size:11px; color:var(--sky); background:var(--sky-light); padding:4px 10px; border-radius:20px; font-weight:600; margin-top:4px; display:inline-block; }
-  nav { display:flex; gap:24px; align-items:center; position:relative; z-index:2; }
-  nav a { text-decoration:none; color:var(--text); font-size:14px; font-weight:500; transition:color 0.2s; }
+  .logo-wrap { display:flex; align-items:center; gap:14px; position:relative; z-index:2; flex-shrink:0; }
+
+  /* Logo hover flip */
+  .logo-flip-wrap { width:86px; height:86px; perspective:600px; cursor:pointer; flex-shrink:0; }
+  .logo-flip-inner-h {
+    width:100%; height:100%; position:relative;
+    transform-style:preserve-3d;
+    transition:transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+    border-radius:50%;
+  }
+  .logo-flip-wrap:hover .logo-flip-inner-h { transform:rotateY(180deg); }
+  .logo-face-front-h, .logo-face-back-h {
+    position:absolute; inset:0; border-radius:50%;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    overflow:hidden;
+    box-shadow:0 4px 16px rgba(232,114,42,0.4);
+  }
+  .logo-face-back-h { transform:rotateY(180deg); }
+  .logo-face-front-h img, .logo-face-back-h img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+
+  /* Company name */
+  .logo-text { cursor:default; }
+  .logo-text h1 {
+    font-family:'Playfair Display',serif; font-size:25px; font-weight:900;
+    background: linear-gradient(90deg, var(--saffron), var(--deep-saffron), var(--gold), var(--saffron));
+    background-size: 250% auto;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text; line-height:1.2;
+    transition:background-position 0.5s ease;
+  }
+  .logo-text h1:hover { background-position:right center; }
+  .logo-tagline {
+    font-family:'Noto Sans Kannada',sans-serif; font-size:11px;
+    color:var(--brown); opacity:0.75; letter-spacing:0.3px;
+    margin-top:2px; display:block; line-height:1.4;
+    transition:opacity 0.3s;
+  }
+  .logo-text:hover .logo-tagline { opacity:1; color:var(--saffron); }
+  .govt-badge { font-size:10px; color:var(--sky); background:var(--sky-light); padding:3px 8px; border-radius:20px; font-weight:600; margin-top:3px; display:inline-block; }
+
+  /* Nav */
+  nav { display:flex; gap:20px; align-items:center; position:relative; z-index:2; }
+  nav a { text-decoration:none; color:var(--text); font-size:14px; font-weight:500; transition:color 0.2s; white-space:nowrap; }
   nav a:hover { color:var(--saffron); }
-  .call-btn { background:var(--saffron); color:white!important; padding:10px 20px; border-radius:8px; font-weight:600!important; }
+  .call-btn { background:var(--saffron); color:white!important; padding:9px 18px; border-radius:8px; font-weight:600!important; white-space:nowrap; }
   .call-btn:hover { background:var(--deep-saffron)!important; }
+
+  /* Hamburger */
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; z-index:200; border:none; background:none; flex-shrink:0; }
+  .hamburger span { display:block; width:26px; height:2.5px; background:var(--saffron); border-radius:2px; transition:all 0.3s ease; }
+  .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5.5px,5.5px); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:rotate(-45deg) translate(5.5px,-5.5px); }
+
+  /* Mobile nav overlay */
+  .mobile-nav {
+    display:none; position:fixed; inset:0; top:0;
+    background:rgba(26,18,8,0.97);
+    z-index:150; flex-direction:column;
+    align-items:center; justify-content:center; gap:28px;
+    backdrop-filter:blur(8px);
+  }
+  .mobile-nav.open { display:flex; animation:fadeInDown 0.3s ease; }
+  @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  .mobile-nav a {
+    text-decoration:none; color:white; font-size:22px; font-weight:600;
+    font-family:'Playfair Display',serif;
+    transition:color 0.2s;
+    padding:8px 0;
+  }
+  .mobile-nav a:hover { color:var(--gold); }
+  .mobile-nav .call-btn { background:var(--saffron); color:white!important; padding:14px 36px; border-radius:12px; font-size:18px!important; }
+  .mobile-nav-close { position:absolute; top:24px; right:24px; font-size:32px; color:white; cursor:pointer; background:none; border:none; line-height:1; }
 
   /* ── HEADER FLOATING ICONS ── */
   .header-bg-anim {
@@ -292,16 +355,57 @@
     transform: translateY(-3px);
   }
 
-  @media(max-width:768px) {
-    header { padding:14px 18px; }
+  @media(max-width:900px) {
+    /* Header */
+    header { padding:12px 18px; }
     nav { display:none; }
-    section { padding:52px 18px; }
-    .hero { padding:52px 18px 180px; min-height:auto; }
-    .hero-stats { position:static; flex-wrap:wrap; margin-top:28px; }
-    .contact-inner { grid-template-columns:1fr; }
-    .topbar { padding:8px 18px; font-size:11px; }
-    footer { padding:36px 18px 18px; }
-    .lang-toggle { bottom:18px; right:18px; }
+    .hamburger { display:flex; }
+    .logo-flip-wrap { width:60px; height:60px; }
+    .logo-text h1 { font-size:16px; }
+    .logo-tagline { display:none; }
+    .govt-badge { display:none; }
+
+    /* Topbar */
+    .topbar { padding:6px 14px; font-size:10px; flex-direction:column; gap:4px; align-items:flex-start; }
+    .topbar div:last-child { align-self:flex-end; }
+
+    /* Hero */
+    .hero { padding:60px 18px 200px; min-height:auto; }
+    .hero h2 { font-size:26px; }
+    .hero-stats { position:static; flex-wrap:wrap; margin-top:28px; gap:10px; }
+    .hero-flip-logo { display:none; }
+    .stat-card { padding:12px 16px; }
+
+    /* Sections */
+    section { padding:48px 16px; }
+    .section-title h2 { font-size:22px; }
+
+    /* Cards */
+    .cat-grid { grid-template-columns:repeat(2,1fr); gap:12px; }
+    .tours-grid { grid-template-columns:1fr; }
+    .dest-grid { grid-template-columns:1fr; }
+    .why-grid { grid-template-columns:1fr; }
+
+    /* Special section */
+    .special-features { flex-direction:column; align-items:center; }
+    .feat { min-width:unset; width:100%; max-width:300px; }
+
+    /* Contact */
+    .contact { padding:48px 16px; }
+    .contact-inner { grid-template-columns:1fr; gap:32px; }
+    .contact h2 { font-size:24px; }
+
+    /* Footer */
+    footer { padding:32px 16px 16px; }
+    .footer-top { flex-direction:column; gap:24px; }
+    .footer-bottom { flex-direction:column; text-align:center; }
+
+    /* Back to top */
+    #back-to-top { bottom:20px; right:16px; width:42px; height:42px; font-size:16px; }
+
+    /* Loader */
+    .loader-logo-wrap { width:150px; height:150px; }
+    .loader-text { font-size:16px; }
   }
 
   /* ── PAGE LOADER ── */
@@ -434,6 +538,15 @@
   </div>
 </div>
 
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">&times;</button>
+  <a href="#tours" onclick="closeMobileNav()" data-t="nav_tours">Tour Packages</a>
+  <a href="#destinations" onclick="closeMobileNav()" data-t="nav_dest">Destinations</a>
+  <a href="#about" onclick="closeMobileNav()" data-t="nav_about">About Us</a>
+  <a href="#contact" class="call-btn" onclick="closeMobileNav()" data-t="nav_book">📞 Book Now</a>
+</div>
+
 <!-- HEADER -->
 <header>
   <!-- Animated background -->
@@ -456,9 +569,20 @@
     <span class="float-icon drift" style="left:33%; animation-delay:7s;    animation-duration:15s; font-size:13px;">🌻</span>
   </div>
   <div class="logo-wrap">
-    <img id="header-logo" src="ssb_logo_kannada.png" alt="SSB Logo" class="logo-img">
+    <!-- Hover flip logo -->
+    <div class="logo-flip-wrap" id="logo-flip-wrap">
+      <div class="logo-flip-inner-h" id="logo-flip-inner-h">
+        <div class="logo-face-front-h">
+          <img id="header-logo-front" src="ssb_logo_kannada.png" alt="SSB Kannada" loading="eager">
+        </div>
+        <div class="logo-face-back-h">
+          <img id="header-logo-back" src="ssb_logo_v3.png" alt="SSB English" loading="eager">
+        </div>
+      </div>
+    </div>
     <div class="logo-text">
       <h1 data-t="brand_name">ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ &amp; ಹಾಲಿಡೇಸ್</h1>
+      <span class="logo-tagline" id="logo-tagline">ಭಾರತದ ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</span>
       <span class="govt-badge" data-t="govt_badge">✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ</span>
     </div>
   </div>
@@ -468,6 +592,9 @@
     <a href="#about" data-t="nav_about">About Us</a>
     <a href="#contact" class="call-btn" data-t="nav_book">📞 Book Now</a>
   </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- HERO -->
@@ -984,17 +1111,23 @@ function setLang(lang) {
   document.querySelector('.lang-btn.' + lang).classList.add('active');
   // Update html lang
   document.documentElement.lang = lang === 'kn' ? 'kn' : 'en';
-  // Switch header logo with a smooth flip
-  const logoEl = document.getElementById('header-logo');
-  if (logoEl) {
-    logoEl.style.transform = 'rotateY(90deg)';
-    logoEl.style.opacity = '0';
-    setTimeout(() => {
-      logoEl.src = lang === 'kn' ? 'ssb_logo_kannada.png' : 'ssb_logo_v3.png';
-      logoEl.style.transform = 'rotateY(0deg)';
-      logoEl.style.opacity = '1';
-    }, 220);
+  // Switch header flip logo faces
+  const front = document.getElementById('header-logo-front');
+  const back  = document.getElementById('header-logo-back');
+  if (front && back) {
+    front.src = lang === 'kn' ? 'ssb_logo_kannada.png' : 'ssb_logo_v3.png';
+    back.src  = lang === 'kn' ? 'ssb_logo_v3.png' : 'ssb_logo_kannada.png';
   }
+  // Update tagline language
+  const tagline = document.getElementById('logo-tagline');
+  if (tagline) tagline.textContent = lang === 'kn'
+    ? '\u0cad\u0cbe\u0cb0\u0ca4\u0ca6 \u0caa\u0cb5\u0cbf\u0ca4\u0ccd\u0cb0 \u0cae\u0ca4\u0ccd\u0ca4\u0cc1 \u0cb8\u0cc1\u0c82\u0ca6\u0cb0 \u0ca4\u0cbe\u0ca3\u0c97\u0cb3\u0ca8\u0ccd\u0ca8\u0cc1 \u0c85\u0ca8\u0ccd\u0cb5\u0cc7\u0cb7\u0cbf\u0cb8\u0cbf'
+    : 'Discover India\'s Sacred & Beautiful Destinations';
+  // Also update mobile nav labels
+  document.querySelectorAll('.mobile-nav [data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (t[lang] && t[lang][key]) el.innerHTML = t[lang][key];
+  });
   // Translate all data-t elements
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
@@ -1026,6 +1159,24 @@ window.addEventListener('DOMContentLoaded', () => setLang('kn'));
     if (label) label.textContent = flipped ? 'English \u2022 \u0c95\u0ca8\u0ccd\u0ca8\u0ca1' : '\u0c95\u0ca8\u0ccd\u0ca8\u0ca1 \u2022 English';
   }, 3000);
 })();
+
+// ── MOBILE NAV ──
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const ham = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  ham.classList.toggle('open');
+  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  const ham = document.getElementById('hamburger');
+  nav.classList.remove('open');
+  ham.classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on ESC
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMobileNav(); });
 
 // ── SCROLL PROGRESS BAR + BACK TO TOP ──
 const scrollBar = document.getElementById('scroll-progress');
