@@ -17,20 +17,20 @@
 
   /* LANGUAGE TOGGLE */
   .lang-toggle {
-    position: fixed; bottom: 28px; right: 28px; z-index: 999;
     display: flex; gap: 0; border-radius: 40px;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-    border: 2px solid var(--saffron);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
   }
   .lang-btn {
-    padding: 12px 22px; font-size: 15px; font-weight: 700;
+    padding: 5px 14px; font-size: 12px; font-weight: 700;
     cursor: pointer; border: none; transition: all 0.2s;
     font-family: 'Inter','Noto Sans Kannada', sans-serif;
+    background: transparent; color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
   }
-  .lang-btn.en { background: var(--white); color: var(--saffron); }
-  .lang-btn.kn { background: var(--white); color: var(--saffron); }
-  .lang-btn.active { background: var(--saffron); color: white; }
+  .lang-btn.active { background: var(--saffron); color: white; border-radius: 40px; }
+  .lang-btn:hover:not(.active) { color: white; background: rgba(255,255,255,0.1); }
 
   /* TOP BAR */
   .topbar { background:var(--brown); color:#fff; font-size:13px; padding:8px 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
@@ -271,7 +271,7 @@
 
   /* ── LOGO IMAGE ── */
   .logo-img {
-    width: 72px; height: 72px; border-radius: 50%;
+    width: 86px; height: 86px; border-radius: 50%;
     object-fit: cover; flex-shrink: 0;
     box-shadow: 0 4px 16px rgba(232,114,42,0.4);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -321,27 +321,27 @@
     <img src="ssb_logo_kannada.png" alt="SSB Kannada Logo" class="loader-logo-kn">
     <img src="ssb_logo_v3.png"      alt="SSB English Logo" class="loader-logo-en">
   </div>
-  <div class="loader-text">ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ</div>
+  <div class="loader-text">ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ</div>
   <div class="loader-sub">S.S.B Package &amp; Holidays · Nandan Cabs</div>
   <div class="loader-dots"><span></span><span></span><span></span></div>
 </div>
 
 <!-- LANGUAGE TOGGLE -->
-<div class="lang-toggle">
-  <button class="lang-btn en" onclick="setLang('en')">EN</button>
-  <button class="lang-btn kn active" onclick="setLang('kn')">ಕನ್ನಡ</button>
-</div>
-
 <!-- TOP BAR -->
 <div class="topbar">
   <div>
     📞 <a href="tel:9880782128">9880782128</a>
     <span>|</span><a href="tel:9886859280">9886859280</a>
-    <span>|</span><a href="9036590209">9036590209</a>
+    <span>|</span><a href="tel:9036590209">9036590209</a>
     <span>|</span><a href="tel:9482946949">9482946949</a>
   </div>
-  <div>✉️ <a href="mailto:ssbholidays@yahoo.in">ssbholidays@yahoo.in</a>
+  <div style="display:flex;align-items:center;gap:14px;">
+    ✉️ <a href="mailto:sada@ssbholidays.com">sada@ssbholidays.com</a>
     <span>|</span>🌐 <a href="http://www.ssbholidays.com">www.ssbholidays.com</a>
+    <div class="lang-toggle">
+      <button class="lang-btn en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn kn active" onclick="setLang('kn')">ಕನ್ನಡ</button>
+    </div>
   </div>
 </div>
 
@@ -351,7 +351,6 @@
     <img id="header-logo" src="ssb_logo_kannada.png" alt="SSB Logo" class="logo-img">
     <div class="logo-text">
       <h1 data-t="brand_name">ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ &amp; ಹಾಲಿಡೇಸ್</h1>
-      <p data-t="brand_sub">ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್</p>
       <span class="govt-badge" data-t="govt_badge">✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ</span>
     </div>
   </div>
@@ -699,7 +698,7 @@
       <div class="contact-details">
         <div class="contact-item"><div class="icon">📍</div><div class="info"><strong data-t="addr_h">Our Office</strong><span data-t="addr_v">#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009</span></div></div>
         <div class="contact-item"><div class="icon">📞</div><div class="info"><strong data-t="call_h">Call Us</strong>080-41139890 / 41139891<br>9880782128 / 9886859280<br>9036590209 / 9482946949</div></div>
-        <div class="contact-item"><div class="icon">✉️</div><div class="info"><strong data-t="email_h">Email</strong>ssbholidays@yahoo.in</div></div>
+        <div class="contact-item"><div class="icon">✉️</div><div class="info"><strong data-t="email_h">Email</strong>sada@ssbholidays.com</div></div>
         <div class="contact-item"><div class="icon">🌐</div><div class="info"><strong data-t="web_h">Website</strong>www.ssbholidays.com</div></div>
       </div>
     </div>
@@ -768,7 +767,7 @@ Serving travellers from Bangalore since decades.</p>
         <li><a href="tel:9880782128">📞 9880782128</a></li>
         <li><a href="tel:9886859280">📞 9886859280</a></li>
         <li><a href="tel:9036590209">📞 9036590209</a></li>
-        <li><a href="mailto:ssbholidays@yahoo.in">✉️ ssbholidays@yahoo.in</a></li>
+        <li><a href="mailto:sada@ssbholidays.com">✉️ sada@ssbholidays.com</a></li>
         <li><a href="#">🌐 www.ssbholidays.com</a></li>
       </ul>
     </div>
@@ -848,7 +847,7 @@ const t = {
     brand_name:"S.S.B. Package & Holidays",brand_sub:"Shirdi Sai Baba • Nandan Cabs",govt_badge:"✓ Authorised by Govt. of Karnataka, Dept. of Tourism",nav_tours:"Tour Packages",nav_dest:"Destinations",nav_about:"About Us",nav_book:"📞 Book Now",hero_eyebrow:"Sai Baba's Blessings on Every Journey",hero_h2:"Discover <em>India's</em> Most Sacred & Beautiful Destinations",hero_p:"From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.",hero_btn1:"🗺️ View All Packages",hero_btn2:"📞 Call Us Now",stat1_num:"27+",stat1_label:"Tour Packages",stat2_num:"15+",stat2_label:"Destinations",stat3_num:"3★",stat3_label:"Hotel Options",cat_eyebrow:"What we offer",cat_h2:"Tour Categories",cat1_h:"Pilgrimage Tours",cat1_p:"Tirupathi, Shirdi, Rameshwaram & more",cat2_h:"Hill Station Tours",cat2_p:"Ooty, Kodai, Munnar, Coorg, Coonur",cat3_h:"Honeymoon Special",cat3_p:"Romantic packages for newlyweds",cat4_h:"Beach Packages",cat4_p:"Goa, Pondicherry, Kanyakumari, Kovalam",cat5_h:"Houseboat Tours",cat5_p:"Alleppey & Kumarakom backwaters",cat6_h:"City Sightseeing",cat6_p:"Bangalore, Mysore day tours",sp_eyebrow:"Our Signature Offering",sp_h2:"Tirupathi Balaji Special VIP Darshan",sp_p:"Experience the divine blessings of Lord Venkateswara with our exclusive VIP Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.",sp_btn:"Enquire About Tirupathi VIP Darshan",sp_f1_h:"VIP Darshan",sp_f1_p:"Skip the queues with special entry",sp_f2_h:"Hotel Included",sp_f2_p:"Comfortable accommodation near temple",sp_f3_h:"AC Transport",sp_f3_p:"Comfortable journey from Bangalore",sp_f4_h:"Tour Guide",sp_f4_p:"Expert local guide included",tours_eyebrow:"27 handcrafted journeys",tours_h2:"All Tour Packages",tours_p:"Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.",more_tours:"And many more packages available — Tours #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"Enquire About Any Package",enquire:"Enquire",call_price:"Call for Price",includes:"Includes:",dest_eyebrow:"Where we take you",dest_h2:"Sight Seeing at Every Destination",why_eyebrow:"Why choose us",why_h2:"The S.S.B. Difference",why1_h:"Govt. Authorised",why1_p:"Officially authorised by the Government of Karnataka, Department of Tourism. Travel with complete trust and confidence.",why2_h:"Luxury Coaches",why2_p:"Travel in comfort with our luxury 2×2 push-back seat coaches and Mini Luxury Coaches for a relaxed journey.",why3_h:"Hotel Options",why3_p:"Choose from Deluxe, Super Deluxe, Star, Luxury, Home Stay or Resort to suit your budget and preference.",why4_h:"Expert Guides",why4_p:"Knowledgeable local guides at every destination ensure you don't miss any important sight or story.",why5_h:"All Inclusive",why5_p:"Hotel accommodation, entrance fees, and guide charges included in most packages. No hidden surprises.",why6_h:"24/7 Support",why6_p:"Multiple contact numbers ensure we're always reachable for any assistance during your journey.",contact_h2:"Plan Your Dream Journey",contact_p:"Contact us today for custom packages, group tours, hotel reservations, and VIP Tirupathi Darshan arrangements.",addr_h:"Our Office",addr_v:"#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009",call_h:"Call Us",email_h:"Email",web_h:"Website",form_h:"Quick Enquiry",form_name:"Your Name",form_name_ph:"Enter your full name",form_mob:"Mobile Number",form_mob_ph:"Enter your mobile number",form_tour:"Tour Package",form_tour_ph:"Select a package",form_persons:"Number of Persons",form_persons_ph:"How many people?",form_msg:"Message",form_msg_ph:"Any specific requirements, dates, or questions...",form_submit:"Send Enquiry 🙏",footer_brand_p:"Shirdi Sai Baba Package & Holidays | Nandan Cabs\nAuthorised by Govt. of Karnataka, Dept. of Tourism\nServing travellers from Bangalore since decades.",footer_tours_h:"Our Tours",footer_dest_h:"Destinations",footer_contact_h:"Contact",footer_copy:"© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.",footer_copy2:"Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009",fare_per_head:"Fare Per Head",tour_badge_local:"Local",tour_badge_daytr:"Day Tour",tour_badge_honey:"Honeymoon Special",tour_badge_hill:"Hill Station",tour_badge_pop:"Popular",tour_badge_ext:"Extended",tour_badge_nat:"Nature",tour_badge_wild:"Wildlife",tour_badge_combo:"Combo",tour_badge_best:"Best Seller",tour_badge_kerala:"Kerala",tour_badge_mega:"Mega Tour",tour_badge_beach:"Beach Special",tour_badge_hboat:"Houseboat",day_label_covers:"Covers",day_label_returns:"Returns",day_label_batch1:"Batch 1",day_label_batch2:"Batch 2",day_label_stay:"Stay",day_label_special:"Special",day_label_option1:"Option 1",day_label_option2:"Option 2",day_label_option3:"Option 3"
   },
   kn: {
-    brand_name:"ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್",brand_sub:"ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್",govt_badge:"✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ",nav_tours:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",nav_dest:"ತಾಣಗಳು",nav_about:"ನಮ್ಮ ಬಗ್ಗೆ",nav_book:"📞 ಈಗಲೇ ಬುಕ್ ಮಾಡಿ",hero_eyebrow:"ಪ್ರತಿ ಪ್ರಯಾಣದಲ್ಲೂ ಸಾಯಿ ಬಾಬಾರ ಆಶೀರ್ವಾದ",hero_h2:"<em>ಭಾರತದ</em> ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",hero_p:"ತಿರುಪತಿ ಬಾಲಾಜಿ ದರ್ಶನದಿಂದ ಹಿಡಿದು ಊಟಿಯ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಅಲ್ಲೆಪ್ಪಿಯ ಹಿನ್ನೀರಿನವರೆಗೆ — ಬೆಂಗಳೂರಿನಿಂದ ಅವಿಸ್ಮರಣೀಯ ಪ್ರವಾಸಗಳನ್ನು ಏರ್ಪಡಿಸುತ್ತಿದ್ದೇವೆ.",hero_btn1:"🗺️ ಎಲ್ಲಾ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ನೋಡಿ",hero_btn2:"📞 ಈಗಲೇ ಕರೆ ಮಾಡಿ",stat1_num:"೨೭+",stat1_label:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",stat2_num:"೧೫+",stat2_label:"ತಾಣಗಳು",stat3_num:"೩★",stat3_label:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",cat_eyebrow:"ನಾವು ನೀಡುವ ಸೇವೆಗಳು",cat_h2:"ಟೂರ್ ವರ್ಗಗಳು",cat1_h:"ಯಾತ್ರಾ ಪ್ರವಾಸ",cat1_p:"ತಿರುಪತಿ, ಶಿರ್ಡಿ, ರಾಮೇಶ್ವರಂ ಮತ್ತು ಇನ್ನಷ್ಟು",cat2_h:"ಗಿರಿಧಾಮ ಪ್ರವಾಸ",cat2_p:"ಊಟಿ, ಕೊಡೈ, ಮುನ್ನಾರ್, ಕೂರ್ಗ್, ಕೂನೂರ್",cat3_h:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",cat3_p:"ನವವಿವಾಹಿತರಿಗಾಗಿ ರೊಮ್ಯಾಂಟಿಕ್ ಪ್ಯಾಕೇಜ್",cat4_h:"ಬೀಚ್ ಪ್ಯಾಕೇಜ್",cat4_p:"ಗೋವಾ, ಪಾಂಡಿಚೇರಿ, ಕನ್ಯಾಕುಮಾರಿ, ಕೋವಳಂ",cat5_h:"ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ",cat5_p:"ಅಲ್ಲೆಪ್ಪಿ ಮತ್ತು ಕುಮರಕೋಂ ಹಿನ್ನೀರು",cat6_h:"ನಗರ ದರ್ಶನ",cat6_p:"ಬೆಂಗಳೂರು, ಮೈಸೂರು ದಿನ ಪ್ರವಾಸ",sp_eyebrow:"ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ",sp_h2:"ತಿರುಪತಿ ಬಾಲಾಜಿ ಸ್ಪೆಷಲ್ VIP ದರ್ಶನ",sp_p:"ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಆಶೀರ್ವಾದ ಪಡೆಯಿರಿ — ಹೋಟೆಲ್ ವಸತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಸೇರಿದ ವಿಶೇಷ VIP ದರ್ಶನ ಪ್ಯಾಕೇಜ್.",sp_btn:"ತಿರುಪತಿ VIP ದರ್ಶನ ವಿಚಾರಿಸಿ",sp_f1_h:"VIP ದರ್ಶನ",sp_f1_p:"ವಿಶೇಷ ಪ್ರವೇಶದೊಂದಿಗೆ ಕ್ಯೂ ತಪ್ಪಿಸಿ",sp_f2_h:"ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ",sp_f2_p:"ದೇವಸ್ಥಾನ ಸಮೀಪ ಆರಾಮದಾಯಕ ವಸತಿ",sp_f3_h:"AC ವಾಹನ",sp_f3_p:"ಬೆಂಗಳೂರಿನಿಂದ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ",sp_f4_h:"ಮಾರ್ಗದರ್ಶಿ",sp_f4_p:"ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿ ಒಳಗೊಂಡಿದೆ",tours_eyebrow:"೨೭ ವಿಶೇಷ ಪ್ರವಾಸಗಳು",tours_h2:"ಎಲ್ಲಾ ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",tours_p:"ಬೆಂಗಳೂರಿನಿಂದ ಹೊರಡುವ ಪ್ರವಾಸಗಳು. ಹೋಟೆಲ್ ವಸತಿ, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",more_tours:"ಇನ್ನೂ ಅನೇಕ ಪ್ಯಾಕೇಜ್‌ಗಳು ಲಭ್ಯ — ಟೂರ್ #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",enquire:"ವಿಚಾರಿಸಿ",call_price:"ಬೆಲೆಗೆ ಕರೆ ಮಾಡಿ",includes:"ಒಳಗೊಂಡಿದೆ:",dest_eyebrow:"ನಾವು ಕರೆದೊಯ್ಯುವ ತಾಣಗಳು",dest_h2:"ಪ್ರತಿ ತಾಣದ ದರ್ಶನ ಸ್ಥಳಗಳು",why_eyebrow:"ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು",why_h2:"ಎಸ್.ಎಸ್.ಬಿ. ವಿಶೇಷತೆ",why1_h:"ಸರ್ಕಾರ ಅಧಿಕೃತ",why1_p:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತವಾಗಿ ಮಾನ್ಯತೆ ಪಡೆದಿದ್ದೇವೆ.",why2_h:"ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳು",why2_p:"ಲಕ್ಷರಿ 2×2 ಪುಶ್‌ಬ್ಯಾಕ್ ಸೀಟ್ ಕೋಚ್ ಮತ್ತು ಮಿನಿ ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳಲ್ಲಿ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ.",why3_h:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",why3_p:"ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ತಕ್ಕಂತೆ ಡೀಲಕ್ಸ್, ಸೂಪರ್ ಡೀಲಕ್ಸ್, ಸ್ಟಾರ್, ಲಕ್ಷರಿ, ಹೋಮ್ ಸ್ಟೇ ಆಯ್ಕೆ ಮಾಡಿ.",why4_h:"ತಜ್ಞ ಮಾರ್ಗದರ್ಶಿಗಳು",why4_p:"ಪ್ರತಿ ತಾಣದಲ್ಲೂ ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿಗಳು ನಿಮ್ಮ ಜೊತೆ ಇರುತ್ತಾರೆ.",why5_h:"ಎಲ್ಲವೂ ಸೇರಿದೆ",why5_p:"ಹೆಚ್ಚಿನ ಪ್ಯಾಕೇಜ್‌ಗಳಲ್ಲಿ ಹೋಟೆಲ್, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",why6_h:"೨೪/೭ ಬೆಂಬಲ",why6_p:"ಅನೇಕ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳ ಮೂಲಕ ನಾವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸೇವೆಗೆ ಸಿದ್ಧ.",contact_h2:"ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ",contact_p:"ಕಸ್ಟಮ್ ಪ್ಯಾಕೇಜ್, ಗ್ರೂಪ್ ಟೂರ್, ಹೋಟೆಲ್ ಕಾಯ್ದಿರಿಸುವಿಕೆ ಮತ್ತು ತಿರುಪತಿ VIP ದರ್ಶನಕ್ಕಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ.",addr_h:"ನಮ್ಮ ಕಚೇರಿ",addr_v:"#32, ಹೋಟೆಲ್ ಸುಪ್ರಭಾತ ಬಿಲ್ಡಿಂಗ್, ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",call_h:"ಕರೆ ಮಾಡಿ",email_h:"ಇಮೇಲ್",web_h:"ವೆಬ್‌ಸೈಟ್",form_h:"ತ್ವರಿತ ವಿಚಾರಣೆ",form_name:"ನಿಮ್ಮ ಹೆಸರು",form_name_ph:"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ",form_mob:"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",form_mob_ph:"ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",form_tour:"ಟೂರ್ ಪ್ಯಾಕೇಜ್",form_tour_ph:"ಪ್ಯಾಕೇಜ್ ಆರಿಸಿ",form_persons:"ವ್ಯಕ್ತಿಗಳ ಸಂಖ್ಯೆ",form_persons_ph:"ಎಷ್ಟು ಜನ?",form_msg:"ಸಂದೇಶ",form_msg_ph:"ನಿಮ್ಮ ಅಗತ್ಯತೆಗಳು, ದಿನಾಂಕ ಅಥವಾ ಪ್ರಶ್ನೆಗಳು...",form_submit:"ವಿಚಾರಣೆ ಕಳುಹಿಸಿ 🙏",footer_brand_p:"ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್\nಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ\nದಶಕಗಳಿಂದ ಬೆಂಗಳೂರಿನಿಂದ ಪ್ರವಾಸಿಗರಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದೇವೆ.",footer_tours_h:"ನಮ್ಮ ಟೂರ್‌ಗಳು",footer_dest_h:"ತಾಣಗಳು",footer_contact_h:"ಸಂಪರ್ಕ",footer_copy:"© 2026 ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್. ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",footer_copy2:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ | ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",fare_per_head:"ತಲಾ ದರ",tour_badge_local:"ಸ್ಥಳೀಯ",tour_badge_daytr:"ದಿನ ಪ್ರವಾಸ",tour_badge_honey:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",tour_badge_hill:"ಗಿರಿಧಾಮ",tour_badge_pop:"ಜನಪ್ರಿಯ",tour_badge_ext:"ದೀರ್ಘ ಪ್ರವಾಸ",tour_badge_nat:"ಪ್ರಕೃತಿ",tour_badge_wild:"ವನ್ಯಜೀವಿ",tour_badge_combo:"ಸಂಯೋಜನೆ",tour_badge_best:"ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ",tour_badge_kerala:"ಕೇರಳ",tour_badge_mega:"ಮಹಾ ಪ್ರವಾಸ",tour_badge_beach:"ಬೀಚ್ ಸ್ಪೆಷಲ್",tour_badge_hboat:"ಹೌಸ್‌ಬೋಟ್",day_label_covers:"ಒಳಗೊಂಡಿದೆ",day_label_returns:"ವಾಪಸಾತಿ",day_label_batch1:"ಬ್ಯಾಚ್ 1",day_label_batch2:"ಬ್ಯಾಚ್ 2",day_label_stay:"ವಸತಿ",day_label_special:"ವಿಶೇಷ",day_label_option1:"ಆಯ್ಕೆ 1",day_label_option2:"ಆಯ್ಕೆ 2",day_label_option3:"ಆಯ್ಕೆ 3"
+    brand_name:"ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್",brand_sub:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್",govt_badge:"✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ",nav_tours:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",nav_dest:"ತಾಣಗಳು",nav_about:"ನಮ್ಮ ಬಗ್ಗೆ",nav_book:"📞 ಈಗಲೇ ಬುಕ್ ಮಾಡಿ",hero_eyebrow:"ಪ್ರತಿ ಪ್ರಯಾಣದಲ್ಲೂ ಸಾಯಿ ಬಾಬಾರ ಆಶೀರ್ವಾದ",hero_h2:"<em>ಭಾರತದ</em> ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",hero_p:"ತಿರುಪತಿ ಬಾಲಾಜಿ ದರ್ಶನದಿಂದ ಹಿಡಿದು ಊಟಿಯ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಅಲ್ಲೆಪ್ಪಿಯ ಹಿನ್ನೀರಿನವರೆಗೆ — ಬೆಂಗಳೂರಿನಿಂದ ಅವಿಸ್ಮರಣೀಯ ಪ್ರವಾಸಗಳನ್ನು ಏರ್ಪಡಿಸುತ್ತಿದ್ದೇವೆ.",hero_btn1:"🗺️ ಎಲ್ಲಾ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ನೋಡಿ",hero_btn2:"📞 ಈಗಲೇ ಕರೆ ಮಾಡಿ",stat1_num:"೨೭+",stat1_label:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",stat2_num:"೧೫+",stat2_label:"ತಾಣಗಳು",stat3_num:"೩★",stat3_label:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",cat_eyebrow:"ನಾವು ನೀಡುವ ಸೇವೆಗಳು",cat_h2:"ಟೂರ್ ವರ್ಗಗಳು",cat1_h:"ಯಾತ್ರಾ ಪ್ರವಾಸ",cat1_p:"ತಿರುಪತಿ, ಶಿರಡಿ, ರಾಮೇಶ್ವರಂ ಮತ್ತು ಇನ್ನಷ್ಟು",cat2_h:"ಗಿರಿಧಾಮ ಪ್ರವಾಸ",cat2_p:"ಊಟಿ, ಕೊಡೈ, ಮುನ್ನಾರ್, ಕೂರ್ಗ್, ಕೂನೂರ್",cat3_h:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",cat3_p:"ನವವಿವಾಹಿತರಿಗಾಗಿ ರೊಮ್ಯಾಂಟಿಕ್ ಪ್ಯಾಕೇಜ್",cat4_h:"ಬೀಚ್ ಪ್ಯಾಕೇಜ್",cat4_p:"ಗೋವಾ, ಪಾಂಡಿಚೇರಿ, ಕನ್ಯಾಕುಮಾರಿ, ಕೋವಳಂ",cat5_h:"ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ",cat5_p:"ಅಲ್ಲೆಪ್ಪಿ ಮತ್ತು ಕುಮರಕೋಂ ಹಿನ್ನೀರು",cat6_h:"ನಗರ ದರ್ಶನ",cat6_p:"ಬೆಂಗಳೂರು, ಮೈಸೂರು ದಿನ ಪ್ರವಾಸ",sp_eyebrow:"ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ",sp_h2:"ತಿರುಪತಿ ಬಾಲಾಜಿ ಸ್ಪೆಷಲ್ VIP ದರ್ಶನ",sp_p:"ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಆಶೀರ್ವಾದ ಪಡೆಯಿರಿ — ಹೋಟೆಲ್ ವಸತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಸೇರಿದ ವಿಶೇಷ VIP ದರ್ಶನ ಪ್ಯಾಕೇಜ್.",sp_btn:"ತಿರುಪತಿ VIP ದರ್ಶನ ವಿಚಾರಿಸಿ",sp_f1_h:"VIP ದರ್ಶನ",sp_f1_p:"ವಿಶೇಷ ಪ್ರವೇಶದೊಂದಿಗೆ ಕ್ಯೂ ತಪ್ಪಿಸಿ",sp_f2_h:"ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ",sp_f2_p:"ದೇವಸ್ಥಾನ ಸಮೀಪ ಆರಾಮದಾಯಕ ವಸತಿ",sp_f3_h:"AC ವಾಹನ",sp_f3_p:"ಬೆಂಗಳೂರಿನಿಂದ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ",sp_f4_h:"ಮಾರ್ಗದರ್ಶಿ",sp_f4_p:"ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿ ಒಳಗೊಂಡಿದೆ",tours_eyebrow:"೨೭ ವಿಶೇಷ ಪ್ರವಾಸಗಳು",tours_h2:"ಎಲ್ಲಾ ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",tours_p:"ಬೆಂಗಳೂರಿನಿಂದ ಹೊರಡುವ ಪ್ರವಾಸಗಳು. ಹೋಟೆಲ್ ವಸತಿ, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",more_tours:"ಇನ್ನೂ ಅನೇಕ ಪ್ಯಾಕೇಜ್‌ಗಳು ಲಭ್ಯ — ಟೂರ್ #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",enquire:"ವಿಚಾರಿಸಿ",call_price:"ಬೆಲೆಗೆ ಕರೆ ಮಾಡಿ",includes:"ಒಳಗೊಂಡಿದೆ:",dest_eyebrow:"ನಾವು ಕರೆದೊಯ್ಯುವ ತಾಣಗಳು",dest_h2:"ಪ್ರತಿ ತಾಣದ ದರ್ಶನ ಸ್ಥಳಗಳು",why_eyebrow:"ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು",why_h2:"ಎಸ್.ಎಸ್.ಬಿ. ವಿಶೇಷತೆ",why1_h:"ಸರ್ಕಾರ ಅಧಿಕೃತ",why1_p:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತವಾಗಿ ಮಾನ್ಯತೆ ಪಡೆದಿದ್ದೇವೆ.",why2_h:"ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳು",why2_p:"ಲಕ್ಷರಿ 2×2 ಪುಶ್‌ಬ್ಯಾಕ್ ಸೀಟ್ ಕೋಚ್ ಮತ್ತು ಮಿನಿ ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳಲ್ಲಿ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ.",why3_h:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",why3_p:"ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ತಕ್ಕಂತೆ ಡೀಲಕ್ಸ್, ಸೂಪರ್ ಡೀಲಕ್ಸ್, ಸ್ಟಾರ್, ಲಕ್ಷರಿ, ಹೋಮ್ ಸ್ಟೇ ಆಯ್ಕೆ ಮಾಡಿ.",why4_h:"ತಜ್ಞ ಮಾರ್ಗದರ್ಶಿಗಳು",why4_p:"ಪ್ರತಿ ತಾಣದಲ್ಲೂ ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿಗಳು ನಿಮ್ಮ ಜೊತೆ ಇರುತ್ತಾರೆ.",why5_h:"ಎಲ್ಲವೂ ಸೇರಿದೆ",why5_p:"ಹೆಚ್ಚಿನ ಪ್ಯಾಕೇಜ್‌ಗಳಲ್ಲಿ ಹೋಟೆಲ್, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",why6_h:"೨೪/೭ ಬೆಂಬಲ",why6_p:"ಅನೇಕ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳ ಮೂಲಕ ನಾವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸೇವೆಗೆ ಸಿದ್ಧ.",contact_h2:"ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ",contact_p:"ಕಸ್ಟಮ್ ಪ್ಯಾಕೇಜ್, ಗ್ರೂಪ್ ಟೂರ್, ಹೋಟೆಲ್ ಕಾಯ್ದಿರಿಸುವಿಕೆ ಮತ್ತು ತಿರುಪತಿ VIP ದರ್ಶನಕ್ಕಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ.",addr_h:"ನಮ್ಮ ಕಚೇರಿ",addr_v:"#32, ಹೋಟೆಲ್ ಸುಪ್ರಭಾತ ಬಿಲ್ಡಿಂಗ್, ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",call_h:"ಕರೆ ಮಾಡಿ",email_h:"ಇಮೇಲ್",web_h:"ವೆಬ್‌ಸೈಟ್",form_h:"ತ್ವರಿತ ವಿಚಾರಣೆ",form_name:"ನಿಮ್ಮ ಹೆಸರು",form_name_ph:"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ",form_mob:"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",form_mob_ph:"ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",form_tour:"ಟೂರ್ ಪ್ಯಾಕೇಜ್",form_tour_ph:"ಪ್ಯಾಕೇಜ್ ಆರಿಸಿ",form_persons:"ವ್ಯಕ್ತಿಗಳ ಸಂಖ್ಯೆ",form_persons_ph:"ಎಷ್ಟು ಜನ?",form_msg:"ಸಂದೇಶ",form_msg_ph:"ನಿಮ್ಮ ಅಗತ್ಯತೆಗಳು, ದಿನಾಂಕ ಅಥವಾ ಪ್ರಶ್ನೆಗಳು...",form_submit:"ವಿಚಾರಣೆ ಕಳುಹಿಸಿ 🙏",footer_brand_p:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್\nಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ\nದಶಕಗಳಿಂದ ಬೆಂಗಳೂರಿನಿಂದ ಪ್ರವಾಸಿಗರಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದೇವೆ.",footer_tours_h:"ನಮ್ಮ ಟೂರ್‌ಗಳು",footer_dest_h:"ತಾಣಗಳು",footer_contact_h:"ಸಂಪರ್ಕ",footer_copy:"© 2026 ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್. ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",footer_copy2:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ | ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",fare_per_head:"ತಲಾ ದರ",tour_badge_local:"ಸ್ಥಳೀಯ",tour_badge_daytr:"ದಿನ ಪ್ರವಾಸ",tour_badge_honey:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",tour_badge_hill:"ಗಿರಿಧಾಮ",tour_badge_pop:"ಜನಪ್ರಿಯ",tour_badge_ext:"ದೀರ್ಘ ಪ್ರವಾಸ",tour_badge_nat:"ಪ್ರಕೃತಿ",tour_badge_wild:"ವನ್ಯಜೀವಿ",tour_badge_combo:"ಸಂಯೋಜನೆ",tour_badge_best:"ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ",tour_badge_kerala:"ಕೇರಳ",tour_badge_mega:"ಮಹಾ ಪ್ರವಾಸ",tour_badge_beach:"ಬೀಚ್ ಸ್ಪೆಷಲ್",tour_badge_hboat:"ಹೌಸ್‌ಬೋಟ್",day_label_covers:"ಒಳಗೊಂಡಿದೆ",day_label_returns:"ವಾಪಸಾತಿ",day_label_batch1:"ಬ್ಯಾಚ್ 1",day_label_batch2:"ಬ್ಯಾಚ್ 2",day_label_stay:"ವಸತಿ",day_label_special:"ವಿಶೇಷ",day_label_option1:"ಆಯ್ಕೆ 1",day_label_option2:"ಆಯ್ಕೆ 2",day_label_option3:"ಆಯ್ಕೆ 3"
   }
 };
 
