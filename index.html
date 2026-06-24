@@ -73,7 +73,10 @@
   .logo-face-back-h { transform:rotateY(180deg); }
   .logo-face-front-h img, .logo-face-back-h img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
 
-  /* Company name */
+  @keyframes swingText {
+    0%, 100% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+  }
   .logo-text { cursor:default; }
   .logo-text h1 {
     font-family:'Satisfy', 'Noto Sans Kannada', cursive; font-size:32px; font-weight:normal;
@@ -83,11 +86,16 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    -webkit-text-stroke: 1px var(--saffron); /* 50% thicker */
+    transform-origin: top center;
+    animation: swingText 4s ease-in-out infinite;
+    display: inline-block;
   }
   .logo-text h1:hover {
     color: var(--deep-saffron);
-    transform: translateY(-2px);
+    -webkit-text-stroke: 1px var(--deep-saffron);
     text-shadow: 2px 4px 8px rgba(0,0,0,0.25);
+    animation-play-state: paused;
   }
   .logo-text h1 .sub-name {
     display: block;
@@ -97,6 +105,7 @@
     margin-top: 4px;
     letter-spacing: 1px;
     text-shadow: none;
+    -webkit-text-stroke: 0px; /* Reset stroke for Kannada font to keep it clear */
   }
   .logo-text h1 .en-font { font-family: 'Playfair Display', serif; }
   .logo-text h1 .kn-font { font-family: 'Noto Sans Kannada', sans-serif; }
