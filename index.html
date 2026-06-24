@@ -194,14 +194,13 @@
 
   /* HERO */
     .hero { min-height:92vh; display:flex; align-items:flex-start; padding:100px 40px 40px; position:relative; overflow: hidden; background: #000; }
-  .hero-bg-slider { position: absolute; top:0; left:0; height: 100%; display:flex; z-index: 0; animation: heroSlide 40s linear infinite; }
-  .hero-bg-slide { width: 100vw; height: 100%; object-fit: cover; flex-shrink: 0; }
+  .hero-bg-fader { position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 0; }
+  .bg-slide { position: absolute; top:0; left:0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 2s ease-in-out; transform: scale(1.05); }
+  .bg-slide.active { opacity: 1; transform: scale(1); transition: opacity 2s ease-in-out, transform 8s linear; }
   .hero-overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(to bottom,rgba(26,18,8,0.65) 0%,rgba(26,18,8,0.3) 60%,rgba(253,248,240,1) 100%); pointer-events: none; }
   .hero-content, .hero-stats { z-index: 2; position: relative; }
-  @keyframes heroSlide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-100vw * 4)); }
-  }
+  .place-name-overlay { position: absolute; top: 120px; right: 40px; z-index: 3; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: opacity 1s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(4px); }
+  
   .hero-content { max-width:680px; color:white; }
   .hero-eyebrow { font-family:'Satisfy',cursive; font-size:22px; color:#FFD580; margin-bottom:14px; display:block; }
   .hero h2 { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px); font-weight:900; line-height:1.15; margin-bottom:18px; }
@@ -692,17 +691,27 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-bg-slider">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/1920px-Mysore_Palace_Morning.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Jog_Falls_05092016.jpg/1920px-Jog_Falls_05092016.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg/1920px-Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ramanathaswamy_temple7.JPG/1920px-Ramanathaswamy_temple7.JPG" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/1920px-Mysore_Palace_Morning.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Jog_Falls_05092016.jpg/1920px-Jog_Falls_05092016.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg/1920px-Vivekananda_Rock_Memorial%2C_Kanyakumari.jpg" class="hero-bg-slide">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ramanathaswamy_temple7.JPG/1920px-Ramanathaswamy_temple7.JPG" class="hero-bg-slide">
+  <div class="hero-bg-fader" id="heroBgFader">
+    <div class="bg-slide active" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/1920px-Mysore_Palace_Morning.jpg');" data-title="Mysore Palace"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Jog_Falls_05092016.jpg/1920px-Jog_Falls_05092016.jpg');" data-title="Jog Falls"></div>
+    <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1592345279419-959d784e8aad?w=1600&q=80');" data-title="Kanyakumari"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ramanathaswamy_temple7.JPG/1920px-Ramanathaswamy_temple7.JPG'); background-position: top center;" data-title="Rameshwaram Temple"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Final_Dhanush_002.jpg/1920px-Final_Dhanush_002.jpg');" data-title="Dhanushkodi Beach"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Murudeshwar_Full_view.jpg/1920px-Murudeshwar_Full_view.jpg');" data-title="Murudeshwara"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Entrance_of_Mysore_Zoo.jpg/1920px-Entrance_of_Mysore_Zoo.jpg');" data-title="Mysore Zoo"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tirumala_090615.jpg/1920px-Tirumala_090615.jpg');" data-title="Tirupati Balaji"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Munnar_Overview.jpg/1920px-Munnar_Overview.jpg');" data-title="Munnar, Kerala"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Alappuzha_Boat_Beauty_W.jpg/1920px-Alappuzha_Boat_Beauty_W.jpg');" data-title="Alleppey Backwaters"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Ooty_lake.jpg/1920px-Ooty_lake.jpg');" data-title="Ooty Lake"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Boating_in_Kodaikanal_Lake_with_Mist.jpg/1920px-Boating_in_Kodaikanal_Lake_with_Mist.jpg');" data-title="Kodaikanal"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg/1920px-An_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg');" data-title="Madurai Meenakshi Temple"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Annapoorneshwari_Temple%2C_Horanadu.jpg/1920px-Annapoorneshwari_Temple%2C_Horanadu.jpg');" data-title="Horanadu"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2a/Vidyashankara_Temple_at_Shringeri.jpg');" data-title="Sringeri"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Kodachadri.JPG/1920px-Kodachadri.JPG');" data-title="Kodachadri"></div>
+    <div class="bg-slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/3/3a/Chikmagalur_city_on_the_foothills_of_western_ghats.jpg');" data-title="Mullayanagiri"></div>
   </div>
   <div class="hero-overlay"></div>
+  <div class="place-name-overlay" id="placeNameOverlay">&#128205; Mysore Palace</div>
   <div class="hero-content reveal-left">
     <span class="hero-eyebrow" data-t="hero_eyebrow">Sai Baba's Blessings on Every Journey</span>
     <h2 data-t="hero_h2">Discover <em>India's</em> Most Sacred &amp; Beautiful Destinations</h2>
@@ -1126,7 +1135,26 @@
 </footer>
 
 <script>
+// HERO BG FADER LOGIC
+(function() {
+  const slides = document.querySelectorAll('.bg-slide');
+  const placeName = document.getElementById('placeNameOverlay');
+  if(!slides.length || !placeName) return;
+  let currentSlide = 0;
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+    placeName.style.opacity = '0';
+    setTimeout(() => {
+      placeName.innerHTML = '&#128205; ' + slides[currentSlide].getAttribute('data-title');
+      placeName.style.opacity = '1';
+    }, 1000); // Wait for fade out to change text
+  }, 6000); // 6 seconds per slide
+})();
+
 // SLIDER & ACCORDION LOGIC
+
 (function() {
   // Slider
   const track = document.getElementById('toursSliderTrack');
