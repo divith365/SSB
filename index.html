@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S.S.B. Package & Holidays | Nandan Cabs | Bangalore</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Noto+Sans+Kannada:wght@400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+<!-- Preload logos for instant display -->
+<link rel="preload" as="image" href="ssb_logo_kannada.png">
+<link rel="preload" as="image" href="ssb_logo_v3.png">
 <style>
   :root {
     --saffron: #E8722A; --deep-saffron: #C4521A;
@@ -38,17 +41,53 @@
   .topbar span { margin:0 10px; opacity:0.5; }
 
   /* HEADER */
-  header { background:var(--white); padding:20px 40px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 16px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100; }
-  .logo-wrap { display:flex; align-items:center; gap:18px; }
+  header {
+    background: linear-gradient(135deg, #FFF9F0 0%, #FFFDF8 40%, #FFF5E6 100%);
+    padding: 20px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(232,114,42,0.12);
+    position: sticky; top: 0; z-index: 100;
+    overflow: hidden;
+  }
+  .logo-wrap { display:flex; align-items:center; gap:18px; position:relative; z-index:2; }
   .logo-circle { width:72px; height:72px; background:linear-gradient(135deg,var(--saffron),var(--gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:white; box-shadow:0 4px 16px rgba(232,114,42,0.4); flex-shrink:0; }
   .logo-text h1 { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--saffron); line-height:1.2; }
   .logo-text p { font-size:12px; color:var(--muted); letter-spacing:1px; }
   .govt-badge { font-size:11px; color:var(--sky); background:var(--sky-light); padding:4px 10px; border-radius:20px; font-weight:600; margin-top:4px; display:inline-block; }
-  nav { display:flex; gap:24px; align-items:center; }
+  nav { display:flex; gap:24px; align-items:center; position:relative; z-index:2; }
   nav a { text-decoration:none; color:var(--text); font-size:14px; font-weight:500; transition:color 0.2s; }
   nav a:hover { color:var(--saffron); }
   .call-btn { background:var(--saffron); color:white!important; padding:10px 20px; border-radius:8px; font-weight:600!important; }
   .call-btn:hover { background:var(--deep-saffron)!important; }
+
+  /* ── HEADER FLOATING ICONS ── */
+  .header-bg-anim {
+    position: absolute; inset: 0; z-index: 0;
+    pointer-events: none; overflow: hidden;
+  }
+  .float-icon {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0;
+    animation: floatUp 12s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(232,114,42,0.2));
+    user-select: none;
+  }
+  @keyframes floatUp {
+    0%   { opacity:0; transform: translateY(60px) rotate(-8deg) scale(0.7); }
+    15%  { opacity: 0.18; }
+    50%  { opacity: 0.22; transform: translateY(-10px) rotate(6deg) scale(1); }
+    85%  { opacity: 0.15; }
+    100% { opacity:0; transform: translateY(-70px) rotate(10deg) scale(0.8); }
+  }
+  @keyframes floatDrift {
+    0%   { opacity:0; transform: translateY(0px) translateX(0px) rotate(0deg); }
+    20%  { opacity:0.20; }
+    50%  { opacity:0.25; transform: translateY(-20px) translateX(12px) rotate(8deg); }
+    80%  { opacity:0.18; }
+    100% { opacity:0; transform: translateY(-50px) translateX(-8px) rotate(-5deg); }
+  }
+  .float-icon.drift { animation-name: floatDrift; }
 
   /* HERO */
   .hero { min-height:92vh; background:linear-gradient(to bottom,rgba(26,18,8,0.65) 0%,rgba(26,18,8,0.3) 60%,rgba(253,248,240,1) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover no-repeat; display:flex; align-items:center; padding:80px 40px 40px; position:relative; }
@@ -63,6 +102,56 @@
   .btn-outline { background:transparent; color:white; padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:600; font-size:15px; border:2px solid rgba(255,255,255,0.6); transition:all 0.2s; display:inline-block; }
   .btn-outline:hover { background:rgba(255,255,255,0.15); }
   .hero-stats { position:absolute; bottom:60px; right:40px; display:flex; gap:20px; }
+
+  /* ── HERO FLIP LOGO ── */
+  .hero-flip-logo {
+    position: absolute; top: 50%; right: 60px;
+    transform: translateY(-50%);
+    perspective: 800px;
+    z-index: 2;
+  }
+  .hero-flip-inner {
+    width: 200px; height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.4,0.2,0.2,1);
+    border-radius: 50%;
+  }
+  .hero-flip-inner.flipped { transform: rotateY(180deg); }
+  .hero-flip-front, .hero-flip-back {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(232,114,42,0.5), 0 0 80px rgba(212,160,23,0.25);
+  }
+  .hero-flip-front img, .hero-flip-back img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  }
+  .hero-flip-back { transform: rotateY(180deg); }
+  .hero-flip-label {
+    text-align: center; margin-top: 14px;
+    font-size: 12px; color: rgba(255,255,255,0.7);
+    letter-spacing: 1.5px; text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    animation: label-blink 3s ease-in-out infinite;
+  }
+  @keyframes label-blink {
+    0%,100% { opacity:0.7; } 50% { opacity:1; }
+  }
+  .hero-flip-ring {
+    position: absolute; inset: -8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, var(--saffron), var(--gold), var(--saffron)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    animation: ring-spin 6s linear infinite;
+  }
+  @keyframes ring-spin { to { transform: rotate(360deg); } }
+  @media(max-width:900px) { .hero-flip-logo { display:none; } }
   .stat-card { background:rgba(255,255,255,0.95); padding:18px 24px; border-radius:14px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
   .stat-card .num { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--saffron); }
   .stat-card .label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
@@ -347,6 +436,25 @@
 
 <!-- HEADER -->
 <header>
+  <!-- Animated background -->
+  <div class="header-bg-anim" aria-hidden="true">
+    <span class="float-icon" style="left:5%;  animation-delay:0s;    animation-duration:11s; font-size:20px;">🛍️</span>
+    <span class="float-icon" style="left:12%; animation-delay:1.5s;  animation-duration:13s; font-size:18px;">✈️</span>
+    <span class="float-icon" style="left:20%; animation-delay:3s;    animation-duration:10s; font-size:22px;">🏕️</span>
+    <span class="float-icon drift" style="left:28%; animation-delay:0.8s;  animation-duration:14s; font-size:16px;">🌸</span>
+    <span class="float-icon" style="left:36%; animation-delay:2.2s;  animation-duration:12s; font-size:18px;">🏄</span>
+    <span class="float-icon drift" style="left:44%; animation-delay:4s;    animation-duration:15s; font-size:20px;">⚡</span>
+    <span class="float-icon" style="left:52%; animation-delay:1s;    animation-duration:11s; font-size:24px;">🌿</span>
+    <span class="float-icon drift" style="left:60%; animation-delay:2.8s;  animation-duration:13s; font-size:17px;">🛬</span>
+    <span class="float-icon" style="left:68%; animation-delay:0.4s;  animation-duration:12s; font-size:19px;">🏔️</span>
+    <span class="float-icon drift" style="left:75%; animation-delay:3.5s;  animation-duration:14s; font-size:15px;">🌺</span>
+    <span class="float-icon" style="left:82%; animation-delay:1.8s;  animation-duration:10s; font-size:21px;">🚢</span>
+    <span class="float-icon drift" style="left:89%; animation-delay:0.6s;  animation-duration:13s; font-size:16px;">✨</span>
+    <span class="float-icon" style="left:95%; animation-delay:2.5s;  animation-duration:11s; font-size:18px;">🌄</span>
+    <span class="float-icon drift" style="left:8%;  animation-delay:5s;    animation-duration:16s; font-size:14px;">🌟</span>
+    <span class="float-icon" style="left:55%; animation-delay:6s;    animation-duration:14s; font-size:15px;">🕏</span>
+    <span class="float-icon drift" style="left:33%; animation-delay:7s;    animation-duration:15s; font-size:13px;">🌻</span>
+  </div>
   <div class="logo-wrap">
     <img id="header-logo" src="ssb_logo_kannada.png" alt="SSB Logo" class="logo-img">
     <div class="logo-text">
@@ -364,15 +472,31 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-content">
+  <div class="hero-content reveal-left">
     <span class="hero-eyebrow" data-t="hero_eyebrow">Sai Baba's Blessings on Every Journey</span>
-    <h2 data-t="hero_h2">Discover <em>India's</em> Most Sacred & Beautiful Destinations</h2>
+    <h2 data-t="hero_h2">Discover <em>India's</em> Most Sacred &amp; Beautiful Destinations</h2>
     <p data-t="hero_p">From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.</p>
     <div class="hero-btns">
       <a href="#tours" class="btn-primary" data-t="hero_btn1">🗺️ View All Packages</a>
       <a href="#contact" class="btn-outline" data-t="hero_btn2">📞 Call Us Now</a>
     </div>
   </div>
+
+  <!-- Auto-flipping logo on hero -->
+  <div class="hero-flip-logo" id="hero-flip-logo">
+    <div class="hero-flip-inner" id="hero-flip-inner">
+      <div class="hero-flip-front">
+        <div class="hero-flip-ring"></div>
+        <img src="ssb_logo_kannada.png" alt="SSB Kannada Logo" loading="eager">
+      </div>
+      <div class="hero-flip-back">
+        <div class="hero-flip-ring"></div>
+        <img src="ssb_logo_v3.png" alt="SSB English Logo" loading="eager">
+      </div>
+    </div>
+    <div class="hero-flip-label" id="hero-flip-label">ಕನ್ನಡ • English</div>
+  </div>
+
   <div class="hero-stats">
     <div class="stat-card">
       <div class="num" data-t="stat1_num">27+</div>
@@ -889,6 +1013,19 @@ function setLang(lang) {
 
 // Load Kannada by default on page load
 window.addEventListener('DOMContentLoaded', () => setLang('kn'));
+
+// ── HERO LOGO AUTO-FLIP ──
+(function() {
+  const inner = document.getElementById('hero-flip-inner');
+  const label = document.getElementById('hero-flip-label');
+  if (!inner) return;
+  let flipped = false;
+  setInterval(() => {
+    flipped = !flipped;
+    inner.classList.toggle('flipped', flipped);
+    if (label) label.textContent = flipped ? 'English \u2022 \u0c95\u0ca8\u0ccd\u0ca8\u0ca1' : '\u0c95\u0ca8\u0ccd\u0ca8\u0ca1 \u2022 English';
+  }, 3000);
+})();
 
 // ── SCROLL PROGRESS BAR + BACK TO TOP ──
 const scrollBar = document.getElementById('scroll-progress');
