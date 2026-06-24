@@ -397,6 +397,29 @@
   .why-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; color:var(--dark); }
   .why-card p { font-size:14px; color:var(--muted); line-height:1.7; }
 
+  /* FLIP BUTTONS */
+  .flip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  .flip-btn { background: transparent; perspective: 1000px; height: 65px; cursor: pointer; }
+  .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
+  .flip-btn:hover .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 35px; }
+  .flip-front { background: var(--cream); color: var(--deep-saffron); border: 2px solid var(--deep-saffron); }
+  .flip-back { background: linear-gradient(135deg, var(--saffron), var(--deep-saffron)); color: #FFF; transform: rotateY(180deg); box-shadow: 0 10px 20px rgba(220,105,0,0.3); border: 2px solid transparent; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 80px 0; background: var(--cream); overflow: hidden; position: relative; }
+  .testi-track { display: flex; width: max-content; animation: scrollLeft 25s linear infinite; gap: 30px; padding: 0 20px; }
+  .testi-track:hover { animation-play-state: paused; }
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 15px)); }
+  }
+  .testi-card { background: #FFF; width: 350px; padding: 35px 30px; border-radius: 40px 0 40px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; flex-shrink: 0; border: 1px solid rgba(220,105,0,0.1); }
+  .testi-card::before { content: '”'; position: absolute; top: 10px; right: 25px; font-size: 90px; color: rgba(220,105,0,0.08); font-family: 'Playfair Display', serif; line-height: 1; }
+  .testi-text { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 25px; font-style: italic; position: relative; z-index: 1; }
+  .testi-author { font-weight: 700; color: var(--dark); font-size: 15px; display: flex; align-items: center; gap: 12px; }
+  .testi-author::before { content: ''; width: 30px; height: 2px; background: var(--saffron); display: inline-block; }
+  .testi-rating { color: var(--saffron); margin-bottom: 15px; font-size: 16px; letter-spacing: 3px; }
   /* CONTACT */
   .contact { background:var(--saffron); color:white; padding:72px 40px; }
   .contact-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
@@ -1104,7 +1127,7 @@
     <h2>What Our Customers Say</h2>
     <div class="divider"></div>
   </div>
-  <div class="testi-grid">
+  <div class="testi-track">
     <div class="testi-card">
       <div class="testi-rating">★★★★★</div>
       <p class="testi-text">"Sadanand was extremely humble and helpful throughout our entire trip. The Tirupathi darshan was completely seamless and stress-free. Highly recommended!"</p>
@@ -1119,6 +1142,31 @@
       <div class="testi-rating">★★★★★</div>
       <p class="testi-text">"A truly blessed and well-organized journey. Sadanand and his team ensured our hotel accommodations were top notch and the 24/7 support gave us great peace of mind."</p>
       <div class="testi-author">Ananya T.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rating">★★★★★</div>
+      <p class="testi-text">"The hill station tour was beyond my expectations. Perfectly coordinated with no hidden costs. Truly all-inclusive as promised!"</p>
+      <div class="testi-author">Mohit S.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rating">★★★★★</div>
+      <p class="testi-text">"Sadanand was extremely humble and helpful throughout our entire trip. The Tirupathi darshan was completely seamless and stress-free. Highly recommended!"</p>
+      <div class="testi-author">Rajesh Kumar</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rating">★★★★★</div>
+      <p class="testi-text">"Excellent service from S.S.B. Holidays! The luxury coaches were very comfortable and our local guide was incredibly knowledgeable. Will definitely book again."</p>
+      <div class="testi-author">Priya Menon</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rating">★★★★★</div>
+      <p class="testi-text">"A truly blessed and well-organized journey. Sadanand and his team ensured our hotel accommodations were top notch and the 24/7 support gave us great peace of mind."</p>
+      <div class="testi-author">Ananya T.</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-rating">★★★★★</div>
+      <p class="testi-text">"The hill station tour was beyond my expectations. Perfectly coordinated with no hidden costs. Truly all-inclusive as promised!"</p>
+      <div class="testi-author">Mohit S.</div>
     </div>
   </div>
 </section>
