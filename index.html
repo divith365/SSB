@@ -199,7 +199,10 @@
   .bg-slide.active { opacity: 1; transform: scale(1); transition: opacity 2s ease-in-out, transform 8s linear; }
   .hero-overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(to bottom,rgba(26,18,8,0.65) 0%,rgba(26,18,8,0.3) 60%,rgba(253,248,240,1) 100%); pointer-events: none; }
   .hero-content, .hero-stats { z-index: 2; position: relative; }
-  .place-name-overlay { position: absolute; top: 120px; right: 40px; z-index: 3; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: opacity 1s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .place-name-overlay { position: absolute; top: 120px; right: 40px; z-index: 3; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: opacity 1s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(4px); }
+  .hero-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 3; }
+  .hero-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s; }
+  .hero-dot.active { background: white; transform: scale(1.3); }
   
   .hero-content { max-width:680px; color:white; }
   .hero-eyebrow { font-family:'Satisfy',cursive; font-size:22px; color:#FFD580; margin-bottom:14px; display:block; }
@@ -707,6 +710,7 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="place-name-overlay" id="placeNameOverlay">&#128205; Mysore Palace</div>
+  <div class="hero-dots" id="heroDots"></div>
   <div class="hero-content reveal-left">
     <span class="hero-eyebrow" data-t="hero_eyebrow">Sai Baba's Blessings on Every Journey</span>
     <h2 data-t="hero_h2">Discover <em>India's</em> Most Sacred &amp; Beautiful Destinations</h2>
@@ -1134,18 +1138,47 @@
 (function() {
   const slides = document.querySelectorAll('.bg-slide');
   const placeName = document.getElementById('placeNameOverlay');
-  if(!slides.length || !placeName) return;
+  const dotsContainer = document.getElementById('heroDots');
+  if(!slides.length || !placeName || !dotsContainer) return;
+  
   let currentSlide = 0;
-  setInterval(() => {
+  let timer;
+
+  // Generate dots
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('div');
+    dot.className = 'hero-dot' + (idx === 0 ? ' active' : '');
+    dot.addEventListener('click', () => {
+      goToSlide(idx);
+      resetTimer();
+    });
+    dotsContainer.appendChild(dot);
+  });
+  const dots = document.querySelectorAll('.hero-dot');
+
+  function goToSlide(idx) {
     slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
+    dots[currentSlide].classList.remove('active');
+    currentSlide = idx;
     slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    
     placeName.style.opacity = '0';
     setTimeout(() => {
       placeName.innerHTML = '&#128205; ' + slides[currentSlide].getAttribute('data-title');
       placeName.style.opacity = '1';
-    }, 1000); // Wait for fade out to change text
-  }, 6000); // 6 seconds per slide
+    }, 1000);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      let nextSlide = (currentSlide + 1) % slides.length;
+      goToSlide(nextSlide);
+    }, 6000);
+  }
+
+  resetTimer();
 })();
 
 // SLIDER & ACCORDION LOGIC
