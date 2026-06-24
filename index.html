@@ -83,11 +83,11 @@
   .logo-tagline {
     font-family:'Noto Sans Kannada',sans-serif; font-size:11px;
     color:var(--brown); opacity:0.75; letter-spacing:0.3px;
-    margin-top:2px; display:block; line-height:1.4;
+    margin-top:5px; display:block; line-height:1.5;
     transition:opacity 0.3s;
   }
   .logo-text:hover .logo-tagline { opacity:1; color:var(--saffron); }
-  .govt-badge { font-size:10px; color:var(--sky); background:var(--sky-light); padding:3px 8px; border-radius:20px; font-weight:600; margin-top:3px; display:inline-block; }
+  .govt-badge { font-size:10px; color:var(--sky); background:var(--sky-light); padding:3px 8px; border-radius:20px; font-weight:600; margin-top:6px; display:inline-block; }
 
   /* Nav */
   nav { display:flex; gap:20px; align-items:center; position:relative; z-index:2; }
@@ -138,16 +138,16 @@
   }
   @keyframes floatUp {
     0%   { opacity:0; transform: translateY(60px) rotate(-8deg) scale(0.7); }
-    15%  { opacity: 0.18; }
-    50%  { opacity: 0.22; transform: translateY(-10px) rotate(6deg) scale(1); }
-    85%  { opacity: 0.15; }
+    15%  { opacity: 0.5; }
+    50%  { opacity: 0.6; transform: translateY(-10px) rotate(6deg) scale(1); }
+    85%  { opacity: 0.45; }
     100% { opacity:0; transform: translateY(-70px) rotate(10deg) scale(0.8); }
   }
   @keyframes floatDrift {
     0%   { opacity:0; transform: translateY(0px) translateX(0px) rotate(0deg); }
-    20%  { opacity:0.20; }
-    50%  { opacity:0.25; transform: translateY(-20px) translateX(12px) rotate(8deg); }
-    80%  { opacity:0.18; }
+    20%  { opacity:0.55; }
+    50%  { opacity:0.65; transform: translateY(-20px) translateX(12px) rotate(8deg); }
+    80%  { opacity:0.5; }
     100% { opacity:0; transform: translateY(-50px) translateX(-8px) rotate(-5deg); }
   }
   .float-icon.drift { animation-name: floatDrift; }
@@ -609,20 +609,7 @@
     </div>
   </div>
 
-  <!-- Auto-flipping logo on hero -->
-  <div class="hero-flip-logo" id="hero-flip-logo">
-    <div class="hero-flip-inner" id="hero-flip-inner">
-      <div class="hero-flip-front">
-        <div class="hero-flip-ring"></div>
-        <img src="ssb_logo_kannada.png" alt="SSB Kannada Logo" loading="eager">
-      </div>
-      <div class="hero-flip-back">
-        <div class="hero-flip-ring"></div>
-        <img src="ssb_logo_v3.png" alt="SSB English Logo" loading="eager">
-      </div>
-    </div>
-    <div class="hero-flip-label" id="hero-flip-label">ಕನ್ನಡ • English</div>
-  </div>
+
 
   <div class="hero-stats">
     <div class="stat-card">
