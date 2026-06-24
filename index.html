@@ -170,6 +170,39 @@
   .footer-links ul li a:hover { opacity:1; }
   .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; opacity:0.5; }
 
+  /* ── SCROLL PROGRESS BAR ── */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+    background: linear-gradient(90deg, var(--saffron), var(--gold), #FF6B00, var(--gold));
+    background-size: 200% 100%;
+    z-index: 10000;
+    transition: width 0.1s linear;
+    animation: progress-shimmer 2s linear infinite;
+    box-shadow: 0 0 10px rgba(232,114,42,0.8), 0 0 20px rgba(212,160,23,0.4);
+  }
+  @keyframes progress-shimmer {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  /* ── BACK TO TOP ── */
+  #back-to-top {
+    position: fixed; bottom: 90px; right: 28px; z-index: 998;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: white;
+    box-shadow: 0 4px 20px rgba(232,114,42,0.5);
+    opacity: 0; visibility: hidden; transform: translateY(16px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #back-to-top.show { opacity:1; visibility:visible; transform:translateY(0); }
+  #back-to-top:hover {
+    box-shadow: 0 6px 28px rgba(232,114,42,0.8), 0 0 16px rgba(212,160,23,0.5);
+    transform: translateY(-3px);
+  }
+
   @media(max-width:768px) {
     header { padding:14px 18px; }
     nav { display:none; }
@@ -181,9 +214,117 @@
     footer { padding:36px 18px 18px; }
     .lang-toggle { bottom:18px; right:18px; }
   }
+
+  /* ── PAGE LOADER ── */
+  #page-loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(135deg, #1A1208 0%, #2D1B00 50%, #1A1208 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 28px;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+  }
+  #page-loader.hidden { opacity: 0; visibility: hidden; }
+  .loader-logo-wrap {
+    position: relative; width: 200px; height: 200px;
+    perspective: 900px;
+  }
+  .loader-logo-wrap img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(232,114,42,0.6), 0 0 120px rgba(212,160,23,0.3);
+    backface-visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.4,0,0.2,1);
+  }
+  .loader-logo-en { transform: rotateY(180deg); }
+  .loader-logo-kn { transform: rotateY(0deg); }
+  .loader-logo-wrap.flipped .loader-logo-en { transform: rotateY(0deg); }
+  .loader-logo-wrap.flipped .loader-logo-kn { transform: rotateY(-180deg); }
+  .loader-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-align: center;
+    animation: loader-pulse 1.5s ease-in-out infinite;
+  }
+  .loader-sub {
+    font-family: 'Noto Sans Kannada', sans-serif;
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    text-align: center; letter-spacing: 1px;
+  }
+  .loader-dots { display:flex; gap:8px; margin-top:4px; }
+  .loader-dots span {
+    width:10px; height:10px; border-radius:50%;
+    background: var(--saffron);
+    animation: loader-bounce 1.2s ease-in-out infinite;
+  }
+  .loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes loader-bounce {
+    0%,80%,100% { transform:scale(0.6); opacity:0.5; }
+    40% { transform:scale(1.1); opacity:1; }
+  }
+  @keyframes loader-pulse {
+    0%,100% { opacity:1; }
+    50% { opacity:0.6; }
+  }
+
+  /* ── LOGO IMAGE ── */
+  .logo-img {
+    width: 72px; height: 72px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(232,114,42,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .logo-img:hover { transform: scale(1.08) rotate(3deg); box-shadow: 0 8px 28px rgba(232,114,42,0.6); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-48px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible { opacity:1; transform:translateX(0); }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(48px);
+    transition: opacity: 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right.visible { opacity:1; transform:translateX(0); }
+  .reveal-scale {
+    opacity:0; transform:scale(0.88);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal-scale.visible { opacity:1; transform:scale(1); }
 </style>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">☝️</button>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo-wrap" id="loader-logo-wrap">
+    <img src="ssb_logo_kannada.png" alt="SSB Kannada Logo" class="loader-logo-kn">
+    <img src="ssb_logo_v3.png"      alt="SSB English Logo" class="loader-logo-en">
+  </div>
+  <div class="loader-text">ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ</div>
+  <div class="loader-sub">S.S.B Package &amp; Holidays · Nandan Cabs</div>
+  <div class="loader-dots"><span></span><span></span><span></span></div>
+</div>
 
 <!-- LANGUAGE TOGGLE -->
 <div class="lang-toggle">
@@ -196,7 +337,7 @@
   <div>
     📞 <a href="tel:9880782128">9880782128</a>
     <span>|</span><a href="tel:9886859280">9886859280</a>
-    <span>|</span><a href="tel:9036590209">9036590209</a>
+    <span>|</span><a href="9036590209">9036590209</a>
     <span>|</span><a href="tel:9482946949">9482946949</a>
   </div>
   <div>✉️ <a href="mailto:ssbholidays@yahoo.in">ssbholidays@yahoo.in</a>
@@ -207,11 +348,11 @@
 <!-- HEADER -->
 <header>
   <div class="logo-wrap">
-    <div class="logo-circle">SSB</div>
+    <img id="header-logo" src="ssb_logo_kannada.png" alt="SSB Logo" class="logo-img">
     <div class="logo-text">
-      <h1 data-t="brand_name">S.S.B. Package & Holidays</h1>
-      <p data-t="brand_sub">Shirdi Sai Baba • Nandan Cabs</p>
-      <span class="govt-badge" data-t="govt_badge">✓ Authorised by Govt. of Karnataka, Dept. of Tourism</span>
+      <h1 data-t="brand_name">ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ &amp; ಹಾಲಿಡೇಸ್</h1>
+      <p data-t="brand_sub">ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್</p>
+      <span class="govt-badge" data-t="govt_badge">✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ</span>
     </div>
   </div>
   <nav>
@@ -250,7 +391,7 @@
 </div>
 
 <!-- CATEGORIES -->
-<section class="categories">
+<section class="categories" id="categories-section">
   <div class="section-title">
     <span class="eyebrow" data-t="cat_eyebrow">What we offer</span>
     <h2 data-t="cat_h2">Tour Categories</h2>
@@ -639,6 +780,69 @@ Serving travellers from Bangalore since decades.</p>
 </footer>
 
 <script>
+// ── PAGE LOADER ──
+(function() {
+  const loader   = document.getElementById('page-loader');
+  const logoWrap = document.getElementById('loader-logo-wrap');
+  const loaderText = loader.querySelector('.loader-text');
+
+  // After 1.4s flip to English
+  setTimeout(() => {
+    logoWrap.classList.add('flipped');
+    loaderText.textContent = 'Sai Baba\'s Blessings on Every Journey';
+    loaderText.style.fontFamily = "'Playfair Display', serif";
+  }, 1400);
+
+  // After 2.8s hide loader
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    // trigger scroll reveal for elements already in view
+    revealObserver && document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => revealObserver.observe(el));
+  }, 2800);
+})();
+
+// ── SCROLL REVEAL ──
+let revealObserver;
+document.addEventListener('DOMContentLoaded', () => {
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  // Add reveal classes to elements
+  document.querySelectorAll('.cat-card').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = (i * 80) + 'ms';
+  });
+  document.querySelectorAll('.tour-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i * 100) + 'ms';
+  });
+  document.querySelectorAll('.dest-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i * 70) + 'ms';
+  });
+  document.querySelectorAll('.why-card').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = (i * 90) + 'ms';
+  });
+  document.querySelectorAll('.section-title').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.stat-card').forEach((el,i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = (i*120)+'ms';
+  });
+  document.querySelector('.hero-content')?.classList.add('reveal-left');
+  document.querySelector('.contact-form')?.classList.add('reveal-right');
+  document.querySelector('.special-section .special-features')?.classList.add('reveal');
+
+  // Observe all
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => revealObserver.observe(el));
+});
+
 const t = {
   en: {
     brand_name:"S.S.B. Package & Holidays",brand_sub:"Shirdi Sai Baba • Nandan Cabs",govt_badge:"✓ Authorised by Govt. of Karnataka, Dept. of Tourism",nav_tours:"Tour Packages",nav_dest:"Destinations",nav_about:"About Us",nav_book:"📞 Book Now",hero_eyebrow:"Sai Baba's Blessings on Every Journey",hero_h2:"Discover <em>India's</em> Most Sacred & Beautiful Destinations",hero_p:"From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.",hero_btn1:"🗺️ View All Packages",hero_btn2:"📞 Call Us Now",stat1_num:"27+",stat1_label:"Tour Packages",stat2_num:"15+",stat2_label:"Destinations",stat3_num:"3★",stat3_label:"Hotel Options",cat_eyebrow:"What we offer",cat_h2:"Tour Categories",cat1_h:"Pilgrimage Tours",cat1_p:"Tirupathi, Shirdi, Rameshwaram & more",cat2_h:"Hill Station Tours",cat2_p:"Ooty, Kodai, Munnar, Coorg, Coonur",cat3_h:"Honeymoon Special",cat3_p:"Romantic packages for newlyweds",cat4_h:"Beach Packages",cat4_p:"Goa, Pondicherry, Kanyakumari, Kovalam",cat5_h:"Houseboat Tours",cat5_p:"Alleppey & Kumarakom backwaters",cat6_h:"City Sightseeing",cat6_p:"Bangalore, Mysore day tours",sp_eyebrow:"Our Signature Offering",sp_h2:"Tirupathi Balaji Special VIP Darshan",sp_p:"Experience the divine blessings of Lord Venkateswara with our exclusive VIP Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.",sp_btn:"Enquire About Tirupathi VIP Darshan",sp_f1_h:"VIP Darshan",sp_f1_p:"Skip the queues with special entry",sp_f2_h:"Hotel Included",sp_f2_p:"Comfortable accommodation near temple",sp_f3_h:"AC Transport",sp_f3_p:"Comfortable journey from Bangalore",sp_f4_h:"Tour Guide",sp_f4_p:"Expert local guide included",tours_eyebrow:"27 handcrafted journeys",tours_h2:"All Tour Packages",tours_p:"Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.",more_tours:"And many more packages available — Tours #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"Enquire About Any Package",enquire:"Enquire",call_price:"Call for Price",includes:"Includes:",dest_eyebrow:"Where we take you",dest_h2:"Sight Seeing at Every Destination",why_eyebrow:"Why choose us",why_h2:"The S.S.B. Difference",why1_h:"Govt. Authorised",why1_p:"Officially authorised by the Government of Karnataka, Department of Tourism. Travel with complete trust and confidence.",why2_h:"Luxury Coaches",why2_p:"Travel in comfort with our luxury 2×2 push-back seat coaches and Mini Luxury Coaches for a relaxed journey.",why3_h:"Hotel Options",why3_p:"Choose from Deluxe, Super Deluxe, Star, Luxury, Home Stay or Resort to suit your budget and preference.",why4_h:"Expert Guides",why4_p:"Knowledgeable local guides at every destination ensure you don't miss any important sight or story.",why5_h:"All Inclusive",why5_p:"Hotel accommodation, entrance fees, and guide charges included in most packages. No hidden surprises.",why6_h:"24/7 Support",why6_p:"Multiple contact numbers ensure we're always reachable for any assistance during your journey.",contact_h2:"Plan Your Dream Journey",contact_p:"Contact us today for custom packages, group tours, hotel reservations, and VIP Tirupathi Darshan arrangements.",addr_h:"Our Office",addr_v:"#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009",call_h:"Call Us",email_h:"Email",web_h:"Website",form_h:"Quick Enquiry",form_name:"Your Name",form_name_ph:"Enter your full name",form_mob:"Mobile Number",form_mob_ph:"Enter your mobile number",form_tour:"Tour Package",form_tour_ph:"Select a package",form_persons:"Number of Persons",form_persons_ph:"How many people?",form_msg:"Message",form_msg_ph:"Any specific requirements, dates, or questions...",form_submit:"Send Enquiry 🙏",footer_brand_p:"Shirdi Sai Baba Package & Holidays | Nandan Cabs\nAuthorised by Govt. of Karnataka, Dept. of Tourism\nServing travellers from Bangalore since decades.",footer_tours_h:"Our Tours",footer_dest_h:"Destinations",footer_contact_h:"Contact",footer_copy:"© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.",footer_copy2:"Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009",fare_per_head:"Fare Per Head",tour_badge_local:"Local",tour_badge_daytr:"Day Tour",tour_badge_honey:"Honeymoon Special",tour_badge_hill:"Hill Station",tour_badge_pop:"Popular",tour_badge_ext:"Extended",tour_badge_nat:"Nature",tour_badge_wild:"Wildlife",tour_badge_combo:"Combo",tour_badge_best:"Best Seller",tour_badge_kerala:"Kerala",tour_badge_mega:"Mega Tour",tour_badge_beach:"Beach Special",tour_badge_hboat:"Houseboat",day_label_covers:"Covers",day_label_returns:"Returns",day_label_batch1:"Batch 1",day_label_batch2:"Batch 2",day_label_stay:"Stay",day_label_special:"Special",day_label_option1:"Option 1",day_label_option2:"Option 2",day_label_option3:"Option 3"
@@ -657,6 +861,17 @@ function setLang(lang) {
   document.querySelector('.lang-btn.' + lang).classList.add('active');
   // Update html lang
   document.documentElement.lang = lang === 'kn' ? 'kn' : 'en';
+  // Switch header logo with a smooth flip
+  const logoEl = document.getElementById('header-logo');
+  if (logoEl) {
+    logoEl.style.transform = 'rotateY(90deg)';
+    logoEl.style.opacity = '0';
+    setTimeout(() => {
+      logoEl.src = lang === 'kn' ? 'ssb_logo_kannada.png' : 'ssb_logo_v3.png';
+      logoEl.style.transform = 'rotateY(0deg)';
+      logoEl.style.opacity = '1';
+    }, 220);
+  }
   // Translate all data-t elements
   document.querySelectorAll('[data-t]').forEach(el => {
     const key = el.getAttribute('data-t');
@@ -675,6 +890,18 @@ function setLang(lang) {
 
 // Load Kannada by default on page load
 window.addEventListener('DOMContentLoaded', () => setLang('kn'));
+
+// ── SCROLL PROGRESS BAR + BACK TO TOP ──
+const scrollBar = document.getElementById('scroll-progress');
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+  scrollBar.style.width = pct + '%';
+  if (scrolled > 300) backToTop.classList.add('show');
+  else backToTop.classList.remove('show');
+}, { passive: true });
 </script>
 </body>
 </html>
