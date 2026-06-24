@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.S.B. Package & Holidays | Nandan Cabs | Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Noto+Sans+Kannada:wght@400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8722A; --deep-saffron: #C4521A;
+    --gold: #D4A017; --cream: #FDF8F0; --dark: #1A1208;
+    --brown: #4A2C0A; --sky: #1B6CA8; --sky-light: #E8F4FD;
+    --white: #FFFFFF; --text: #2D1B00; --muted: #7A6040;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter','Noto Sans Kannada',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    display: flex; gap: 0; border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    border: 2px solid var(--saffron);
+  }
+  .lang-btn {
+    padding: 12px 22px; font-size: 15px; font-weight: 700;
+    cursor: pointer; border: none; transition: all 0.2s;
+    font-family: 'Inter','Noto Sans Kannada', sans-serif;
+  }
+  .lang-btn.en { background: var(--white); color: var(--saffron); }
+  .lang-btn.kn { background: var(--white); color: var(--saffron); }
+  .lang-btn.active { background: var(--saffron); color: white; }
+
+  /* TOP BAR */
+  .topbar { background:var(--brown); color:#fff; font-size:13px; padding:8px 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+  .topbar a { color:#FFD580; text-decoration:none; }
+  .topbar span { margin:0 10px; opacity:0.5; }
+
+  /* HEADER */
+  header { background:var(--white); padding:20px 40px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 16px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100; }
+  .logo-wrap { display:flex; align-items:center; gap:18px; }
+  .logo-circle { width:72px; height:72px; background:linear-gradient(135deg,var(--saffron),var(--gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:white; box-shadow:0 4px 16px rgba(232,114,42,0.4); flex-shrink:0; }
+  .logo-text h1 { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--saffron); line-height:1.2; }
+  .logo-text p { font-size:12px; color:var(--muted); letter-spacing:1px; }
+  .govt-badge { font-size:11px; color:var(--sky); background:var(--sky-light); padding:4px 10px; border-radius:20px; font-weight:600; margin-top:4px; display:inline-block; }
+  nav { display:flex; gap:24px; align-items:center; }
+  nav a { text-decoration:none; color:var(--text); font-size:14px; font-weight:500; transition:color 0.2s; }
+  nav a:hover { color:var(--saffron); }
+  .call-btn { background:var(--saffron); color:white!important; padding:10px 20px; border-radius:8px; font-weight:600!important; }
+  .call-btn:hover { background:var(--deep-saffron)!important; }
+
+  /* HERO */
+  .hero { min-height:92vh; background:linear-gradient(to bottom,rgba(26,18,8,0.65) 0%,rgba(26,18,8,0.3) 60%,rgba(253,248,240,1) 100%), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover no-repeat; display:flex; align-items:center; padding:80px 40px 40px; position:relative; }
+  .hero-content { max-width:680px; color:white; }
+  .hero-eyebrow { font-family:'Satisfy',cursive; font-size:22px; color:#FFD580; margin-bottom:14px; display:block; }
+  .hero h2 { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px); font-weight:900; line-height:1.15; margin-bottom:18px; }
+  .hero h2 em { font-style:normal; color:var(--gold); }
+  .hero p { font-size:16px; line-height:1.75; opacity:0.9; margin-bottom:32px; max-width:540px; }
+  .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary { background:var(--saffron); color:white; padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:600; font-size:15px; box-shadow:0 4px 20px rgba(232,114,42,0.5); transition:all 0.2s; display:inline-block; }
+  .btn-primary:hover { background:var(--deep-saffron); transform:translateY(-2px); }
+  .btn-outline { background:transparent; color:white; padding:14px 28px; border-radius:10px; text-decoration:none; font-weight:600; font-size:15px; border:2px solid rgba(255,255,255,0.6); transition:all 0.2s; display:inline-block; }
+  .btn-outline:hover { background:rgba(255,255,255,0.15); }
+  .hero-stats { position:absolute; bottom:60px; right:40px; display:flex; gap:20px; }
+  .stat-card { background:rgba(255,255,255,0.95); padding:18px 24px; border-radius:14px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
+  .stat-card .num { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--saffron); }
+  .stat-card .label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:2px; }
+
+  /* SECTIONS */
+  section { padding:72px 40px; }
+  .section-title { text-align:center; margin-bottom:52px; }
+  .section-title .eyebrow { font-family:'Satisfy',cursive; font-size:18px; color:var(--saffron); display:block; margin-bottom:8px; }
+  .section-title h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px); font-weight:900; color:var(--dark); margin-bottom:10px; }
+  .section-title p { font-size:15px; color:var(--muted); max-width:560px; margin:0 auto; line-height:1.7; }
+  .divider { width:60px; height:4px; background:linear-gradient(90deg,var(--saffron),var(--gold)); border-radius:2px; margin:14px auto 0; }
+
+  /* CATEGORIES */
+  .categories { background:var(--white); }
+  .cat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
+  .cat-card { background:var(--cream); border-radius:16px; padding:26px 18px; text-align:center; cursor:pointer; transition:all 0.25s; border:2px solid transparent; }
+  .cat-card:hover { border-color:var(--saffron); transform:translateY(-4px); box-shadow:0 8px 24px rgba(232,114,42,0.15); }
+  .cat-icon { font-size:34px; margin-bottom:10px; display:block; }
+  .cat-card h3 { font-size:14px; font-weight:600; color:var(--dark); margin-bottom:4px; }
+  .cat-card p { font-size:12px; color:var(--muted); }
+
+  /* SPECIAL SECTION */
+  .special-section { background:linear-gradient(135deg,var(--brown) 0%,var(--dark) 100%); color:white; padding:72px 40px; text-align:center; }
+  .special-section .eyebrow { font-family:'Satisfy',cursive; font-size:22px; color:var(--gold); display:block; margin-bottom:10px; }
+  .special-section h2 { font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,42px); font-weight:900; margin-bottom:14px; }
+  .special-section p { font-size:15px; opacity:0.85; max-width:540px; margin:0 auto 36px; line-height:1.75; }
+  .special-features { display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
+  .feat { background:rgba(255,255,255,0.1); padding:22px 28px; border-radius:14px; min-width:180px; }
+  .feat .icon { font-size:32px; margin-bottom:8px; display:block; }
+  .feat h4 { font-size:15px; font-weight:600; margin-bottom:4px; }
+  .feat p { font-size:13px; opacity:0.75; }
+
+  /* TOURS */
+  .tours { background:var(--cream); }
+  .tours-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:24px; max-width:1200px; margin:0 auto; }
+  .tour-card { background:var(--white); border-radius:18px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); transition:all 0.25s; }
+  .tour-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.13); }
+  .tour-img { height:160px; background:linear-gradient(135deg,var(--saffron),var(--gold)); position:relative; display:flex; align-items:center; justify-content:center; font-size:48px; }
+  .tour-card.featured .tour-img { background:linear-gradient(135deg,#1B6CA8,#0D4A7A); }
+  .tour-card.honeymoon .tour-img { background:linear-gradient(135deg,#C0392B,#922B21); }
+  .tour-card.beach .tour-img { background:linear-gradient(135deg,#1A8A5A,#0F6040); }
+  .tour-badge { position:absolute; top:14px; left:14px; background:var(--brown); color:white; font-size:10px; font-weight:700; padding:4px 10px; border-radius:20px; letter-spacing:0.5px; }
+  .tour-num { position:absolute; top:14px; right:14px; background:var(--saffron); color:white; font-size:11px; font-weight:700; padding:4px 10px; border-radius:8px; }
+  .tour-body { padding:20px; }
+  .tour-body h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--dark); margin-bottom:8px; line-height:1.3; }
+  .tour-meta { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+  .meta-pill { background:var(--sky-light); color:var(--sky); font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+  .meta-pill.orange { background:#FFF0E5; color:var(--saffron); }
+  .day { display:flex; gap:8px; margin-bottom:7px; align-items:flex-start; }
+  .day-label { background:var(--saffron); color:white; font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+  .day-text { font-size:12px; color:var(--muted); line-height:1.5; }
+  .tour-includes { font-size:12px; color:var(--muted); padding-top:12px; border-top:1px solid #F0E8D8; line-height:1.6; }
+  .tour-includes strong { color:var(--brown); }
+  .tour-footer { padding:14px 20px; background:var(--cream); display:flex; align-items:center; justify-content:space-between; }
+  .fare-label { font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .fare-types { display:flex; gap:6px; flex-wrap:wrap; }
+  .fare-type { font-size:10px; font-weight:600; color:var(--brown); background:white; padding:3px 8px; border-radius:6px; border:1px solid #E0D0BC; }
+  .enquire-btn { background:var(--saffron); color:white; border:none; padding:9px 18px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; transition:background 0.2s; text-decoration:none; display:inline-block; font-family:inherit; }
+  .enquire-btn:hover { background:var(--deep-saffron); }
+
+  /* DESTINATIONS */
+  .destinations { background:var(--white); }
+  .dest-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; max-width:1200px; margin:0 auto; }
+  .dest-card { background:var(--cream); border-radius:14px; padding:22px 18px; border-left:4px solid var(--saffron); }
+  .dest-card h3 { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--dark); margin-bottom:8px; }
+  .dest-card p { font-size:12px; color:var(--muted); line-height:1.7; }
+
+  /* WHY US */
+  .why-us { background:var(--cream); }
+  .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; max-width:1100px; margin:0 auto; }
+  .why-card { background:var(--white); border-radius:16px; padding:28px 24px; box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+  .why-icon { font-size:38px; margin-bottom:14px; display:block; }
+  .why-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; color:var(--dark); }
+  .why-card p { font-size:14px; color:var(--muted); line-height:1.7; }
+
+  /* CONTACT */
+  .contact { background:var(--saffron); color:white; padding:72px 40px; }
+  .contact-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  .contact h2 { font-family:'Playfair Display',serif; font-size:34px; font-weight:900; margin-bottom:12px; }
+  .contact > .contact-inner > div > p { font-size:15px; opacity:0.9; margin-bottom:28px; line-height:1.75; }
+  .contact-details { display:flex; flex-direction:column; gap:14px; }
+  .contact-item { display:flex; align-items:flex-start; gap:12px; }
+  .contact-item .icon { background:rgba(255,255,255,0.25); width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+  .contact-item .info { font-size:13px; opacity:0.9; line-height:1.6; }
+  .contact-item .info strong { font-size:14px; display:block; margin-bottom:2px; }
+  .contact-form { background:white; border-radius:20px; padding:32px; }
+  .contact-form h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--dark); margin-bottom:20px; }
+  .form-group { margin-bottom:14px; }
+  .form-group label { font-size:12px; font-weight:600; color:var(--muted); display:block; margin-bottom:5px; }
+  .form-group input, .form-group select, .form-group textarea { width:100%; padding:11px 14px; border:1px solid #E0D0BC; border-radius:10px; font-family:inherit; font-size:14px; color:var(--dark); background:var(--cream); outline:none; transition:border 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--saffron); }
+  .form-group textarea { height:80px; resize:vertical; }
+  .submit-btn { width:100%; background:var(--saffron); color:white; border:none; padding:13px; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; font-family:inherit; transition:background 0.2s; }
+  .submit-btn:hover { background:var(--deep-saffron); }
+
+  /* FOOTER */
+  footer { background:var(--dark); color:white; padding:44px 40px 20px; }
+  .footer-top { display:flex; justify-content:space-between; flex-wrap:wrap; gap:36px; margin-bottom:36px; }
+  .footer-brand h3 { font-family:'Playfair Display',serif; font-size:20px; color:var(--gold); margin-bottom:8px; }
+  .footer-brand p { font-size:13px; opacity:0.6; line-height:1.7; max-width:280px; white-space:pre-line; }
+  .footer-links h4 { font-size:13px; font-weight:600; margin-bottom:14px; color:var(--gold); }
+  .footer-links ul { list-style:none; }
+  .footer-links ul li { margin-bottom:8px; }
+  .footer-links ul li a { font-size:13px; opacity:0.7; text-decoration:none; color:white; transition:opacity 0.2s; }
+  .footer-links ul li a:hover { opacity:1; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; opacity:0.5; }
+
+  @media(max-width:768px) {
+    header { padding:14px 18px; }
+    nav { display:none; }
+    section { padding:52px 18px; }
+    .hero { padding:52px 18px 180px; min-height:auto; }
+    .hero-stats { position:static; flex-wrap:wrap; margin-top:28px; }
+    .contact-inner { grid-template-columns:1fr; }
+    .topbar { padding:8px 18px; font-size:11px; }
+    footer { padding:36px 18px 18px; }
+    .lang-toggle { bottom:18px; right:18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn kn active" onclick="setLang('kn')">ಕನ್ನಡ</button>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>
+    📞 <a href="tel:9880782128">9880782128</a>
+    <span>|</span><a href="tel:9886859280">9886859280</a>
+    <span>|</span><a href="tel:9036590209">9036590209</a>
+    <span>|</span><a href="tel:9482946949">9482946949</a>
+  </div>
+  <div>✉️ <a href="mailto:ssbholidays@yahoo.in">ssbholidays@yahoo.in</a>
+    <span>|</span>🌐 <a href="http://www.ssbholidays.com">www.ssbholidays.com</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <div class="logo-circle">SSB</div>
+    <div class="logo-text">
+      <h1 data-t="brand_name">S.S.B. Package & Holidays</h1>
+      <p data-t="brand_sub">Shirdi Sai Baba • Nandan Cabs</p>
+      <span class="govt-badge" data-t="govt_badge">✓ Authorised by Govt. of Karnataka, Dept. of Tourism</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#tours" data-t="nav_tours">Tour Packages</a>
+    <a href="#destinations" data-t="nav_dest">Destinations</a>
+    <a href="#about" data-t="nav_about">About Us</a>
+    <a href="#contact" class="call-btn" data-t="nav_book">📞 Book Now</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow" data-t="hero_eyebrow">Sai Baba's Blessings on Every Journey</span>
+    <h2 data-t="hero_h2">Discover <em>India's</em> Most Sacred & Beautiful Destinations</h2>
+    <p data-t="hero_p">From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.</p>
+    <div class="hero-btns">
+      <a href="#tours" class="btn-primary" data-t="hero_btn1">🗺️ View All Packages</a>
+      <a href="#contact" class="btn-outline" data-t="hero_btn2">📞 Call Us Now</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="num" data-t="stat1_num">27+</div>
+      <div class="label" data-t="stat1_label">Tour Packages</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" data-t="stat2_num">15+</div>
+      <div class="label" data-t="stat2_label">Destinations</div>
+    </div>
+    <div class="stat-card">
+      <div class="num" data-t="stat3_num">3★</div>
+      <div class="label" data-t="stat3_label">Hotel Options</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="section-title">
+    <span class="eyebrow" data-t="cat_eyebrow">What we offer</span>
+    <h2 data-t="cat_h2">Tour Categories</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card"><span class="cat-icon">🛕</span><h3 data-t="cat1_h">Pilgrimage Tours</h3><p data-t="cat1_p">Tirupathi, Shirdi, Rameshwaram & more</p></div>
+    <div class="cat-card"><span class="cat-icon">🏔️</span><h3 data-t="cat2_h">Hill Station Tours</h3><p data-t="cat2_p">Ooty, Kodai, Munnar, Coorg, Coonur</p></div>
+    <div class="cat-card"><span class="cat-icon">💑</span><h3 data-t="cat3_h">Honeymoon Special</h3><p data-t="cat3_p">Romantic packages for newlyweds</p></div>
+    <div class="cat-card"><span class="cat-icon">🏖️</span><h3 data-t="cat4_h">Beach Packages</h3><p data-t="cat4_p">Goa, Pondicherry, Kanyakumari, Kovalam</p></div>
+    <div class="cat-card"><span class="cat-icon">🚢</span><h3 data-t="cat5_h">Houseboat Tours</h3><p data-t="cat5_p">Alleppey & Kumarakom backwaters</p></div>
+    <div class="cat-card"><span class="cat-icon">🏙️</span><h3 data-t="cat6_h">City Sightseeing</h3><p data-t="cat6_p">Bangalore, Mysore day tours</p></div>
+  </div>
+</section>
+
+<!-- TIRUPATHI SPECIAL -->
+<section class="special-section">
+  <span class="eyebrow" data-t="sp_eyebrow">Our Signature Offering</span>
+  <h2 data-t="sp_h2">Tirupathi Balaji Special VIP Darshan</h2>
+  <p data-t="sp_p">Experience the divine blessings of Lord Venkateswara with our exclusive VIP Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.</p>
+  <div class="special-features">
+    <div class="feat"><span class="icon">🛕</span><h4 data-t="sp_f1_h">VIP Darshan</h4><p data-t="sp_f1_p">Skip the queues with special entry</p></div>
+    <div class="feat"><span class="icon">🏨</span><h4 data-t="sp_f2_h">Hotel Included</h4><p data-t="sp_f2_p">Comfortable accommodation near temple</p></div>
+    <div class="feat"><span class="icon">🚌</span><h4 data-t="sp_f3_h">AC Transport</h4><p data-t="sp_f3_p">Comfortable journey from Bangalore</p></div>
+    <div class="feat"><span class="icon">🧭</span><h4 data-t="sp_f4_h">Tour Guide</h4><p data-t="sp_f4_p">Expert local guide included</p></div>
+  </div>
+  <a href="#contact" class="btn-primary" data-t="sp_btn">Enquire About Tirupathi VIP Darshan</a>
+</section>
+
+<!-- TOURS -->
+<section class="tours" id="tours">
+  <div class="section-title">
+    <span class="eyebrow" data-t="tours_eyebrow">27 handcrafted journeys</span>
+    <h2 data-t="tours_h2">All Tour Packages</h2>
+    <p data-t="tours_p">Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="tours-grid">
+
+    <!-- Tour 1 -->
+    <div class="tour-card">
+      <div class="tour-img">🏙️<span class="tour-badge" data-t="tour_badge_local">Local</span><span class="tour-num">Tour #1</span></div>
+      <div class="tour-body">
+        <h3>Bangalore Local Half Day / ಬೆಂಗಳೂರು ಅರ್ಧ ದಿನ ದರ್ಶನ</h3>
+        <div class="tour-meta"><span class="meta-pill">Half Day / ಅರ್ಧ ದಿನ</span><span class="meta-pill orange">2 Batches</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label" data-t="day_label_batch1">Batch 1</span><span class="day-text">Dep 9.00am to 2.00pm</span></div>
+          <div class="day"><span class="day-label" data-t="day_label_batch2">Batch 2</span><span class="day-text">2.00pm to 6.00pm</span></div>
+          <div class="day"><span class="day-label" data-t="day_label_covers">Covers</span><span class="day-text">Bull Temple, Tippu Palace, Lalbagh Gardens, Cubbon Park, Vidhana Soudha, Arts & Crafts</span></div>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type" data-t="call_price">Call for Price</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 3 -->
+    <div class="tour-card">
+      <div class="tour-img">🏰<span class="tour-badge" data-t="tour_badge_daytr">Day Tour</span><span class="tour-num">Tour #3</span></div>
+      <div class="tour-body">
+        <h3>Daily Mysore Sight Seeing / ಮೈಸೂರು ದರ್ಶನ</h3>
+        <div class="tour-meta"><span class="meta-pill">Day Trip</span><span class="meta-pill orange">Dep 7:30am</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label" data-t="day_label_covers">Covers</span><span class="day-text">Srirangapatna, Tippu Fort, Gumbaz, Mysore Palace, Chamundi Hills, Brindavan Gardens</span></div>
+          <div class="day"><span class="day-label" data-t="day_label_returns">Returns</span><span class="day-text">Arrival 11:00pm</span></div>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type" data-t="call_price">Call for Price</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 4 Honeymoon -->
+    <div class="tour-card honeymoon">
+      <div class="tour-img">💑<span class="tour-badge" data-t="tour_badge_honey">Honeymoon Special</span><span class="tour-num">Tour #4</span></div>
+      <div class="tour-body">
+        <h3>Mysore – Ooty 2 Days / ಮೈಸೂರು – ಊಟಿ ೨ ದಿನ</h3>
+        <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span><span class="meta-pill orange">Luxury 2×2</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Mysore. Sight Seeing. Night halt Mysore</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Mysore → Ooty. Bandipur, Mudumalai, Ooty Lake, Botanical Gardens. Dep 8pm</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Bangalore Arrival 5:30am</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel at Mysore, All Entrance Fees & Guide Charges</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 5 -->
+    <div class="tour-card">
+      <div class="tour-img">🌿<span class="tour-badge" data-t="tour_badge_hill">Hill Station</span><span class="tour-num">Tour #5</span></div>
+      <div class="tour-body">
+        <h3>Mysore, Ooty, Coonur / ಮೈಸೂರು, ಊಟಿ, ಕೂನೂರ್</h3>
+        <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Mysore. Sight Seeing. Night halt Mysore</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Mysore → Ooty. Sight Seeing. Night halt Ooty</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Coonur Sight Seeing & Shopping. Dep 7pm</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel at Mysore & Ooty, All Entrance Fees & Guide Charges</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 6 -->
+    <div class="tour-card">
+      <div class="tour-img">⛰️<span class="tour-badge" data-t="tour_badge_pop">Popular</span><span class="tour-num">Tour #6</span></div>
+      <div class="tour-body">
+        <h3>Mysore – Ooty – Kodaikanal / ಮೈಸೂರು – ಊಟಿ – ಕೊಡೈಕಾನಲ್</h3>
+        <div class="tour-meta"><span class="meta-pill">3 Nights – 4 Days</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Mysore. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Mysore → Ooty. Sight Seeing. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Ooty → Kodai (Arr 5pm). Night halt</span></div>
+          <div class="day"><span class="day-label">Day 4</span><span class="day-text">Kodai Sight Seeing. Dep 6:30pm</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel at Mysore, Ooty & Kodaikanal. Guide Charges Extra</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 8 Coorg -->
+    <div class="tour-card">
+      <div class="tour-img">🌲<span class="tour-badge" data-t="tour_badge_nat">Nature</span><span class="tour-num">Tour #8</span></div>
+      <div class="tour-body">
+        <h3>Coorg / ಕೊಡಗು (1 Night – 2 Days)</h3>
+        <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Kushalnagor. Arr 5:30am. Check-in. Night halt Coorg</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Full day Madikeri Sight Seeing. Dep 10:30pm to Bangalore</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel Accommodation, All Entrance Fees. Guide Charges Extra</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Home Stay</span><span class="fare-type">Resort</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 12 Best Seller -->
+    <div class="tour-card featured">
+      <div class="tour-img">🛕<span class="tour-badge" data-t="tour_badge_best">Best Seller</span><span class="tour-num">Tour #12</span></div>
+      <div class="tour-body">
+        <h3>Mysore → Ooty → Kodai → Madurai → Rameshwaram → Kanyakumari</h3>
+        <div class="tour-meta"><span class="meta-pill">6 Nights – 7 Days</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Mysore. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Mysore → Ooty. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Ooty → Kodai. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 4</span><span class="day-text">Kodaikanal → Madurai. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 5</span><span class="day-text">Madurai Sight Seeing. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 6</span><span class="day-text">Madurai → Rameshwaram → Kanyakumari</span></div>
+          <div class="day"><span class="day-label">Day 7</span><span class="day-text">Kanyakumari Sight Seeing → Bangalore</span></div>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 13 Munnar -->
+    <div class="tour-card">
+      <div class="tour-img">🍃<span class="tour-badge" data-t="tour_badge_kerala">Kerala</span><span class="tour-num">Tour #13</span></div>
+      <div class="tour-body">
+        <h3>Munnar / ಮುನ್ನಾರ್ (2 Night / 3 Days)</h3>
+        <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span><span class="meta-pill orange">Mini Luxury Coach</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Munnar Dep 7pm</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Arrival 10:30am. Freeday. Night halt Munnar</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Munnar Sight Seeing. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 4</span><span class="day-text">Shopping. Dep 3:30pm → Bangalore</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel, All Entrance Fees & Guide Charges</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Luxury</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 17 Goa -->
+    <div class="tour-card beach">
+      <div class="tour-img">🏖️<span class="tour-badge" data-t="tour_badge_beach">Beach Special</span><span class="tour-num">Tour #17</span></div>
+      <div class="tour-body">
+        <h3>GOA Package / ಗೋವಾ (4 Days)</h3>
+        <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Bangalore → Goa Dep 6:30pm</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Arrival Goa. Rest. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">North Goa: Panaji, Vagator, Calangute, Fort Aguada. Night halt</span></div>
+          <div class="day"><span class="day-label">Day 4</span><span class="day-text">South Goa: Miramar, Old Goa, Colva Beach. Dep Bangalore</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel at Goa, All Entrance Fees. Guide Charges Extra</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 20 Mega -->
+    <div class="tour-card featured">
+      <div class="tour-img">🗺️<span class="tour-badge" data-t="tour_badge_mega">Mega Tour</span><span class="tour-num">Tour #20</span></div>
+      <div class="tour-body">
+        <h3>Mysore–Ooty–Coonur–Kodai–Munnar–Thekkady / ಮಹಾ ಕೇರಳ ಪ್ರವಾಸ</h3>
+        <div class="tour-meta"><span class="meta-pill">8 Nights – 9 Days</span><span class="meta-pill orange">Best Value</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1-2</span><span class="day-text">Mysore → Ooty (via Srirangapatna)</span></div>
+          <div class="day"><span class="day-label">Day 3-4</span><span class="day-text">Coonur → Kodaikanal</span></div>
+          <div class="day"><span class="day-label">Day 5-6</span><span class="day-text">Kodai Sight Seeing → Munnar</span></div>
+          <div class="day"><span class="day-label">Day 7-8</span><span class="day-text">Munnar Sight Seeing → Thekkady</span></div>
+          <div class="day"><span class="day-label">Day 9-10</span><span class="day-text">Thekkady → Bangalore</span></div>
+        </div>
+        <div class="tour-includes"><strong data-t="includes">Includes:</strong> Hotel at Munnar & Thekkady, Boating at Thekkady. By Car Kodai→Munnar, Mini Bus Munnar→Thekkady</div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span><span class="fare-type">Star</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+    <!-- Tour 27 Houseboat -->
+    <div class="tour-card featured">
+      <div class="tour-img">🚢<span class="tour-badge" data-t="tour_badge_hboat">Houseboat</span><span class="tour-num">Tour #27</span></div>
+      <div class="tour-body">
+        <h3>Alleppey Houseboat – Cochin / ಅಲ್ಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್</h3>
+        <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span><span class="meta-pill orange">Houseboat Stay</span></div>
+        <div class="tour-itinerary">
+          <div class="day"><span class="day-label">Day 1</span><span class="day-text">Departure 7pm → Alleppey</span></div>
+          <div class="day"><span class="day-label">Day 2</span><span class="day-text">Arrival 12 Noon. Check-in Houseboat. Sight Seeing with food. Night stay</span></div>
+          <div class="day"><span class="day-label">Day 3</span><span class="day-text">Check-out 9am. Cochin Sight Seeing → Dep Bangalore</span></div>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div><div class="fare-label" data-t="fare_per_head">Fare Per Head</div><div class="fare-types"><span class="fare-type">Deluxe</span><span class="fare-type">Super Deluxe</span></div></div>
+        <a href="#contact" class="enquire-btn" data-t="enquire">Enquire</a>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:36px;">
+    <p style="color:var(--muted);font-size:14px;margin-bottom:14px;" data-t="more_tours">And many more packages available — Tours #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26</p>
+    <a href="#contact" class="btn-primary" data-t="more_btn">Enquire About Any Package</a>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="section-title">
+    <span class="eyebrow" data-t="dest_eyebrow">Where we take you</span>
+    <h2 data-t="dest_h2">Sight Seeing at Every Destination</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="dest-grid">
+    <div class="dest-card"><h3>🏰 Mysore / ಮೈಸೂರು</h3><p>Srirangapatna, Ranganatha Swamy Temple, Tippu's Place, Gumbaz, Chamundi Hills, Maharaja Palace, St. Philomina Church, Jaganmohan Palace, Brindavan Gardens</p></div>
+    <div class="dest-card"><h3>🌿 Ooty & Coonur / ಊಟಿ</h3><p>Botanical Garden, Ooty Lake, Sim's Park, Dolphins Nose, Lambs Rock, Doddabeta Telescope House (8648 ft)</p></div>
+    <div class="dest-card"><h3>🌲 Coorg / ಕೊಡಗು</h3><p>Cauvery Nisargadhama, Tibetan Colony, Dubhare Elephant Camp, Abbey Falls, Omkareshwara Temple, Raja's Seat, River Cauvery birthplace</p></div>
+    <div class="dest-card"><h3>🌁 Kodaikanal / ಕೊಡೈಕಾನಲ್</h3><p>Coakers Walk, Green Valley View, Upper Lake View, Golf Links, Pillar Rocks, Pine Forest, Brayant Park, Kodai Lake Drop, Jungle Tour & Picnic</p></div>
+    <div class="dest-card"><h3>🍃 Munnar / ಮುನ್ನಾರ್</h3><p>Mattupatti Dam & Lake (5610 ft), Indo Swiss Project, Echo Point, Elephant Arrival Spot, Kundale Lake, Golf Ground, Cardamom & Coffee Plantation</p></div>
+    <div class="dest-card"><h3>🐅 Thekkady / ತೆಕ್ಕಡಿ</h3><p>Boating at Periyar Wildlife Sanctuary, Spice Plantation, Shopping</p></div>
+    <div class="dest-card"><h3>🚢 Alleppey / ಅಲ್ಲೆಪ್ಪಿ</h3><p>Bird Sanctuary, Wood Museum, Boating in Back Waters, Alleppey Town & Beach, Houseboat Experience</p></div>
+    <div class="dest-card"><h3>⚓ Cochin / ಕೊಚ್ಚಿ</h3><p>Boating, Harbour, Bologatty Palace, Edappally Museum, Dutch Palace, Chinese Fishing Nets, Fort Cochin Beach</p></div>
+    <div class="dest-card"><h3>🛕 Madurai / ಮದುರೈ</h3><p>Maharaja Palace, Gandhi Museum, Alagar Temple, Vishnu Temple, Meenakshi Amman Temple</p></div>
+    <div class="dest-card"><h3>🙏 Rameshwaram / ರಾಮೇಶ್ವರಂ</h3><p>Hanuman Temple, Pamban Bridge, Kashi Vishwanath Temple, 24 Kundalas, Ram Sita Hanuman Padyam</p></div>
+    <div class="dest-card"><h3>🌅 Kanyakumari / ಕನ್ಯಾಕುಮಾರಿ</h3><p>Sunrise Point, Vivekananda Memorial Rock, Gandhi Mandapam, 133 ft Thiruvalluvar Statue</p></div>
+    <div class="dest-card"><h3>🎬 Hyderabad / ಹೈದರಾಬಾದ್</h3><p>Ramoji Film City, Birla House, Hussain Sagar, Golconda Fort, Charminar, Mecca Masjid, Salarjung Museum</p></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us" id="about">
+  <div class="section-title">
+    <span class="eyebrow" data-t="why_eyebrow">Why choose us</span>
+    <h2 data-t="why_h2">The S.S.B. Difference</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><span class="why-icon">🏛️</span><h3 data-t="why1_h">Govt. Authorised</h3><p data-t="why1_p">Officially authorised by the Government of Karnataka, Department of Tourism. Travel with complete trust and confidence.</p></div>
+    <div class="why-card"><span class="why-icon">🚌</span><h3 data-t="why2_h">Luxury Coaches</h3><p data-t="why2_p">Travel in comfort with our luxury 2×2 push-back seat coaches and Mini Luxury Coaches for a relaxed journey.</p></div>
+    <div class="why-card"><span class="why-icon">🏨</span><h3 data-t="why3_h">Hotel Options</h3><p data-t="why3_p">Choose from Deluxe, Super Deluxe, Star, Luxury, Home Stay or Resort to suit your budget and preference.</p></div>
+    <div class="why-card"><span class="why-icon">🧭</span><h3 data-t="why4_h">Expert Guides</h3><p data-t="why4_p">Knowledgeable local guides at every destination ensure you don't miss any important sight or story.</p></div>
+    <div class="why-card"><span class="why-icon">📋</span><h3 data-t="why5_h">All Inclusive</h3><p data-t="why5_p">Hotel accommodation, entrance fees, and guide charges included in most packages. No hidden surprises.</p></div>
+    <div class="why-card"><span class="why-icon">📞</span><h3 data-t="why6_h">24/7 Support</h3><p data-t="why6_p">Multiple contact numbers ensure we're always reachable for any assistance during your journey.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 data-t="contact_h2">Plan Your Dream Journey</h2>
+      <p data-t="contact_p">Contact us today for custom packages, group tours, hotel reservations, and VIP Tirupathi Darshan arrangements.</p>
+      <div class="contact-details">
+        <div class="contact-item"><div class="icon">📍</div><div class="info"><strong data-t="addr_h">Our Office</strong><span data-t="addr_v">#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009</span></div></div>
+        <div class="contact-item"><div class="icon">📞</div><div class="info"><strong data-t="call_h">Call Us</strong>080-41139890 / 41139891<br>9880782128 / 9886859280<br>9036590209 / 9482946949</div></div>
+        <div class="contact-item"><div class="icon">✉️</div><div class="info"><strong data-t="email_h">Email</strong>ssbholidays@yahoo.in</div></div>
+        <div class="contact-item"><div class="icon">🌐</div><div class="info"><strong data-t="web_h">Website</strong>www.ssbholidays.com</div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 data-t="form_h">Quick Enquiry</h3>
+      <div class="form-group"><label data-t="form_name">Your Name</label><input type="text" data-ph="form_name_ph" placeholder="Enter your full name"></div>
+      <div class="form-group"><label data-t="form_mob">Mobile Number</label><input type="tel" data-ph="form_mob_ph" placeholder="Enter your mobile number"></div>
+      <div class="form-group">
+        <label data-t="form_tour">Tour Package</label>
+        <select>
+          <option data-t="form_tour_ph">Select a package</option>
+          <option>Tirupathi VIP Darshan</option>
+          <option>Tour #4 – Mysore-Ooty (Honeymoon)</option>
+          <option>Tour #5 – Mysore, Ooty, Coonur</option>
+          <option>Tour #6 – Mysore-Ooty-Kodaikanal</option>
+          <option>Tour #8 – Coorg</option>
+          <option>Tour #12 – South India Grand Tour</option>
+          <option>Tour #13 – Munnar</option>
+          <option>Tour #17 – Goa</option>
+          <option>Tour #20 – Kerala Mega Tour</option>
+          <option>Tour #27 – Alleppey Houseboat</option>
+          <option>Other / Custom Package</option>
+        </select>
+      </div>
+      <div class="form-group"><label data-t="form_persons">Number of Persons</label><input type="number" data-ph="form_persons_ph" placeholder="How many people?" min="1"></div>
+      <div class="form-group"><label data-t="form_msg">Message</label><textarea data-ph="form_msg_ph" placeholder="Any specific requirements, dates, or questions..."></textarea></div>
+      <button class="submit-btn" data-t="form_submit">Send Enquiry 🙏</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3 data-t="brand_name">S.S.B. Package & Holidays</h3>
+      <p data-t="footer_brand_p">Shirdi Sai Baba Package & Holidays | Nandan Cabs
+Authorised by Govt. of Karnataka, Dept. of Tourism
+Serving travellers from Bangalore since decades.</p>
+    </div>
+    <div class="footer-links">
+      <h4 data-t="footer_tours_h">Our Tours</h4>
+      <ul>
+        <li><a href="#tours">Bangalore Local Tours</a></li>
+        <li><a href="#tours">Mysore & Ooty Packages</a></li>
+        <li><a href="#tours">Coorg Tours</a></li>
+        <li><a href="#tours">Kerala Packages</a></li>
+        <li><a href="#tours">Goa Beach Tours</a></li>
+        <li><a href="#tours">South India Grand Tours</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-t="footer_dest_h">Destinations</h4>
+      <ul>
+        <li><a href="#destinations">Mysore & Ooty</a></li>
+        <li><a href="#destinations">Kodaikanal</a></li>
+        <li><a href="#destinations">Munnar & Thekkady</a></li>
+        <li><a href="#destinations">Alleppey Houseboat</a></li>
+        <li><a href="#destinations">Rameshwaram & Kanyakumari</a></li>
+        <li><a href="#destinations">Tirupathi VIP Darshan</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-t="footer_contact_h">Contact</h4>
+      <ul>
+        <li><a href="tel:9880782128">📞 9880782128</a></li>
+        <li><a href="tel:9886859280">📞 9886859280</a></li>
+        <li><a href="tel:9036590209">📞 9036590209</a></li>
+        <li><a href="mailto:ssbholidays@yahoo.in">✉️ ssbholidays@yahoo.in</a></li>
+        <li><a href="#">🌐 www.ssbholidays.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-t="footer_copy">© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.</span>
+    <span data-t="footer_copy2">Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009</span>
+  </div>
+</footer>
+
+<script>
+const t = {
+  en: {
+    brand_name:"S.S.B. Package & Holidays",brand_sub:"Shirdi Sai Baba • Nandan Cabs",govt_badge:"✓ Authorised by Govt. of Karnataka, Dept. of Tourism",nav_tours:"Tour Packages",nav_dest:"Destinations",nav_about:"About Us",nav_book:"📞 Book Now",hero_eyebrow:"Sai Baba's Blessings on Every Journey",hero_h2:"Discover <em>India's</em> Most Sacred & Beautiful Destinations",hero_p:"From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.",hero_btn1:"🗺️ View All Packages",hero_btn2:"📞 Call Us Now",stat1_num:"27+",stat1_label:"Tour Packages",stat2_num:"15+",stat2_label:"Destinations",stat3_num:"3★",stat3_label:"Hotel Options",cat_eyebrow:"What we offer",cat_h2:"Tour Categories",cat1_h:"Pilgrimage Tours",cat1_p:"Tirupathi, Shirdi, Rameshwaram & more",cat2_h:"Hill Station Tours",cat2_p:"Ooty, Kodai, Munnar, Coorg, Coonur",cat3_h:"Honeymoon Special",cat3_p:"Romantic packages for newlyweds",cat4_h:"Beach Packages",cat4_p:"Goa, Pondicherry, Kanyakumari, Kovalam",cat5_h:"Houseboat Tours",cat5_p:"Alleppey & Kumarakom backwaters",cat6_h:"City Sightseeing",cat6_p:"Bangalore, Mysore day tours",sp_eyebrow:"Our Signature Offering",sp_h2:"Tirupathi Balaji Special VIP Darshan",sp_p:"Experience the divine blessings of Lord Venkateswara with our exclusive VIP Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.",sp_btn:"Enquire About Tirupathi VIP Darshan",sp_f1_h:"VIP Darshan",sp_f1_p:"Skip the queues with special entry",sp_f2_h:"Hotel Included",sp_f2_p:"Comfortable accommodation near temple",sp_f3_h:"AC Transport",sp_f3_p:"Comfortable journey from Bangalore",sp_f4_h:"Tour Guide",sp_f4_p:"Expert local guide included",tours_eyebrow:"27 handcrafted journeys",tours_h2:"All Tour Packages",tours_p:"Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.",more_tours:"And many more packages available — Tours #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"Enquire About Any Package",enquire:"Enquire",call_price:"Call for Price",includes:"Includes:",dest_eyebrow:"Where we take you",dest_h2:"Sight Seeing at Every Destination",why_eyebrow:"Why choose us",why_h2:"The S.S.B. Difference",why1_h:"Govt. Authorised",why1_p:"Officially authorised by the Government of Karnataka, Department of Tourism. Travel with complete trust and confidence.",why2_h:"Luxury Coaches",why2_p:"Travel in comfort with our luxury 2×2 push-back seat coaches and Mini Luxury Coaches for a relaxed journey.",why3_h:"Hotel Options",why3_p:"Choose from Deluxe, Super Deluxe, Star, Luxury, Home Stay or Resort to suit your budget and preference.",why4_h:"Expert Guides",why4_p:"Knowledgeable local guides at every destination ensure you don't miss any important sight or story.",why5_h:"All Inclusive",why5_p:"Hotel accommodation, entrance fees, and guide charges included in most packages. No hidden surprises.",why6_h:"24/7 Support",why6_p:"Multiple contact numbers ensure we're always reachable for any assistance during your journey.",contact_h2:"Plan Your Dream Journey",contact_p:"Contact us today for custom packages, group tours, hotel reservations, and VIP Tirupathi Darshan arrangements.",addr_h:"Our Office",addr_v:"#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009",call_h:"Call Us",email_h:"Email",web_h:"Website",form_h:"Quick Enquiry",form_name:"Your Name",form_name_ph:"Enter your full name",form_mob:"Mobile Number",form_mob_ph:"Enter your mobile number",form_tour:"Tour Package",form_tour_ph:"Select a package",form_persons:"Number of Persons",form_persons_ph:"How many people?",form_msg:"Message",form_msg_ph:"Any specific requirements, dates, or questions...",form_submit:"Send Enquiry 🙏",footer_brand_p:"Shirdi Sai Baba Package & Holidays | Nandan Cabs\nAuthorised by Govt. of Karnataka, Dept. of Tourism\nServing travellers from Bangalore since decades.",footer_tours_h:"Our Tours",footer_dest_h:"Destinations",footer_contact_h:"Contact",footer_copy:"© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.",footer_copy2:"Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009",fare_per_head:"Fare Per Head",tour_badge_local:"Local",tour_badge_daytr:"Day Tour",tour_badge_honey:"Honeymoon Special",tour_badge_hill:"Hill Station",tour_badge_pop:"Popular",tour_badge_ext:"Extended",tour_badge_nat:"Nature",tour_badge_wild:"Wildlife",tour_badge_combo:"Combo",tour_badge_best:"Best Seller",tour_badge_kerala:"Kerala",tour_badge_mega:"Mega Tour",tour_badge_beach:"Beach Special",tour_badge_hboat:"Houseboat",day_label_covers:"Covers",day_label_returns:"Returns",day_label_batch1:"Batch 1",day_label_batch2:"Batch 2",day_label_stay:"Stay",day_label_special:"Special",day_label_option1:"Option 1",day_label_option2:"Option 2",day_label_option3:"Option 3"
+  },
+  kn: {
+    brand_name:"ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್",brand_sub:"ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್",govt_badge:"✓ ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ",nav_tours:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",nav_dest:"ತಾಣಗಳು",nav_about:"ನಮ್ಮ ಬಗ್ಗೆ",nav_book:"📞 ಈಗಲೇ ಬುಕ್ ಮಾಡಿ",hero_eyebrow:"ಪ್ರತಿ ಪ್ರಯಾಣದಲ್ಲೂ ಸಾಯಿ ಬಾಬಾರ ಆಶೀರ್ವಾದ",hero_h2:"<em>ಭಾರತದ</em> ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",hero_p:"ತಿರುಪತಿ ಬಾಲಾಜಿ ದರ್ಶನದಿಂದ ಹಿಡಿದು ಊಟಿಯ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಅಲ್ಲೆಪ್ಪಿಯ ಹಿನ್ನೀರಿನವರೆಗೆ — ಬೆಂಗಳೂರಿನಿಂದ ಅವಿಸ್ಮರಣೀಯ ಪ್ರವಾಸಗಳನ್ನು ಏರ್ಪಡಿಸುತ್ತಿದ್ದೇವೆ.",hero_btn1:"🗺️ ಎಲ್ಲಾ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ನೋಡಿ",hero_btn2:"📞 ಈಗಲೇ ಕರೆ ಮಾಡಿ",stat1_num:"೨೭+",stat1_label:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",stat2_num:"೧೫+",stat2_label:"ತಾಣಗಳು",stat3_num:"೩★",stat3_label:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",cat_eyebrow:"ನಾವು ನೀಡುವ ಸೇವೆಗಳು",cat_h2:"ಟೂರ್ ವರ್ಗಗಳು",cat1_h:"ಯಾತ್ರಾ ಪ್ರವಾಸ",cat1_p:"ತಿರುಪತಿ, ಶಿರ್ಡಿ, ರಾಮೇಶ್ವರಂ ಮತ್ತು ಇನ್ನಷ್ಟು",cat2_h:"ಗಿರಿಧಾಮ ಪ್ರವಾಸ",cat2_p:"ಊಟಿ, ಕೊಡೈ, ಮುನ್ನಾರ್, ಕೂರ್ಗ್, ಕೂನೂರ್",cat3_h:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",cat3_p:"ನವವಿವಾಹಿತರಿಗಾಗಿ ರೊಮ್ಯಾಂಟಿಕ್ ಪ್ಯಾಕೇಜ್",cat4_h:"ಬೀಚ್ ಪ್ಯಾಕೇಜ್",cat4_p:"ಗೋವಾ, ಪಾಂಡಿಚೇರಿ, ಕನ್ಯಾಕುಮಾರಿ, ಕೋವಳಂ",cat5_h:"ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ",cat5_p:"ಅಲ್ಲೆಪ್ಪಿ ಮತ್ತು ಕುಮರಕೋಂ ಹಿನ್ನೀರು",cat6_h:"ನಗರ ದರ್ಶನ",cat6_p:"ಬೆಂಗಳೂರು, ಮೈಸೂರು ದಿನ ಪ್ರವಾಸ",sp_eyebrow:"ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ",sp_h2:"ತಿರುಪತಿ ಬಾಲಾಜಿ ಸ್ಪೆಷಲ್ VIP ದರ್ಶನ",sp_p:"ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಆಶೀರ್ವಾದ ಪಡೆಯಿರಿ — ಹೋಟೆಲ್ ವಸತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಸೇರಿದ ವಿಶೇಷ VIP ದರ್ಶನ ಪ್ಯಾಕೇಜ್.",sp_btn:"ತಿರುಪತಿ VIP ದರ್ಶನ ವಿಚಾರಿಸಿ",sp_f1_h:"VIP ದರ್ಶನ",sp_f1_p:"ವಿಶೇಷ ಪ್ರವೇಶದೊಂದಿಗೆ ಕ್ಯೂ ತಪ್ಪಿಸಿ",sp_f2_h:"ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ",sp_f2_p:"ದೇವಸ್ಥಾನ ಸಮೀಪ ಆರಾಮದಾಯಕ ವಸತಿ",sp_f3_h:"AC ವಾಹನ",sp_f3_p:"ಬೆಂಗಳೂರಿನಿಂದ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ",sp_f4_h:"ಮಾರ್ಗದರ್ಶಿ",sp_f4_p:"ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿ ಒಳಗೊಂಡಿದೆ",tours_eyebrow:"೨೭ ವಿಶೇಷ ಪ್ರವಾಸಗಳು",tours_h2:"ಎಲ್ಲಾ ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",tours_p:"ಬೆಂಗಳೂರಿನಿಂದ ಹೊರಡುವ ಪ್ರವಾಸಗಳು. ಹೋಟೆಲ್ ವಸತಿ, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",more_tours:"ಇನ್ನೂ ಅನೇಕ ಪ್ಯಾಕೇಜ್‌ಗಳು ಲಭ್ಯ — ಟೂರ್ #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",enquire:"ವಿಚಾರಿಸಿ",call_price:"ಬೆಲೆಗೆ ಕರೆ ಮಾಡಿ",includes:"ಒಳಗೊಂಡಿದೆ:",dest_eyebrow:"ನಾವು ಕರೆದೊಯ್ಯುವ ತಾಣಗಳು",dest_h2:"ಪ್ರತಿ ತಾಣದ ದರ್ಶನ ಸ್ಥಳಗಳು",why_eyebrow:"ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು",why_h2:"ಎಸ್.ಎಸ್.ಬಿ. ವಿಶೇಷತೆ",why1_h:"ಸರ್ಕಾರ ಅಧಿಕೃತ",why1_p:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತವಾಗಿ ಮಾನ್ಯತೆ ಪಡೆದಿದ್ದೇವೆ.",why2_h:"ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳು",why2_p:"ಲಕ್ಷರಿ 2×2 ಪುಶ್‌ಬ್ಯಾಕ್ ಸೀಟ್ ಕೋಚ್ ಮತ್ತು ಮಿನಿ ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳಲ್ಲಿ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ.",why3_h:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",why3_p:"ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ತಕ್ಕಂತೆ ಡೀಲಕ್ಸ್, ಸೂಪರ್ ಡೀಲಕ್ಸ್, ಸ್ಟಾರ್, ಲಕ್ಷರಿ, ಹೋಮ್ ಸ್ಟೇ ಆಯ್ಕೆ ಮಾಡಿ.",why4_h:"ತಜ್ಞ ಮಾರ್ಗದರ್ಶಿಗಳು",why4_p:"ಪ್ರತಿ ತಾಣದಲ್ಲೂ ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿಗಳು ನಿಮ್ಮ ಜೊತೆ ಇರುತ್ತಾರೆ.",why5_h:"ಎಲ್ಲವೂ ಸೇರಿದೆ",why5_p:"ಹೆಚ್ಚಿನ ಪ್ಯಾಕೇಜ್‌ಗಳಲ್ಲಿ ಹೋಟೆಲ್, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",why6_h:"೨೪/೭ ಬೆಂಬಲ",why6_p:"ಅನೇಕ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳ ಮೂಲಕ ನಾವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸೇವೆಗೆ ಸಿದ್ಧ.",contact_h2:"ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ",contact_p:"ಕಸ್ಟಮ್ ಪ್ಯಾಕೇಜ್, ಗ್ರೂಪ್ ಟೂರ್, ಹೋಟೆಲ್ ಕಾಯ್ದಿರಿಸುವಿಕೆ ಮತ್ತು ತಿರುಪತಿ VIP ದರ್ಶನಕ್ಕಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ.",addr_h:"ನಮ್ಮ ಕಚೇರಿ",addr_v:"#32, ಹೋಟೆಲ್ ಸುಪ್ರಭಾತ ಬಿಲ್ಡಿಂಗ್, ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",call_h:"ಕರೆ ಮಾಡಿ",email_h:"ಇಮೇಲ್",web_h:"ವೆಬ್‌ಸೈಟ್",form_h:"ತ್ವರಿತ ವಿಚಾರಣೆ",form_name:"ನಿಮ್ಮ ಹೆಸರು",form_name_ph:"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ",form_mob:"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",form_mob_ph:"ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",form_tour:"ಟೂರ್ ಪ್ಯಾಕೇಜ್",form_tour_ph:"ಪ್ಯಾಕೇಜ್ ಆರಿಸಿ",form_persons:"ವ್ಯಕ್ತಿಗಳ ಸಂಖ್ಯೆ",form_persons_ph:"ಎಷ್ಟು ಜನ?",form_msg:"ಸಂದೇಶ",form_msg_ph:"ನಿಮ್ಮ ಅಗತ್ಯತೆಗಳು, ದಿನಾಂಕ ಅಥವಾ ಪ್ರಶ್ನೆಗಳು...",form_submit:"ವಿಚಾರಣೆ ಕಳುಹಿಸಿ 🙏",footer_brand_p:"ಶಿರ್ಡಿ ಸಾಯಿ ಬಾಬಾ ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್\nಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ\nದಶಕಗಳಿಂದ ಬೆಂಗಳೂರಿನಿಂದ ಪ್ರವಾಸಿಗರಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದೇವೆ.",footer_tours_h:"ನಮ್ಮ ಟೂರ್‌ಗಳು",footer_dest_h:"ತಾಣಗಳು",footer_contact_h:"ಸಂಪರ್ಕ",footer_copy:"© 2026 ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್. ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",footer_copy2:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ | ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",fare_per_head:"ತಲಾ ದರ",tour_badge_local:"ಸ್ಥಳೀಯ",tour_badge_daytr:"ದಿನ ಪ್ರವಾಸ",tour_badge_honey:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",tour_badge_hill:"ಗಿರಿಧಾಮ",tour_badge_pop:"ಜನಪ್ರಿಯ",tour_badge_ext:"ದೀರ್ಘ ಪ್ರವಾಸ",tour_badge_nat:"ಪ್ರಕೃತಿ",tour_badge_wild:"ವನ್ಯಜೀವಿ",tour_badge_combo:"ಸಂಯೋಜನೆ",tour_badge_best:"ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ",tour_badge_kerala:"ಕೇರಳ",tour_badge_mega:"ಮಹಾ ಪ್ರವಾಸ",tour_badge_beach:"ಬೀಚ್ ಸ್ಪೆಷಲ್",tour_badge_hboat:"ಹೌಸ್‌ಬೋಟ್",day_label_covers:"ಒಳಗೊಂಡಿದೆ",day_label_returns:"ವಾಪಸಾತಿ",day_label_batch1:"ಬ್ಯಾಚ್ 1",day_label_batch2:"ಬ್ಯಾಚ್ 2",day_label_stay:"ವಸತಿ",day_label_special:"ವಿಶೇಷ",day_label_option1:"ಆಯ್ಕೆ 1",day_label_option2:"ಆಯ್ಕೆ 2",day_label_option3:"ಆಯ್ಕೆ 3"
+  }
+};
+
+let currentLang = 'kn';
+
+function setLang(lang) {
+  currentLang = lang;
+  // Update toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.lang-btn.' + lang).classList.add('active');
+  // Update html lang
+  document.documentElement.lang = lang === 'kn' ? 'kn' : 'en';
+  // Translate all data-t elements
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (t[lang][key] !== undefined) {
+      el.innerHTML = t[lang][key];
+    }
+  });
+  // Update placeholders
+  document.querySelectorAll('[data-ph]').forEach(el => {
+    const key = el.getAttribute('data-ph');
+    if (t[lang][key] !== undefined) {
+      el.placeholder = t[lang][key];
+    }
+  });
+}
+
+// Load Kannada by default on page load
+window.addEventListener('DOMContentLoaded', () => setLang('kn'));
+</script>
+</body>
+</html>
+
