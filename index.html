@@ -293,12 +293,37 @@
 
   /* CATEGORIES */
   .categories { background:var(--white); }
-  .cat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
-  .cat-card { background:var(--cream); border-radius:16px; padding:26px 18px; text-align:center; cursor:pointer; transition:all 0.25s; border:2px solid transparent; }
-  .cat-card:hover { border-color:var(--saffron); transform:translateY(-4px); box-shadow:0 8px 24px rgba(232,114,42,0.15); }
-  .cat-icon { font-size:34px; margin-bottom:10px; display:block; }
-  .cat-card h3 { font-size:14px; font-weight:600; color:var(--dark); margin-bottom:4px; }
-  .cat-card p { font-size:12px; color:var(--muted); }
+  .cat-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:30px; max-width:1200px; margin:0 auto; }
+  .cat-card { 
+    border-radius: 20px; padding: 30px 24px; text-align: left; cursor: pointer; 
+    transition: all 0.4s ease; border: none; height: 280px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); background: #000;
+  }
+  .cat-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1;
+  }
+  .cat-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(26,18,8,0.95) 0%, rgba(26,18,8,0.1) 100%);
+    z-index: 2; transition: opacity 0.4s ease; opacity: 1;
+  }
+  .cat-overlay-hover {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(220,105,0,0.95) 0%, rgba(220,105,0,0.2) 100%);
+    z-index: 3; transition: opacity 0.4s ease; opacity: 0;
+  }
+  .cat-card:hover .cat-bg { transform: scale(1.1); }
+  .cat-card:hover .cat-overlay { opacity: 0; }
+  .cat-card:hover .cat-overlay-hover { opacity: 1; }
+  .cat-card:hover { transform:translateY(-5px); box-shadow:0 15px 35px rgba(232,114,42,0.3); }
+  .cat-content { position: relative; z-index: 4; color: white; }
+  .cat-icon { font-size:36px; display:block; margin-bottom:15px; }
+  .cat-card h3 { font-size:22px; font-weight:700; color:white; margin-bottom:6px; }
+  .cat-card h3 span { color:rgba(255,255,255,0.85) !important; font-size:14px !important; }
+  .cat-card p { font-size:14px; color:rgba(255,255,255,0.9); line-height:1.5; }
 
   /* SPECIAL SECTION */
   .special-section { background:linear-gradient(135deg,rgba(74,44,10,0.85) 0%,rgba(26,18,8,0.95) 100%), url('balaji_bg.png') center/cover no-repeat; color:white; padding:72px 40px; text-align:center; position: relative; }
