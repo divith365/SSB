@@ -206,7 +206,7 @@
   .bg-slide.active { opacity: 1; transform: scale(1); transition: opacity 2s ease-in-out, transform 8s linear; }
   .hero-overlay { position: absolute; top:0; left:0; width: 100%; height: 100%; z-index: 1; background: linear-gradient(to bottom,rgba(26,18,8,0.65) 0%,rgba(26,18,8,0.3) 60%,rgba(253,248,240,1) 100%); pointer-events: none; }
   .hero-content, .hero-stats { z-index: 2; position: relative; }
-    .place-name-overlay { position: absolute; top: 120px; right: 40px; z-index: 3; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: opacity 1s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .place-name-overlay { position: absolute; bottom: 40px; right: 40px; z-index: 3; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: opacity 1s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 20px; backdrop-filter: blur(4px); }
     .hero-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; background: rgba(0,0,0,0.3); color: white; border: none; font-size: 24px; padding: 15px 12px; cursor: pointer; backdrop-filter: blur(4px); transition: all 0.3s; }
   .hero-nav:hover { background: rgba(0,0,0,0.6); transform: translateY(-50%) scale(1.1); }
   .prev-slide { left: 10px; border-radius: 0 5px 5px 0; }
@@ -751,7 +751,7 @@
     <div class="bg-slide" style="background-image: url('images/hero/slide_18.webp');" data-title="Incredible India"></div>
   </div>
   <div class="hero-overlay"></div>
-  <div class="place-name-overlay" id="placeNameOverlay">&#128205; Mysore Palace</div>
+  <div class="place-name-overlay" id="placeNameOverlay">Image 1</div>
   <div class="hero-dots" id="heroDots"></div>
   <button class="hero-nav prev-slide" id="heroPrev">&#10094;</button>
   <button class="hero-nav next-slide" id="heroNext">&#10095;</button>
@@ -1296,7 +1296,7 @@
     
     placeName.style.opacity = '0';
     setTimeout(() => {
-      placeName.innerHTML = '&#128205; ' + slides[currentSlide].getAttribute('data-title');
+      placeName.innerHTML = 'Image ' + (currentSlide + 1);
       placeName.style.opacity = '1';
     }, 1000);
   }
