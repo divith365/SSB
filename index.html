@@ -363,10 +363,10 @@
 
   .tour-card { background:var(--white); border-radius:18px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); transition:all 0.25s; }
   .tour-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.13); }
-  .tour-img { height:160px; background-color: #222; position:relative; display:flex; align-items:center; justify-content:center; font-size:48px; background-size: cover !important; background-position: center !important; }
-  
-  
-  
+  .tour-img { height:160px; background:linear-gradient(135deg,var(--saffron),var(--gold)); position:relative; display:flex; align-items:center; justify-content:center; font-size:48px; }
+  .tour-card.featured .tour-img { background:linear-gradient(135deg,#1B6CA8,#0D4A7A); }
+  .tour-card.honeymoon .tour-img { background:linear-gradient(135deg,#C0392B,#922B21); }
+  .tour-card.beach .tour-img { background:linear-gradient(135deg,#1A8A5A,#0F6040); }
   .tour-badge { position:absolute; top:14px; left:14px; background:var(--brown); color:white; font-size:10px; font-weight:700; padding:4px 10px; border-radius:20px; letter-spacing:0.5px; }
   .tour-num { position:absolute; top:14px; right:14px; background:var(--saffron); color:white; font-size:11px; font-weight:700; padding:4px 10px; border-radius:8px; }
   .tour-body { padding:20px; }
@@ -922,7 +922,7 @@
 
     <!-- Tour 1 -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/city.jpeg');">🏙️<span class="tour-badge" data-t="tour_badge_local">Local</span><span class="tour-num">Tour #1</span></div>
+      <div class="tour-img">🏙️<span class="tour-badge" data-t="tour_badge_local">Local</span><span class="tour-num">Tour #1</span></div>
       <div class="tour-body">
         <h3>Bangalore Local Half Day / ಬೆಂಗಳೂರು ಅರ್ಧ ದಿನ ದರ್ಶನ</h3>
         <div class="tour-meta"><span class="meta-pill">Half Day / ಅರ್ಧ ದಿನ</span><span class="meta-pill orange">2 Batches</span></div>
@@ -936,7 +936,7 @@
 
     <!-- Tour 3 -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hero/slide_4.webp');">🏰<span class="tour-badge" data-t="tour_badge_daytr">Day Tour</span><span class="tour-num">Tour #2</span></div>
+      <div class="tour-img">🏰<span class="tour-badge" data-t="tour_badge_daytr">Day Tour</span><span class="tour-num">Tour #2</span></div>
       <div class="tour-body">
         <h3>Daily Mysore Sight Seeing / ಮೈಸೂರು ದರ್ಶನ</h3>
         <div class="tour-meta"><span class="meta-pill">Day Trip</span><span class="meta-pill orange">Dep 7:30am</span></div>
@@ -949,7 +949,7 @@
 
     <!-- Tour 4 Honeymoon -->
     <div class="tour-card honeymoon">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/honey.jpeg');">💑<span class="tour-badge" data-t="tour_badge_honey">Honeymoon Special</span><span class="tour-num">Tour #3</span></div>
+      <div class="tour-img">💑<span class="tour-badge" data-t="tour_badge_honey">Honeymoon Special</span><span class="tour-num">Tour #3</span></div>
       <div class="tour-body">
         <h3>Mysore – Ooty 2 Days / ಮೈಸೂರು – ಊಟಿ ೨ ದಿನ</h3>
         <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span><span class="meta-pill orange">Luxury 2×2</span></div>
@@ -963,7 +963,7 @@
 
     <!-- Tour 5 -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hill.jpg');">🌿<span class="tour-badge" data-t="tour_badge_hill">Hill Station</span><span class="tour-num">Tour #4</span></div>
+      <div class="tour-img">🌿<span class="tour-badge" data-t="tour_badge_hill">Hill Station</span><span class="tour-num">Tour #4</span></div>
       <div class="tour-body">
         <h3>Mysore, Ooty, Coonur / ಮೈಸೂರು, ಊಟಿ, ಕೂನೂರ್</h3>
         <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span></div>
@@ -977,7 +977,7 @@
 
     <!-- Tour 6 -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hero/slide_5.webp');">⛰️<span class="tour-badge" data-t="tour_badge_pop">Popular</span><span class="tour-num">Tour #5</span></div>
+      <div class="tour-img">⛰️<span class="tour-badge" data-t="tour_badge_pop">Popular</span><span class="tour-num">Tour #5</span></div>
       <div class="tour-body">
         <h3>Mysore – Ooty – Kodaikanal / ಮೈಸೂರು – ಊಟಿ – ಕೊಡೈಕಾನಲ್</h3>
         <div class="tour-meta"><span class="meta-pill">3 Nights – 4 Days</span></div>
@@ -992,7 +992,7 @@
 
     <!-- Tour 8 Coorg -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hero/slide_6.webp');">🌲<span class="tour-badge" data-t="tour_badge_nat">Nature</span><span class="tour-num">Tour #6</span></div>
+      <div class="tour-img">🌲<span class="tour-badge" data-t="tour_badge_nat">Nature</span><span class="tour-num">Tour #6</span></div>
       <div class="tour-body">
         <h3>Coorg / ಕೊಡಗು (1 Night – 2 Days)</h3>
         <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span></div>
@@ -1005,7 +1005,7 @@
 
     <!-- Tour 12 Best Seller -->
     <div class="tour-card featured">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/piligrim.jpg');">🛕<span class="tour-badge" data-t="tour_badge_best">Best Seller</span><span class="tour-num">Tour #7</span></div>
+      <div class="tour-img">🛕<span class="tour-badge" data-t="tour_badge_best">Best Seller</span><span class="tour-num">Tour #7</span></div>
       <div class="tour-body">
         <h3>Mysore → Ooty → Kodai → Madurai → Rameshwaram → Kanyakumari</h3>
         <div class="tour-meta"><span class="meta-pill">6 Nights – 7 Days</span></div>
@@ -1023,7 +1023,7 @@
 
     <!-- Tour 13 Munnar -->
     <div class="tour-card">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hero/slide_7.webp');">🍃<span class="tour-badge" data-t="tour_badge_kerala">Kerala</span><span class="tour-num">Tour #8</span></div>
+      <div class="tour-img">🍃<span class="tour-badge" data-t="tour_badge_kerala">Kerala</span><span class="tour-num">Tour #8</span></div>
       <div class="tour-body">
         <h3>Munnar / ಮುನ್ನಾರ್ (2 Night / 3 Days)</h3>
         <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span><span class="meta-pill orange">Mini Luxury Coach</span></div>
@@ -1038,7 +1038,7 @@
 
     <!-- Tour 17 Goa -->
     <div class="tour-card beach">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/beach.jpg');">🏖️<span class="tour-badge" data-t="tour_badge_beach">Beach Special</span><span class="tour-num">Tour #9</span></div>
+      <div class="tour-img">🏖️<span class="tour-badge" data-t="tour_badge_beach">Beach Special</span><span class="tour-num">Tour #9</span></div>
       <div class="tour-body">
         <h3>GOA Package / ಗೋವಾ (4 Days)</h3>
         <div class="tour-meta"><span class="meta-pill">2 Nights – 3 Days</span></div>
@@ -1053,7 +1053,7 @@
 
     <!-- Tour 20 Mega -->
     <div class="tour-card featured">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/hero/slide_8.webp');">🗺️<span class="tour-badge" data-t="tour_badge_mega">Mega Tour</span><span class="tour-num">Tour #10</span></div>
+      <div class="tour-img">🗺️<span class="tour-badge" data-t="tour_badge_mega">Mega Tour</span><span class="tour-num">Tour #10</span></div>
       <div class="tour-body">
         <h3>Mysore–Ooty–Coonur–Kodai–Munnar–Thekkady / ಮಹಾ ಕೇರಳ ಪ್ರವಾಸ</h3>
         <div class="tour-meta"><span class="meta-pill">8 Nights – 9 Days</span><span class="meta-pill orange">Best Value</span></div>
@@ -1069,7 +1069,7 @@
 
     <!-- Tour 27 Houseboat -->
     <div class="tour-card featured">
-      <div class="tour-img" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('images/houseboat.webp');">🚢<span class="tour-badge" data-t="tour_badge_hboat">Houseboat</span><span class="tour-num">Tour #11</span></div>
+      <div class="tour-img">🚢<span class="tour-badge" data-t="tour_badge_hboat">Houseboat</span><span class="tour-num">Tour #11</span></div>
       <div class="tour-body">
         <h3>Alleppey Houseboat – Cochin / ಅಲ್ಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್</h3>
         <div class="tour-meta"><span class="meta-pill">1 Night – 2 Days</span><span class="meta-pill orange">Houseboat Stay</span></div>
