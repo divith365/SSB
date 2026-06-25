@@ -155,19 +155,19 @@
     display:none; position:fixed; inset:0; top:0;
     background:rgba(26,18,8,0.97);
     z-index:150; flex-direction:column;
-    align-items:center; justify-content:center; gap:28px;
+    align-items:center; justify-content:center; gap:14px;
     backdrop-filter:blur(8px);
   }
   .mobile-nav.open { display:flex; animation:fadeInDown 0.3s ease; }
   @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
   .mobile-nav a {
-    text-decoration:none; color:white; font-size:22px; font-weight:600;
+    text-decoration:none; color:white; font-size:12px; font-weight:600;
     font-family:'Playfair Display',serif;
     transition:color 0.2s;
-    padding:8px 0;
+    padding:4px 0;
   }
   .mobile-nav a:hover { color:var(--gold); }
-  .mobile-nav .call-btn { background:var(--saffron); color:white!important; padding:14px 36px; border-radius:12px; font-size:18px!important; }
+  .mobile-nav .call-btn { background:var(--saffron); color:white!important; padding:8px 20px; border-radius:8px; font-size:11px!important; }
   .mobile-nav-close { position:absolute; top:24px; right:24px; font-size:27px; color:white; cursor:pointer; background:none; border:none; line-height:1; }
 
   /* ── HEADER FLOATING ICONS ── */
@@ -278,6 +278,8 @@
     animation: ring-spin 6s linear infinite;
   }
   @keyframes ring-spin { to { transform: rotate(360deg); } }
+  
+  .footer-credit { width:100%; text-align:center; margin-top:16px; font-weight:700; font-size:14px; letter-spacing:0.5px; background: linear-gradient(90deg, #FF6B00, #9B4DCA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   @media(max-width:900px) { .hero-flip-logo { display:none; } }
   .stat-card { background:rgba(255,255,255,0.95); padding:18px 24px; border-radius:14px; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.2); }
   .stat-card .num { font-family:'Playfair Display',serif; font-size:28px; font-weight:900; color:var(--saffron); }
@@ -521,6 +523,8 @@
     transform: translateY(-3px);
   }
 
+  
+  .footer-credit { width:100%; text-align:center; margin-top:16px; font-weight:700; font-size:14px; letter-spacing:0.5px; background: linear-gradient(90deg, #FF6B00, #9B4DCA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   @media(max-width:900px) {
     /* Header */
     header { padding:8px 18px; }
@@ -574,7 +578,9 @@
     .contact-sep { display: none !important; }
     .contact-item a { font-size: 13px !important; }
 
+    
     /* Loader */
+    .footer-credit { font-size: 7px; margin-top: 12px; }
     .loader-logo-wrap { width:150px; height:150px; }
     .loader-text { font-size:16px; }
   }
@@ -1352,7 +1358,7 @@
   <div class="footer-bottom">
     <span data-t="footer_copy">© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.</span>
     <span data-t="footer_copy2">Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009</span>
-    <div style="width:100%; text-align:center; margin-top:16px; font-weight:700; font-size:14px; letter-spacing:0.5px; background: linear-gradient(90deg, #FF6B00, #9B4DCA); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+    <div class="footer-credit">
       ✦ by trustwork.co.in &nbsp;|&nbsp; 📞 +91 93530 10107 &nbsp;|&nbsp; 📧 support@trustwork.co.in
     </div>
   </div>
