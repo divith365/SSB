@@ -1530,6 +1530,57 @@
     <div class="bg-slide" style="background-image: url('images/hero/slide_18.webp');" data-title="Incredible India"></div>
   </div>
   <div class="hero-overlay"></div>
+  <style>
+  .hero-top-right-badge {
+    position: absolute; 
+    top: 140px; 
+    right: 5%; 
+    background: rgba(10, 20, 35, 0.65); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+    padding: 16px 20px; 
+    border-radius: 12px; 
+    border: 1px solid rgba(255, 213, 128, 0.25); 
+    z-index: 20; 
+    max-width: 280px; 
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5); 
+    text-align: right;
+    animation: floatBadge 4s ease-in-out infinite;
+  }
+  @keyframes floatBadge {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+  }
+  @media (max-width: 768px) {
+    .hero-top-right-badge {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin: 120px auto -80px;
+      text-align: center;
+      max-width: 85%;
+      z-index: 15;
+    }
+    .hero-top-right-badge > div {
+      justify-content: center !important;
+    }
+  }
+  </style>
+  <div class="hero-top-right-badge">
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-bottom: 6px;">
+      <span style="width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulseDot 2s infinite;"></span>
+      <strong style="color: #FFD580; font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Group Bookings</strong>
+    </div>
+    <p style="color: white; font-size: 13px; line-height: 1.5; margin: 0; opacity: 0.95;">
+      School, College, Group &amp; Corporate tour packages available with food &amp; accommodation.
+    </p>
+  </div>
   <div class="place-name-overlay" id="placeNameOverlay">Image 1</div>
   <div class="hero-dots" id="heroDots"></div>
   <button class="hero-nav prev-slide" id="heroPrev">&#10094;</button>
@@ -1644,6 +1695,23 @@
     <div class="feat"><span class="icon">🧭</span><h4 style="line-height:1.4;">ಮಾರ್ಗದರ್ಶಿ<br><span style="font-size:0.8em; color:rgba(255,255,255,0.7); font-family:'Playfair Display',serif;">Tour Guide</span></h4><p data-t="sp_f4_p">Expert local guide included</p></div>
   </div>
   <a href="#contact" class="btn-primary" data-t="sp_btn">Enquire About Tirupathi VIP Darshan</a>
+</section>
+
+<!-- SHIRDI SPECIAL -->
+<section class="special-section" id="shirdi-special" style="background:linear-gradient(135deg,rgba(10,54,74,0.85) 0%,rgba(8,22,26,0.95) 100%), url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Sai_baba_samadhi_mandir_.jpg') center/cover no-repeat; margin-top:4px;">
+  <span class="eyebrow">ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ &nbsp;•&nbsp; Our Signature Offering</span>
+  <h2>ಶಿರಡಿ ಸಾಯಿಬಾಬಾ ದರ್ಶನ <br><span class="sub-name en-font" style="font-size: 0.7em; color: rgba(255,255,255,0.8);">Shirdi Sai Darshan</span></h2>
+  <div style="margin: 20px auto 28px; text-align: center;">
+    <img src="images/sai_center.png" alt="Shirdi Sai Baba" style="width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 12px 30px rgba(0,0,0,0.8); border: 2px solid rgba(255,213,128,0.4); object-fit: cover;">
+  </div>
+  <p>Experience the divine presence of Shirdi Sai Baba with our exclusive Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.</p>
+  <div class="special-features">
+    <div class="feat"><span class="icon">🛕</span><h4 style="line-height:1.4;">ಬಾಬಾ ದರ್ಶನ<br><span style="font-size:0.8em; color:rgba(255,255,255,0.7); font-family:'Playfair Display',serif;">Baba Darshan</span></h4><p>Peaceful darshan of Sai Baba</p></div>
+    <div class="feat"><span class="icon">🏨</span><h4 style="line-height:1.4;">ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ<br><span style="font-size:0.8em; color:rgba(255,255,255,0.7); font-family:'Playfair Display',serif;">Hotel Included</span></h4><p>Comfortable accommodation near temple</p></div>
+    <div class="feat"><span class="icon">🚌</span><h4 style="line-height:1.4;">AC ವಾಹನ<br><span style="font-size:0.8em; color:rgba(255,255,255,0.7); font-family:'Playfair Display',serif;">AC Transport</span></h4><p>Comfortable journey from Bangalore</p></div>
+    <div class="feat"><span class="icon">🧭</span><h4 style="line-height:1.4;">ಮಾರ್ಗದರ್ಶಿ<br><span style="font-size:0.8em; color:rgba(255,255,255,0.7); font-family:'Playfair Display',serif;">Tour Guide</span></h4><p>Expert local guide included</p></div>
+  </div>
+  <a href="#contact" class="btn-primary">Enquire About Shirdi Darshan</a>
 </section>
 
 <!-- TOURS -->
