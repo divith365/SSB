@@ -1533,7 +1533,7 @@
   <style>
   .hero-top-right-badge {
     position: absolute; 
-    top: 140px; 
+    top: 90px; 
     right: 5%; 
     background: rgba(10, 20, 35, 0.65); 
     backdrop-filter: blur(8px); 
@@ -1542,15 +1542,9 @@
     border-radius: 12px; 
     border: 1px solid rgba(255, 213, 128, 0.25); 
     z-index: 20; 
-    max-width: 280px; 
+    max-width: 380px; 
     box-shadow: 0 8px 32px rgba(0,0,0,0.5); 
     text-align: right;
-    animation: floatBadge 4s ease-in-out infinite;
-  }
-  @keyframes floatBadge {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
   }
   @keyframes pulseDot {
     0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
@@ -1562,9 +1556,9 @@
       position: relative;
       top: auto;
       right: auto;
-      margin: 120px auto -80px;
+      margin: 100px auto -80px;
       text-align: center;
-      max-width: 85%;
+      max-width: 90%;
       z-index: 15;
     }
     .hero-top-right-badge > div {
@@ -1573,12 +1567,14 @@
   }
   </style>
   <div class="hero-top-right-badge">
-    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-bottom: 6px;">
+    <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-bottom: 8px;">
       <span style="width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulseDot 2s infinite;"></span>
       <strong style="color: #FFD580; font-family: 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Group Bookings</strong>
     </div>
-    <p style="color: white; font-size: 13px; line-height: 1.5; margin: 0; opacity: 0.95;">
-      School, College, Group &amp; Corporate tour packages available with food &amp; accommodation.
+    <p style="color: white; font-size: 13px; line-height: 1.6; margin: 0; opacity: 0.95;">
+      School, College tour packages available with food &amp; accommodation.<br>
+      Group &amp; Corporate tour packages available with food &amp; accommodation.<br>
+      Day outing resort packages available
     </p>
   </div>
   <div class="place-name-overlay" id="placeNameOverlay">Image 1</div>
