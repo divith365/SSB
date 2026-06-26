@@ -1296,6 +1296,14 @@
   border-left: 3px solid transparent;
 }
 .tex-sub-tab:last-child { border-bottom: none; }
+.tex-sub-tab:hover {
+  transform: translateX(8px);
+}
+.tex-sub-active {
+  transform: translateX(12px);
+  box-shadow: -4px 4px 20px rgba(0,0,0,0.5);
+  border-left-width: 4px;
+}
 /* Individual tab color accents */
 .tex-sub-tab:nth-child(1):hover, .tex-sub-tab:nth-child(4):hover, .tex-sub-tab:nth-child(7):hover { background: rgba(255, 180, 60, 0.07); }
 .tex-sub-tab:nth-child(2):hover, .tex-sub-tab:nth-child(5):hover { background: rgba(100, 180, 255, 0.07); }
@@ -3325,6 +3333,24 @@ function selectAlpRoute(tab, num) {
   if(coin){ coin.textContent = coinMap[num]; coin.className = 'tex-tab-coin ' + coinClass[num]; }
 }
 
+  // Apply dynamic backgrounds to sub-tabs
+  function applySubTabBackgrounds(selector, routes) {
+    document.querySelectorAll(selector).forEach((tab, index) => {
+      const num = index + 1;
+      if(routes[num] && routes[num].img) {
+        tab.style.backgroundImage = `linear-gradient(rgba(18, 25, 38, 0.85), rgba(18, 25, 38, 0.88)), url('${routes[num].img}')`;
+        tab.style.backgroundSize = 'cover';
+        tab.style.backgroundPosition = 'center';
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    applySubTabBackgrounds('#pkg-mys .tex-sub-tab', mysRoutes);
+    applySubTabBackgrounds('#pkg-ker .tex-sub-tab', kerRoutes);
+    applySubTabBackgrounds('#pkg-oot .tex-sub-tab', ootRoutes);
+    applySubTabBackgrounds('#pkg-goa .tex-sub-tab', goaRoutes);
+    applySubTabBackgrounds('#pkg-alp .tex-sub-tab', alpRoutes);
+  });
 </script>
 </body>
 </html>
