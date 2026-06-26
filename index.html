@@ -782,7 +782,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(48px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .reveal.visible {
     opacity: 1;
@@ -791,18 +791,18 @@
   .reveal-left {
     opacity: 0;
     transform: translateX(-48px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .reveal-left.visible { opacity:1; transform:translateX(0); }
   .reveal-right {
     opacity: 0;
     transform: translateX(48px);
-    transition: opacity: 0.7s ease, transform 0.7s ease;
+    transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .reveal-right.visible { opacity:1; transform:translateX(0); }
   .reveal-scale {
     opacity:0; transform:scale(0.88);
-    transition: opacity 0.65s ease, transform 0.65s ease;
+    transition: opacity 1.4s ease, transform 1.4s ease;
   }
   .reveal-scale.visible { opacity:1; transform:scale(1); }
 
@@ -2769,22 +2769,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add reveal classes to elements
   document.querySelectorAll('.cat-card').forEach((el, i) => {
     el.classList.add('reveal-scale');
-    el.style.transitionDelay = (i * 80) + 'ms';
+    el.style.transitionDelay = (i * 150) + 'ms';
   });
   document.querySelectorAll('.tex-menu-item').forEach((el, i) => {
     el.classList.add('reveal-scale');
-    el.style.transitionDelay = ((i % 5) * 80) + 'ms';
+    el.style.transitionDelay = ((i % 5) * 150) + 'ms';
   });
   document.querySelectorAll('.tex-panel').forEach((el, i) => {
     el.classList.add('reveal-right');
   });
   document.querySelectorAll('.dest-card').forEach((el, i) => {
     el.classList.add('reveal');
-    el.style.transitionDelay = (i * 70) + 'ms';
+    el.style.transitionDelay = (i * 120) + 'ms';
   });
   document.querySelectorAll('.why-card').forEach((el, i) => {
     el.classList.add('reveal-scale');
-    el.style.transitionDelay = (i * 90) + 'ms';
+    el.style.transitionDelay = (i * 160) + 'ms';
   });
   document.querySelectorAll('.section-title').forEach(el => el.classList.add('reveal'));
   document.querySelectorAll('.stat-card').forEach((el,i) => {
