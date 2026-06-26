@@ -1114,19 +1114,19 @@
   position: relative;
   user-select: none;
   background-color: #111;
-  background-image: linear-gradient(to right, rgba(15,15,25,0.9), rgba(15,15,25,0.85)), var(--bg-img, none);
+  background-image: linear-gradient(to right, rgba(15,15,25,0.7), rgba(15,15,25,0.4)), var(--bg-img, none);
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 .tex-menu-item:hover {
-  background-image: linear-gradient(to right, rgba(232,114,42,0.25), rgba(15,15,25,0.8)), var(--bg-img, none);
+  background-image: linear-gradient(to right, rgba(232,114,42,0.4), rgba(15,15,25,0.3)), var(--bg-img, none);
   border-color: rgba(232,114,42,0.6);
   transform: translateX(4px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 .tex-menu-item.tex-active {
-  background-image: linear-gradient(135deg, rgba(232,114,42,0.4) 0%, rgba(15,15,25,0.7) 100%), var(--bg-img, none);
+  background-image: linear-gradient(135deg, rgba(232,114,42,0.6) 0%, rgba(15,15,25,0.2) 100%), var(--bg-img, none);
   border-color: var(--saffron);
   box-shadow: 0 4px 24px rgba(232,114,42,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   transform: translateX(4px);
@@ -2739,9 +2739,12 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('reveal-scale');
     el.style.transitionDelay = (i * 80) + 'ms';
   });
-  document.querySelectorAll('.tour-card').forEach((el, i) => {
-    el.classList.add('reveal');
-    el.style.transitionDelay = (i * 100) + 'ms';
+  document.querySelectorAll('.tex-menu-item').forEach((el, i) => {
+    el.classList.add('reveal-scale');
+    el.style.transitionDelay = ((i % 5) * 80) + 'ms';
+  });
+  document.querySelectorAll('.tex-panel').forEach((el, i) => {
+    el.classList.add('reveal-right');
   });
   document.querySelectorAll('.dest-card').forEach((el, i) => {
     el.classList.add('reveal');
