@@ -1704,6 +1704,37 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+.mobile-scroll-indicator {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-scroll-indicator.visible {
+    display: flex;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #FFD580;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 1000;
+    animation: bounceIndicator 2s infinite;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 213, 128, 0.3);
+  }
+}
+@keyframes bounceIndicator {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-5px); }
+  60% { transform: translateX(-50%) translateY(-3px); }
+}
+
 </style>
 
 </head>
@@ -2106,10 +2137,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay1" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay1" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 1: Bangalore Local -->
         <div class="tex-panel tex-panel-active" id="pkg-blr" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-blr" id="blr-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-1a" id="blr-coin">1a</div>
@@ -2161,10 +2192,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlayCab" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlayCab" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 2: 1 Day Cab Trip -->
         <div class="tex-panel" id="pkg-cab" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-cab" id="cab-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-2a" id="cab-coin">2a</div>
@@ -2222,10 +2253,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay2" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay2" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 3: Chikkamagalur -->
         <div class="tex-panel tex-panel-active" id="pkg-chk" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-chk" id="chk-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2282,10 +2313,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay3" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay3" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 4: Coorg -->
         <div class="tex-panel tex-panel-active" id="pkg-crg" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-crg" id="crg-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2335,10 +2366,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay4" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay4" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 5: Mysore -->
         <div class="tex-panel tex-panel-active" id="pkg-mys" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-mys" id="mys-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2446,10 +2477,10 @@
           
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay5" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay5" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 6: Kerala -->
         <div class="tex-panel tex-panel-active" id="pkg-ker" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-ker" id="ker-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2550,9 +2581,9 @@
           
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay6" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay6" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-oot" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-oot" id="oot-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2610,9 +2641,9 @@
           
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay7" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay7" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-kod" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-kod" id="kod-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2664,9 +2695,9 @@
           
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay8" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay8" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-goa" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-goa" id="goa-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -2710,9 +2741,9 @@
           
         </div>
       </div>
-      <div class="tex-right" id="texModalOverlay9" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+      <div class="tex-right" id="texModalOverlay9" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-alp" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-alp" id="alp-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
@@ -3377,6 +3408,30 @@ function selectTexPackage(item, panelId) {
   if(targetPanel) targetPanel.classList.add('tex-panel-active');
   
   if(overlay) overlay.classList.add('modal-open');
+  if(window.innerWidth <= 768) {
+    document.body.style.overflow = 'hidden';
+    const subTabs = targetPanel.querySelector('.tex-sub-tabs');
+    if (subTabs) {
+      let indicator = targetPanel.querySelector('.mobile-scroll-indicator');
+      if(!indicator) {
+         indicator = document.createElement('div');
+         indicator.className = 'mobile-scroll-indicator';
+         indicator.innerHTML = 'Scroll for more ↓';
+         targetPanel.appendChild(indicator);
+      }
+      const checkScroll = () => {
+         if (subTabs.scrollHeight > subTabs.clientHeight && subTabs.scrollTop + subTabs.clientHeight < subTabs.scrollHeight - 10) {
+             indicator.classList.add('visible');
+         } else {
+             indicator.classList.remove('visible');
+         }
+      };
+      setTimeout(() => {
+         checkScroll();
+         subTabs.addEventListener('scroll', checkScroll);
+      }, 100);
+    }
+  }
 }
 
 function selectBlrSub(tab, type) {
