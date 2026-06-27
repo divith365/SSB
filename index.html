@@ -1565,6 +1565,18 @@
   background-repeat: no-repeat !important;
 }
 
+.bg-collage-cab {
+  background-image: 
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Halebidu_temple.jpg/960px-Halebidu_temple.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Nandi_Hills_Sunrise.jpg/960px-Nandi_Hills_Sunrise.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Shivanasamudra_Falls.jpg/960px-Shivanasamudra_Falls.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Gopuram_of_the_Ranganathaswamy_Temple%2C_Srirangapatna_Karnataka_India.jpg/960px-Gopuram_of_the_Ranganathaswamy_Temple%2C_Srirangapatna_Karnataka_India.jpg');
+  background-position: top left, top right, bottom left, bottom right;
+  background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
+  background-repeat: no-repeat;
+}
+
+
 </style>
 </head>
 <body>
@@ -2070,7 +2082,7 @@
         <!-- Package 2: 1 Day Cab Trip -->
         <div class="tex-panel" id="pkg-cab" onclick="event.stopPropagation();">
           <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
-          <div class="tex-panel-hero" id="cab-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg');">
+          <div class="tex-panel-hero bg-collage-cab" id="cab-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-2a" id="cab-coin">2a</div>
             <div class="tex-panel-hero-content">
@@ -3314,19 +3326,19 @@ function selectBlrSub(tab, type) {
 
 const cabRoutes = {
   1: {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Halebidu_temple.jpg/960px-Halebidu_temple.jpg',
     title: '<em>Heritage</em> Circuit<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;"><em style="color:#FFD580;font-style:normal;">ಐತಿಹಾಸಿಕ</em> ಸರ್ಕಿಟ್</span>',
     desc: 'Trace ancient Karnataka\'s golden age through its timeless temples and shrines.<br><span style="font-size:0.9em;opacity:0.75;">ಪ್ರಾಚೀನ ಕರ್ನಾಟಕದ ಸ್ವರ್ಣಯುಗದ ದೇವಾಲಯಗಳ ಮತ್ತು ಪೂಜಾ ಸ್ಥಳಗಳ ದರ್ಶನ.</span>',
     tags: '🛕 Yediyuru · ಯೇದಿಯೂರು|🛕 Adichunchanagiri · ಆದಿಚುಂಚನಗಿರಿ|🕌 Sravanabelagola · ಶ್ರವಣಬೆಳಗೊಳ|🏛️ Belur · ಬೇಲೂರು|🏛️ Halebeedu · ಹಳೇಬೀಡು'
   },
   2: {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Nandi_Hills_Sunrise.jpg/800px-Nandi_Hills_Sunrise.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Nandi_Hills_Sunrise.jpg/960px-Nandi_Hills_Sunrise.jpg',
     title: '<em>Hills & Nature</em> Circuit<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;"><em style="color:#FFD580;font-style:normal;">ಬೆಟ್ಟ ಮತ್ತು ಪ್ರಕೃತಿ</em> ಸರ್ಕಿಟ್</span>',
     desc: 'Sunrise, hilltop shrines and serene nature — a refreshing escape from the city.<br><span style="font-size:0.9em;opacity:0.75;">ಸೂರ್ಯೋದಯ, ಬೆಟ್ಟದ ದೇವಾಲಯಗಳು ಮತ್ತು ಪ್ರಶಾಂತ ಪ್ರಕೃತಿ — ನಗರದಿಂದ ಮನೋಲ್ಲಾಸದ ಪ್ರಯಾಣ.</span>',
     tags: '⛰️ Siddagange · ಸಿದ್ಧಗಂಗೆ|🌄 Shivagange · ಶಿವಗಂಗೆ|💧 Namadachilume · ನಾಮದಚಿಲುಮೆ|⛰️ Mandaragiri Hills · ಮಂದರಗಿರಿ|🛕 Goravanahalli Laxmi · ಗೊರವನಹಳ್ಳಿ ಲಕ್ಷ್ಮಿ'
   },
   3: {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Shivanasamudra_Falls.jpg/800px-Shivanasamudra_Falls.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Shivanasamudra_Falls.jpg/960px-Shivanasamudra_Falls.jpg',
     title: '<em>Riverside</em> Circuit<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;"><em style="color:#FFD580;font-style:normal;">ನದಿ ತಟ</em> ಸರ್ಕಿಟ್</span>',
     desc: 'Rivers, waterfalls, ancient temples and the mystic sands of Talakadu.<br><span style="font-size:0.9em;opacity:0.75;">ನದಿಗಳು, ಜಲಪಾತಗಳು, ಪ್ರಾಚೀನ ದೇವಾಲಯಗಳು ಮತ್ತು ತಲಕಾಡಿನ ರಹಸ್ಯಮಯ ಮರಳು.</span>',
     tags: '🏰 Srirangapatna · ಶ್ರೀರಂಗಪಟ್ಟಣ|💧 Shivanasamudra Bluff · ಶಿವನಸಮುದ್ರ|🛕 Somanatha Temple · ಸೋಮನಾಥ ದೇವಾಲಯ|🏖️ Talakadu · ತಲಕಾಡು'
@@ -3336,7 +3348,16 @@ function selectCabRoute(tab, num) {
   document.querySelectorAll('#pkg-cab .tex-sub-tab').forEach(t => t.classList.remove('tex-sub-active'));
   tab.classList.add('tex-sub-active');
   const r = cabRoutes[num];
-  document.getElementById('cab-hero').style.backgroundImage = `url('${r.img}')`;
+  const hero = document.getElementById('cab-hero');
+  if (num === 1) {
+    hero.className = 'tex-panel-hero bg-collage-cab';
+    hero.style.backgroundImage = '';
+  } else {
+    hero.className = 'tex-panel-hero';
+    hero.style.backgroundImage = `url('${r.img}')`;
+    hero.style.backgroundPosition = 'center center';
+    hero.style.backgroundSize = 'cover';
+  }
   document.getElementById('cab-title').innerHTML = r.title;
   document.getElementById('cab-desc').innerHTML = r.desc;
   document.getElementById('cab-tags').innerHTML = r.tags.split('|').map(t => `<span class="tex-place-tag">${t}</span>`).join('');
