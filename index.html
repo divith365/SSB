@@ -1556,10 +1556,10 @@
 
 .bg-collage-blr {
   background-image: 
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Vidhana_Soudha_2012.jpg/800px-Vidhana_Soudha_2012.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/ISKCON_Banglaore_Temple.jpg/800px-ISKCON_Banglaore_Temple.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/High_Court_of_Karnataka%2C_Bangalore_MMK.jpg/800px-High_Court_of_Karnataka%2C_Bangalore_MMK.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/800px-Cubbon_Park_W.jpg') !important;
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Vidhana_Soudha_2012.jpg/960px-Vidhana_Soudha_2012.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/ISKCON_Banglaore_Temple.jpg/960px-ISKCON_Banglaore_Temple.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/High_Court_of_Karnataka%2C_Bangalore_MMK.jpg/960px-High_Court_of_Karnataka%2C_Bangalore_MMK.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/960px-Cubbon_Park_W.jpg') !important;
   background-position: top left, top right, bottom left, bottom right !important;
   background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5% !important;
   background-repeat: no-repeat !important;
@@ -3293,13 +3293,18 @@ function selectBlrSub(tab, type) {
   const tags = document.getElementById('blr-tags');
   const coin = document.getElementById('blr-coin');
   if (type === 'half') {
-    hero.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg')";
+    hero.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Vidhana_Soudha_2012.jpg/960px-Vidhana_Soudha_2012.jpg'), url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/ISKCON_Banglaore_Temple.jpg/960px-ISKCON_Banglaore_Temple.jpg'), url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/High_Court_of_Karnataka%2C_Bangalore_MMK.jpg/960px-High_Court_of_Karnataka%2C_Bangalore_MMK.jpg'), url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/960px-Cubbon_Park_W.jpg')";
+    hero.style.backgroundPosition = "top left, top right, bottom left, bottom right";
+    hero.style.backgroundSize = "50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%";
+    hero.style.backgroundRepeat = "no-repeat";
     title.innerHTML = 'Bangalore <em>Half Day</em> Package<br><span style="font-family:\'Inter\', sans-serif;font-size:0.55em;opacity:0.9;font-weight:500;">ಬೆಂಗಳೂರು <em style="color:#FFD580;font-style:normal;">ಅರ್ಧ ದಿನ</em> ಪ್ಯಾಕೇಜ್</span>';
     desc.innerHTML = 'A curated morning or evening tour covering Bangalore\'s must-see landmarks.<br><span style="font-size:0.9em;opacity:0.75;">ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ತಾಣಗಳ ವಿಶೇಷ ದರ್ಶನ.</span>';
     tags.innerHTML = '<span class="tex-place-tag">🛕 Bull Temple · ದೊಡ್ಡ ಗಣಪತಿ</span><span class="tex-place-tag">🌳 Lalbagh · ಲಾಲ್‌ಬಾಗ್</span><span class="tex-place-tag">🏛️ Vidhana Soudha · ವಿಧಾನ ಸೌಧ</span><span class="tex-place-tag">🌿 Cubbon Park · ಕಬ್ಬನ್ ಪಾರ್ಕ್</span>';
     if(coin){ coin.textContent='1a'; coin.className='tex-tab-coin coin-1a'; }
   } else {
     hero.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/ISKCON_Bangalore.jpg/800px-ISKCON_Bangalore.jpg')";
+    hero.style.backgroundPosition = "center center";
+    hero.style.backgroundSize = "cover";
     title.innerHTML = 'Bangalore <em>Full Day</em> Package<br><span style="font-family:\'Inter\', sans-serif;font-size:0.55em;opacity:0.9;font-weight:500;">ಬೆಂಗಳೂರು <em style="color:#FFD580;font-style:normal;">ಪೂರ್ಣ ದಿನ</em> ಪ್ಯಾಕೇಜ್</span>';
     desc.innerHTML = 'An all-day journey through the Garden City\'s heritage, culture & spiritual sites.<br><span style="font-size:0.9em;opacity:0.75;">ತೋಟಗಳ ನಗರದ ಐತಿಹಾಸಿಕ, ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ತಾಣಗಳ ಪೂರ್ಣ ದಿನದ ಪ್ರವಾಸ.</span>';
     tags.innerHTML = '<span class="tex-place-tag">🛕 ISKCON Temple · ಇಸ್ಕಾನ್</span><span class="tex-place-tag">🏰 Tippu Palace · ಟಿಪ್ಪು ಅರಮನೆ</span><span class="tex-place-tag">🌳 Lalbagh · ಲಾಲ್‌ಬಾಗ್</span><span class="tex-place-tag">🏛️ Vidhana Soudha · ವಿಧಾನ ಸೌಧ</span><span class="tex-place-tag">⛪ St. Mark\'s · ಸೆಂಟ್ ಮಾರ್ಕ್ಸ್</span>';
