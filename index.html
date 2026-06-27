@@ -3452,10 +3452,16 @@ function selectTexPackage(item, panelId) {
          targetPanel.appendChild(indicator);
       }
       const checkScroll = () => {
-         if (subTabs.scrollHeight > subTabs.clientHeight && subTabs.scrollTop + subTabs.clientHeight < subTabs.scrollHeight - 10) {
-             indicator.classList.add('visible');
-         } else {
+         const isScrollable = subTabs.scrollHeight > subTabs.clientHeight;
+         if (!isScrollable) {
              indicator.classList.remove('visible');
+             return;
+         }
+         indicator.classList.add('visible');
+         if (subTabs.scrollTop + subTabs.clientHeight >= subTabs.scrollHeight - 10) {
+             indicator.innerHTML = 'Scroll up ↑';
+         } else {
+             indicator.innerHTML = 'Scroll for more ↓';
          }
       };
       setTimeout(() => {
