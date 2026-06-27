@@ -454,18 +454,22 @@
   }
 .tours-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
 }
-@media (max-width:768px) {
-  .tours-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
+@media (max-width: 1200px) {
+  .tours-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .tours-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .tours-grid { grid-template-columns: 1fr; }
 }
 
   .tour-card {
@@ -529,7 +533,7 @@
 .dest-panel-content { position: relative; z-index: 2; padding: 20px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
 .dest-panel-icon { font-size: 28px; margin-bottom: auto; transition: transform 0.3s; }
 .dest-panel h3 {
-  font-size: 16px; color: white; margin: 0; white-space: nowrap; writing-mode: vertical-rl;
+  font-size: 16px; color: white; margin: 0; white-space: normal; writing-mode: vertical-rl;
   transform: rotate(180deg); transition: all 0.5s ease; letter-spacing: 1px;
 }
 .dest-panel-details { opacity: 0; max-height: 0; transition: opacity 0.3s ease, max-height 0.3s ease; overflow: hidden; }
@@ -677,7 +681,7 @@
     .hero-popular-packages { margin-top: 10px !important; margin-bottom: 15px !important; width: 100% !important; justify-content: center !important; flex-wrap: wrap !important; gap: 8px !important; overflow-x: visible !important; }
     .hero-popular-packages::-webkit-scrollbar { display: none; }
     .hero-popular-packages > span { font-size: 13.5px !important; margin-right: 0 !important; width: 100% !important; text-align: center; margin-bottom: 4px !important; flex-shrink: 0; }
-    .hero-popular-packages > a { font-size: 6.5px !important; padding: 4px 8px !important; flex: 0 0 auto !important; text-align: center; white-space: nowrap; }
+    .hero-popular-packages > a { font-size: 6.5px !important; padding: 4px 8px !important; flex: 0 0 auto !important; text-align: center; white-space: normal; }
     .hero-stats { display: none !important; }
     .hero-btns { display: none !important; }
     .hero-flip-logo { display:none; }
@@ -888,7 +892,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 15px;
   font-weight: 800;
-  color: #fff;
+  color: var(--saffron);
   line-height: 1.3;
   margin: 0 0 4px;
 }
@@ -1049,26 +1053,47 @@
    Right = full detail panel
    ============================================= */
 .tour-explorer {
-  grid-column: 1 / -1;
-  display: flex;
-  background: #1e2240;
+  display: block;
+  background-color: #1e2240;
+  background-size: cover;
+  background-position: center;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   border: 1px solid rgba(232,114,42,0.25);
-  min-height: 420px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  min-height: 200px;
+  position: relative;
 }
+.tour-explorer:hover {
+  box-shadow: 0 15px 45px rgba(232,114,42,0.5);
+  border-color: var(--saffron);
+}
+.tour-explorer:hover .tex-num {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 20px rgba(232,114,42,0.8);
+}
+.tour-explorer:hover .tex-menu-text strong {
+  text-shadow: 0 0 8px rgba(232,114,42,0.5);
+}
+.tour-explorer:hover .tex-menu-item::after {
+  color: var(--saffron);
+  transform: translateY(-50%) translateX(5px);
+}
+
+.tour-explorer:hover {  box-shadow: 0 25px 70px rgba(0,0,0,0.5); }
 
 /* LEFT MENU */
 .tex-left {
-  width: 320px;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0;
-  background: linear-gradient(160deg, #3d1f00 0%, #2a1400 100%);
-  border-right: 2px solid rgba(232,114,42,0.3);
+  background: linear-gradient(to bottom, rgba(13,17,40,0.8) 0%, rgba(13,17,40,0.2) 100%);
   display: flex;
   flex-direction: column;
-  padding: 28px 0;
 }
+.tex-left::-webkit-scrollbar { display: none; }
 .tex-header {
   padding: 20px 20px 18px;
   margin-bottom: 10px;
@@ -1110,32 +1135,24 @@
 }
 
 .tex-menu-item {
+  padding: 12px 24px;
+  cursor: pointer;
+  border-right: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
-  margin: 6px 12px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
+  gap: 16px;
   position: relative;
-  user-select: none;
-  background-color: #111;
-  background-image: linear-gradient(to right, rgba(15,15,25,0.7), rgba(15,15,25,0.4)), var(--bg-img, none);
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
+  white-space: normal;
 }
 .tex-menu-item:hover {
-  background-image: linear-gradient(to right, rgba(232,114,42,0.4), rgba(15,15,25,0.3)), var(--bg-img, none);
-  border-color: rgba(232,114,42,0.6);
+    border-color: rgba(232,114,42,0.6);
   transform: translateX(4px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 .tex-menu-item.tex-active {
-  background-image: linear-gradient(135deg, rgba(232,114,42,0.6) 0%, rgba(15,15,25,0.2) 100%), var(--bg-img, none);
-  border-color: var(--saffron);
+    border-color: var(--saffron);
   box-shadow: 0 4px 24px rgba(232,114,42,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
   transform: translateX(4px);
 }
@@ -1155,13 +1172,13 @@
 .tex-num {
   width: 38px; height: 38px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--saffron);
+  border: none;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Playfair Display', serif;
   font-size: 17px;
   font-weight: 800;
-  color: rgba(255,255,255,0.5);
+  color: #fff;
   flex-shrink: 0;
   transition: all 0.3s;
 }
@@ -1178,7 +1195,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 16px;
   font-weight: 800;
-  color: #fff;
+  color: var(--saffron);
   line-height: 1.3;
   transition: color 0.2s;
   letter-spacing: 0.2px;
@@ -1206,18 +1223,36 @@
 
 /* RIGHT DETAIL AREA */
 .tex-right {
-  flex: 1;
-  display: grid;
-  overflow: hidden;
-  background: #1e2240;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.tex-right.modal-open {
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Each package detail panel */
 .tex-panel {
   display: none;
-  width: 100%;
-  grid-area: 1 / 1;
-  flex-direction: row-reverse;
+  width: 95%;
+  max-width: 900px;
+  aspect-ratio: 1 / 1;
+  min-height: 500px;
+  max-height: 95vh;
+  background: #1e2240;
+  border-radius: 20px;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
 .tex-panel.tex-panel-active {
   display: flex;
@@ -1231,13 +1266,11 @@
 /* Panel has a hero photo top area + sub-options row */
 .tex-panel-hero {
   flex: 1;
+  height: auto;
+  position: relative;
   background-size: cover;
   background-position: center;
-  position: relative;
-  min-height: 180px;
-  display: flex;
-  align-items: flex-start;
-  padding: 32px 28px;
+  overflow: hidden;
 }
 .tex-panel-hero-overlay {
   position: absolute; inset: 0;
@@ -1282,39 +1315,36 @@
 /* Sub-option tabs (Half/Full Day, Routes) */
 .tex-sub-tabs {
   display: flex;
-  flex-direction: column;
-  width: 320px;
+  flex-direction: row;
+  width: 100%;
   flex-shrink: 0;
   background: #0a0814;
-  border-top: none;
-  border-right: 2px solid rgba(255,255,255,0.06);
-  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow-x: auto;
 }
 /* Hide scrollbar for sub-tabs */
-.tex-sub-tabs::-webkit-scrollbar { width: 6px; }
+.tex-sub-tabs::-webkit-scrollbar { height: 4px; }
 .tex-sub-tabs::-webkit-scrollbar-track { background: #0a0814; }
 .tex-sub-tabs::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
 .tex-sub-tab {
-  flex: none;
-  width: 100%;
-  padding: 18px 20px;
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 16px;
   cursor: pointer;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 10px;
   position: relative;
-  border-left: 3px solid transparent;
 }
-.tex-sub-tab:last-child { border-bottom: none; }
 .tex-sub-tab:hover {
-  transform: translateX(8px);
+  background: rgba(255,255,255,0.03);
 }
 .tex-sub-active {
-  transform: translateX(12px);
-  box-shadow: -4px 4px 20px rgba(0,0,0,0.5);
-  border-left-width: 4px;
+  background: rgba(255,255,255,0.05);
+  border-bottom-color: var(--saffron);
 }
 /* Individual tab color accents */
 .tex-sub-tab:nth-child(1):hover, .tex-sub-tab:nth-child(4):hover, .tex-sub-tab:nth-child(7):hover { background: rgba(255, 180, 60, 0.07); }
@@ -1790,38 +1820,26 @@
   <div class="tours-grid" id="toursGrid">
 
     <!-- TOUR EXPLORER WIDGET -->
-    <div class="tour-explorer" id="tourExplorer">
-
-      <!-- LEFT: numbered package list -->
+    
+    <!-- Card 1: Bangalore Local -->
+    <div class="tour-explorer" id="tourExplorer" onclick="selectTexPackage(this, 'pkg-blr')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Bangalore Packages<br>ಬೆಂಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
-          <h3>Local & Day Trips<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಸ್ಥಳೀಯ ಮತ್ತು ದಿನ ಪ್ರಯಾಣ</span></h3>
+          <h3>Local Sight Seeing<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಸ್ಥಳೀಯ ನಗರ ದರ್ಶನ</span></h3>
         </div>
-
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-blr')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-blr" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg'); border-bottom: none;">
           <div class="tex-num">1</div>
           <div class="tex-menu-text">
             <strong>Bangalore Local Sight Seeing</strong>
             <span>ಬೆಂಗಳೂರು ನಗರ ದರ್ಶನ</span>
           </div>
         </div>
-
-        <div class="tex-menu-item" onclick="selectTexPackage(this, 'pkg-cab')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg\');">
-          <div class="tex-num">2</div>
-          <div class="tex-menu-text">
-            <strong>1 Day Cab Trip from Bangalore</strong>
-            <span>ಬೆಂಗಳೂರಿನಿಂದ 1 ದಿನದ ಕ್ಯಾಬ್ ಟ್ರಿಪ್</span>
-          </div>
-        </div>
-
       </div>
-
-      <!-- RIGHT: detail panels -->
-      <div class="tex-right">
-
+      <div class="tex-right" id="texModalOverlay1" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 1: Bangalore Local -->
-        <div class="tex-panel tex-panel-active" id="pkg-blr">
+        <div class="tex-panel tex-panel-active" id="pkg-blr" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="blr-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-1a" id="blr-coin">1a</div>
@@ -1854,8 +1872,29 @@
           </div>
         </div>
 
+        
+      </div>
+    </div>
+
+    <!-- Card 2: 1 Day Cab Trip -->
+    <div class="tour-explorer" id="tourExplorerCab" onclick="selectTexPackage(this, 'pkg-cab')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg');">
+      <div class="tex-left">
+        <div class="tex-header">
+          <span class="tex-eyebrow">Bangalore Packages<br>ಬೆಂಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
+          <h3>1 Day Cab Trip<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">1 ದಿನದ ಕ್ಯಾಬ್ ಟ್ರಿಪ್</span></h3>
+        </div>
+        <div class="tex-menu-item" data-pkg="pkg-cab" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg'); border-bottom: none;">
+          <div class="tex-num">2</div>
+          <div class="tex-menu-text">
+            <strong>1 Day Cab Trip from Bangalore</strong>
+            <span>ಬೆಂಗಳೂರಿನಿಂದ 1 ದಿನದ ಕ್ಯಾಬ್ ಟ್ರಿಪ್</span>
+          </div>
+        </div>
+      </div>
+      <div class="tex-right" id="texModalOverlayCab" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 2: 1 Day Cab Trip -->
-        <div class="tex-panel" id="pkg-cab">
+        <div class="tex-panel" id="pkg-cab" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="cab-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-2a" id="cab-coin">2a</div>
@@ -1897,13 +1936,13 @@
       </div>
 
     <!-- Tour Explorer 2: Chikkamagalur -->
-    <div class="tour-explorer" id="tourExplorer2">
+    <div class="tour-explorer" id="tourExplorer2" onclick="selectTexPackage(this, 'pkg-chk')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Chikkamagalur Packages<br>ಚಿಕ್ಕಮಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Hill Stations<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಗಿರಿಧಾಮಗಳು</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-chk')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-chk" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg');">
           <div class="tex-num">3</div>
           <div class="tex-menu-text">
             <strong>Chikkamagalur</strong>
@@ -1911,14 +1950,15 @@
           </div>
         </div>
       </div>
-      <div class="tex-right">
+      <div class="tex-right" id="texModalOverlay2" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 3: Chikkamagalur -->
-        <div class="tex-panel tex-panel-active" id="pkg-chk">
+        <div class="tex-panel tex-panel-active" id="pkg-chk" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="chk-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-3a" id="chk-coin">3a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="chk-title">Chikkamagalur <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span></h2>
+              <h2 id="chk-title">Chikkamagalur <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="chk-desc">A perfect short getaway into the coffee land of Karnataka.<br><span style="font-size:0.9em;opacity:0.75;">ಕರ್ನಾಟಕದ ಕಾಫಿ ನಾಡಿಗೆ ಒಂದು ಅದ್ಭುತ ಕಿರು ಪ್ರವಾಸ.</span></p>
               <div class="tex-place-tags" id="chk-tags">
                 <span class="tex-place-tag">⛰️ Mullayanagiri · ಮುಳ್ಳಯ್ಯನಗಿರಿ</span>
@@ -1931,14 +1971,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectChkRoute(this,1)" style="position:relative;">
               <div class="tex-sub-icon">☕</div>
               <div class="tex-sub-info">
-                <strong>1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">೧ರಾ/೨ಹ</span></strong>
+                <strong>1N/2D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">3a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectChkRoute(this,2)" style="position:relative;">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">೨ರಾ/೩ಹ</span></strong>
+                <strong>2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">3b</div>
             </div>
@@ -1955,13 +1995,13 @@
     </div>
 
     <!-- Tour Explorer 3: Coorg -->
-    <div class="tour-explorer" id="tourExplorer3">
+    <div class="tour-explorer" id="tourExplorer3" onclick="selectTexPackage(this, 'pkg-crg')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Coorg Packages<br>ಕೂರ್ಗ್ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Nature Retreat<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಪ್ರಕೃತಿ ತಾಣ</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-crg')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-crg" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg');">
           <div class="tex-num">4</div>
           <div class="tex-menu-text">
             <strong>Coorg</strong>
@@ -1969,14 +2009,15 @@
           </div>
         </div>
       </div>
-      <div class="tex-right">
+      <div class="tex-right" id="texModalOverlay3" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 4: Coorg -->
-        <div class="tex-panel tex-panel-active" id="pkg-crg">
+        <div class="tex-panel tex-panel-active" id="pkg-crg" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="crg-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-4a" id="crg-coin">4a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="crg-title">Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</em></span></h2>
+              <h2 id="crg-title">Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span></h2>
               <p id="crg-desc">Escape to the Scotland of India for misty hills and lush coffee estates.<br><span style="font-size:0.9em;opacity:0.75;">ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಕಾಫಿ ತೋಟಗಳ ಅದ್ಭುತ ಪ್ರವಾಸ.</span></p>
               <div class="tex-place-tags" id="crg-tags">
                 <span class="tex-place-tag">🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ</span>
@@ -1989,14 +2030,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectCrgRoute(this,1)" style="position:relative;">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Coorg 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೂರ್ಗ್ ೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</span></strong>
+                <strong>Coorg 1N/2D & 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">4a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectCrgRoute(this,2)" style="position:relative;">
               <div class="tex-sub-icon">⛰️</div>
               <div class="tex-sub-info">
-                <strong>Coorg - Chikkamagalur 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೂರ್ಗ್ - ಚಿಕ್ಕಮಗಳೂರು ೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</span></strong>
+                <strong>Coorg - Chikkamagalur 2N/3D & 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">4b</div>
             </div>
@@ -2006,13 +2047,13 @@
     </div>
 
     <!-- Tour Explorer 4: Mysore -->
-    <div class="tour-explorer" id="tourExplorer4">
+    <div class="tour-explorer" id="tourExplorer4" onclick="selectTexPackage(this, 'pkg-mys')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Mysore Packages<br>ಮೈಸೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Heritage & Hills<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಪರಂಪರೆ ಮತ್ತು ಬೆಟ್ಟಗಳು</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-mys')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-mys" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg');">
           <div class="tex-num">5</div>
           <div class="tex-menu-text">
             <strong>Mysore & Beyond</strong>
@@ -2020,9 +2061,10 @@
           </div>
         </div>
       </div>
-      <div class="tex-right">
+      <div class="tex-right" id="texModalOverlay4" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 5: Mysore -->
-        <div class="tex-panel tex-panel-active" id="pkg-mys">
+        <div class="tex-panel tex-panel-active" id="pkg-mys" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="mys-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-5a" id="mys-coin">5a</div>
@@ -2047,21 +2089,21 @@
             <div class="tex-sub-tab" onclick="selectMysRoute(this,2)">
               <div class="tex-sub-icon">🚂</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Ooty 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಊಟಿ ೧ರಾ/೨ಹ</span></strong>
+                <strong>Mysore - Ooty 1N/2D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,3)">
               <div class="tex-sub-icon">☕</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Coonoor 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೂನೂರು ೨ರಾ/೩ಹ</span></strong>
+                <strong>Mysore Ooty Coonoor 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5c</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,4)">
               <div class="tex-sub-icon">🎬</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Ooty Coonoor Filmy Chakkar 3N/4D & 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಊಟಿ ಕೂನೂರು ಫಿಲ್ಮಿ ಚಕ್ಕರ್ ೩ರಾ/೪ಹ & ೪ರಾ/೫ಹ</span></strong>
+                <strong>Mysore - Ooty Coonoor Filmy Chakkar 3N/4D & 4N/5D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5d</div>
             </div>
@@ -2075,35 +2117,35 @@
             <div class="tex-sub-tab" onclick="selectMysRoute(this,6)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Wayanad 5N/6D, 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ವಯನಾಡ್ ೫ರಾ/೬ಹ, ೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</span></strong>
+                <strong>Mysore Ooty Wayanad 5N/6D, 2N/3D & 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5f</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,7)">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Coorg 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ ೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</span></strong>
+                <strong>Mysore - Coorg 2N/3D & 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5g</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,8)">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Coorg - Wayanad 5N/6D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ - ವಯನಾಡ್ ೫ರಾ/೬ಹ</span></strong>
+                <strong>Mysore - Coorg - Wayanad 5N/6D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5h</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,9)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Mysore Wayanad 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ವಯನಾಡ್ ೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</span></strong>
+                <strong>Mysore Wayanad 2N/3D & 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5i</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,10)">
               <div class="tex-sub-icon">🛕</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Kodai Madurai Rameswaram Kanyakumari 6N/7D & 7N/8D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೊಡೆಕಾನಲ್ ಮದುರೈ ರಾಮೇಶ್ವರಂ ಕನ್ಯಾಕುಮಾರಿ ೬ರಾ/೭ಹ & ೭ರಾ/೮ಹ</span></strong>
+                <strong>Mysore Ooty Kodai Madurai Rameswaram Kanyakumari 6N/7D & 7N/8D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5j</div>
             </div>
@@ -2114,29 +2156,30 @@
 
     
     <!-- Tour Explorer 5: Kerala Special -->
-    <div class="tour-explorer" id="tourExplorer5">
+    <div class="tour-explorer" id="tourExplorer5" onclick="selectTexPackage(this, 'pkg-ker')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Kerala Packages<br>ಕೇರಳ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Kerala Special<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಕೇರಳ ಸ್ಪೆಷಲ್</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-ker')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-ker" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg');">
           <div class="tex-num">6</div>
           <div class="tex-menu-text">
             <strong>Kerala Special</strong>
             <span>ಕೇರಳ ಸ್ಪೆಷಲ್</span>
           </div>
-          <div class="tex-menu-arrow">➔</div>
+          
         </div>
       </div>
-      <div class="tex-right">
+      <div class="tex-right" id="texModalOverlay5" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
         <!-- Package 6: Kerala -->
-        <div class="tex-panel tex-panel-active" id="pkg-ker">
+        <div class="tex-panel tex-panel-active" id="pkg-ker" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="ker-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-6a" id="ker-coin">6a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="ker-title">Munnar <em>2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span></h2>
+              <h2 id="ker-title">Munnar <em>2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="ker-desc">Escape into the endless tea plantations and misty mountains of Munnar.<br><span style="font-size:0.9em;opacity:0.75;">ಮುನ್ನಾರ್‌ನ ಚಹಾ ತೋಟಗಳು ಮತ್ತು ಮಂಜಿನ ಬೆಟ್ಟಗಳ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span></p>
               <div class="tex-place-tags" id="ker-tags">
                 <span class="tex-place-tag">🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು</span>
@@ -2149,63 +2192,63 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectKerRoute(this,1)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Munnar 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ೨ರಾ/೩ಹ</span></strong>
+                <strong>Munnar 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,2)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Wayanad 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ವಯನಾಡ್ ೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</span></strong>
+                <strong>Wayanad 1N/2D & 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,3)">
               <div class="tex-sub-icon">🐅</div>
               <div class="tex-sub-info">
-                <strong>Munnar - Thekkady 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ - ತೆಕ್ಕಡಿ ೨ರಾ/೩ಹ</span></strong>
+                <strong>Munnar - Thekkady 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6c</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,4)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Munnar Thekkady Alleppey 3N/4D & 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ ೩ರಾ/೪ಹ & ೪ರಾ/೫ಹ</span></strong>
+                <strong>Munnar Thekkady Alleppey 3N/4D & 4N/5D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6d</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,5)">
               <div class="tex-sub-icon">🛶</div>
               <div class="tex-sub-info">
-                <strong>Munnar - Alleppey 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ - ಅಲೆಪ್ಪಿ ೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</span></strong>
+                <strong>Munnar - Alleppey 2N/3D & 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6e</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,6)">
               <div class="tex-sub-icon">🏖️</div>
               <div class="tex-sub-info">
-                <strong>Munnar Alleppey Kovalam 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ಅಲೆಪ್ಪಿ ಕೋವಲಂ ೪ರಾ/೫ಹ</span></strong>
+                <strong>Munnar Alleppey Kovalam 4N/5D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6f</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,7)">
               <div class="tex-sub-icon">🌴</div>
               <div class="tex-sub-info">
-                <strong>Munnar Thekkady Alleppey Trivandrum 5N/6D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ ತಿರುವನಂತಪುರಂ ೫ರಾ/೬ಹ</span></strong>
+                <strong>Munnar Thekkady Alleppey Trivandrum 5N/6D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6g</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,8)">
               <div class="tex-sub-icon">🛕</div>
               <div class="tex-sub-info">
-                <strong>Trivandrum 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ತಿರುವನಂತಪುರಂ ೧ರಾ/೨ಹ</span></strong>
+                <strong>Trivandrum 1N/2D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6h</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,9)">
               <div class="tex-sub-icon">🌊</div>
               <div class="tex-sub-info">
-                <strong>Trivandrum - Kanyakumari 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ತಿರುವನಂತಪುರಂ - ಕನ್ಯಾಕುಮಾರಿ ೨ರಾ/೩ಹ</span></strong>
+                <strong>Trivandrum - Kanyakumari 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6i</div>
             </div>
@@ -2216,28 +2259,29 @@
 
     
     <!-- Tour Explorer 6: Ooty -->
-    <div class="tour-explorer" id="tourExplorer6">
+    <div class="tour-explorer" id="tourExplorer6" onclick="selectTexPackage(this, 'pkg-oot')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Ooty Packages<br>ಊಟಿ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Ooty Special<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಊಟಿ ಸ್ಪೆಷಲ್</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-oot')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-oot" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg');">
           <div class="tex-num">7</div>
           <div class="tex-menu-text">
             <strong>Ooty Special</strong>
             <span>ಊಟಿ ಸ್ಪೆಷಲ್</span>
           </div>
-          <div class="tex-menu-arrow">➔</div>
+          
         </div>
       </div>
-      <div class="tex-right">
-        <div class="tex-panel tex-panel-active" id="pkg-oot">
+      <div class="tex-right" id="texModalOverlay6" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+        <div class="tex-panel tex-panel-active" id="pkg-oot" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="oot-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-7a" id="oot-coin">7a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ, ೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ</em></span></h2>
+              <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span></h2>
               <p id="oot-desc">Relax by the Ooty lake and explore the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಊಟಿ ಸರೋವರ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span></p>
               <div class="tex-place-tags" id="oot-tags">
                 <span class="tex-place-tag">⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ</span>
@@ -2250,21 +2294,21 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectOotRoute(this,1)">
               <div class="tex-sub-icon">⛰️</div>
               <div class="tex-sub-info">
-                <strong>Ooty 1N/2D, 2N/3D, 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ ೧ರಾ/೨ಹ, ೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ</span></strong>
+                <strong>Ooty 1N/2D, 2N/3D, 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectOotRoute(this,2)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Ooty - Kodaikanal 2N/3D, 3N/4D, 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ ೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ, ೪ರಾ/೫ಹ</span></strong>
+                <strong>Ooty - Kodaikanal 2N/3D, 3N/4D, 4N/5D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectOotRoute(this,3)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Ooty - Kodaikanal - Munnar 6N/7D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ ೬ರಾ/೭ಹ</span></strong>
+                <strong>Ooty - Kodaikanal - Munnar 6N/7D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7c</div>
             </div>
@@ -2274,28 +2318,29 @@
     </div>
 
     <!-- Tour Explorer 7: Kodaikanal -->
-    <div class="tour-explorer" id="tourExplorer7">
+    <div class="tour-explorer" id="tourExplorer7" onclick="selectTexPackage(this, 'pkg-kod')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Kodaikanal Packages<br>ಕೊಡೆಕಾನಲ್ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Kodai Special<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಕೊಡೆಕಾನಲ್ ಸ್ಪೆಷಲ್</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-kod')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-kod" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg');">
           <div class="tex-num">8</div>
           <div class="tex-menu-text">
             <strong>Kodaikanal Special</strong>
             <span>ಕೊಡೆಕಾನಲ್ ಸ್ಪೆಷಲ್</span>
           </div>
-          <div class="tex-menu-arrow">➔</div>
+          
         </div>
       </div>
-      <div class="tex-right">
-        <div class="tex-panel tex-panel-active" id="pkg-kod">
+      <div class="tex-right" id="texModalOverlay7" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+        <div class="tex-panel tex-panel-active" id="pkg-kod" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="kod-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-8a" id="kod-coin">8a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="kod-title">Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</em></span></h2>
+              <h2 id="kod-title">Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;"> & </em></span></h2>
               <p id="kod-desc">Experience the princess of hill stations with its star-shaped lake.<br><span style="font-size:0.9em;opacity:0.75;">ಗಿರಿಧಾಮಗಳ ರಾಜಕುಮಾರಿ ಮತ್ತು ನಕ್ಷತ್ರ ಆಕಾರದ ಸರೋವರದ ಸೌಂದರ್ಯ.</span></p>
               <div class="tex-place-tags" id="kod-tags">
                 <span class="tex-place-tag">⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ</span>
@@ -2308,14 +2353,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectKodRoute(this,1)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Kodaikanal 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೆಕಾನಲ್ ೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</span></strong>
+                <strong>Kodaikanal 1N/2D & 2N/3D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">8a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKodRoute(this,2)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Kodaikanal - Munnar 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ ೪ರಾ/೫ಹ</span></strong>
+                <strong>Kodaikanal - Munnar 4N/5D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">8b</div>
             </div>
@@ -2326,28 +2371,29 @@
 
     
     <!-- Tour Explorer 8: Goa -->
-    <div class="tour-explorer" id="tourExplorer8">
+    <div class="tour-explorer" id="tourExplorer8" onclick="selectTexPackage(this, 'pkg-goa')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Goa Packages<br>ಗೋವಾ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Goa Special<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಗೋವಾ ಸ್ಪೆಷಲ್</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-goa')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-goa" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg');">
           <div class="tex-num">9</div>
           <div class="tex-menu-text">
             <strong>Goa Special</strong>
             <span>ಗೋವಾ ಸ್ಪೆಷಲ್</span>
           </div>
-          <div class="tex-menu-arrow">➔</div>
+          
         </div>
       </div>
-      <div class="tex-right">
-        <div class="tex-panel tex-panel-active" id="pkg-goa">
+      <div class="tex-right" id="texModalOverlay8" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+        <div class="tex-panel tex-panel-active" id="pkg-goa" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="goa-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-9a" id="goa-coin">9a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="goa-title">Goa Package <em>3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;">೩ರಾ/೪ಹ</em></span></h2>
+              <h2 id="goa-title">Goa Package <em>3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="goa-desc">Explore the sun-kissed beaches, historic churches, and vibrant culture of Goa.<br><span style="font-size:0.9em;opacity:0.75;">ಗೋವಾದ ಸುಂದರ ಕಡಲತೀರಗಳು, ಚರ್ಚ್‌ಗಳು ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಅದ್ಭುತ ಪ್ರವಾಸ.</span></p>
               <div class="tex-place-tags" id="goa-tags">
                 <span class="tex-place-tag">🏖️ Beaches · ಕಡಲತೀರಗಳು</span>
@@ -2360,7 +2406,7 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectGoaRoute(this,1)">
               <div class="tex-sub-icon">🏖️</div>
               <div class="tex-sub-info">
-                <strong>Goa Package 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ ೩ರಾ/೪ಹ</span></strong>
+                <strong>Goa Package 3N/4D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">9a</div>
             </div>
@@ -2370,28 +2416,29 @@
     </div>
 
     <!-- Tour Explorer 9: Alleppey -->
-    <div class="tour-explorer" id="tourExplorer9">
+    <div class="tour-explorer" id="tourExplorer9" onclick="selectTexPackage(this, 'pkg-alp')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg');">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Alleppey Packages<br>ಅಲೆಪ್ಪಿ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Houseboat Stay<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ</span></h3>
         </div>
-        <div class="tex-menu-item tex-active" onclick="selectTexPackage(this, 'pkg-alp')" style="--bg-img: url(\'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg\');">
+        <div class="tex-menu-item" data-pkg="pkg-alp" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg');">
           <div class="tex-num">10</div>
           <div class="tex-menu-text">
             <strong>Alleppey Houseboat</strong>
             <span>ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್</span>
           </div>
-          <div class="tex-menu-arrow">➔</div>
+          
         </div>
       </div>
-      <div class="tex-right">
-        <div class="tex-panel tex-panel-active" id="pkg-alp">
+      <div class="tex-right" id="texModalOverlay9" onclick="this.classList.remove('modal-open'); event.stopPropagation();">
+        <div class="tex-panel tex-panel-active" id="pkg-alp" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 24px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero" id="alp-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg');">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-10a" id="alp-coin">10a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="alp-title">Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span></h2>
+              <h2 id="alp-title">Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="alp-desc">A peaceful backwater cruise in Alleppey followed by the rich heritage of Cochin.<br><span style="font-size:0.9em;opacity:0.75;">ಅಲೆಪ್ಪಿಯ ಪ್ರಶಾಂತ ಹಿನ್ನೀರಿನ ವಿಹಾರ ಮತ್ತು ಕೊಚ್ಚಿಯ ಶ್ರೀಮಂತ ಪರಂಪರೆಯ ಪ್ರವಾಸ.</span></p>
               <div class="tex-place-tags" id="alp-tags">
                 <span class="tex-place-tag">⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್</span>
@@ -2404,7 +2451,7 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectAlpRoute(this,1)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Alleppey Houseboat - Cochin 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ ೧ರಾ/೨ಹ</span></strong>
+                <strong>Alleppey Houseboat - Cochin 1N/2D</strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:28px;height:24px;border-radius:12px;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">10a</div>
             </div>
@@ -3021,10 +3068,35 @@ function selectSplitPanel(btn, panelId) {
 /* Tour Explorer JS */
 function selectTexPackage(item, panelId) {
   const explorer = item.closest('.tour-explorer');
-  explorer.querySelectorAll('.tex-menu-item').forEach(i => i.classList.remove('tex-active'));
+  if(!explorer) return;
+  const items = explorer.querySelectorAll('.tex-menu-item');
+  items.forEach(i => i.classList.remove('tex-active'));
   item.classList.add('tex-active');
-  explorer.querySelectorAll('.tex-panel').forEach(p => p.classList.remove('tex-panel-active'));
-  document.getElementById(panelId).classList.add('tex-panel-active');
+  
+  
+  let overlay = explorer.querySelector('.tex-right');
+  if(!overlay) {
+    // maybe it was already moved to body!
+    overlay = document.getElementById('texModalOverlay' + panelId.replace('pkg-', ''));
+    if(!overlay) {
+        // try to find by checking which overlay contains the panel
+        const allOverlays = document.querySelectorAll('body > .tex-right');
+        allOverlays.forEach(o => {
+            if(o.querySelector('#' + panelId)) overlay = o;
+        });
+    }
+  } else {
+    // move to body
+    document.body.appendChild(overlay);
+  }
+
+  const panels = overlay.querySelectorAll('.tex-panel');
+  panels.forEach(p => p.classList.remove('tex-panel-active'));
+  
+  const targetPanel = document.getElementById(panelId);
+  if(targetPanel) targetPanel.classList.add('tex-panel-active');
+  
+  if(overlay) overlay.classList.add('modal-open');
 }
 
 function selectBlrSub(tab, type) {
@@ -3087,13 +3159,13 @@ function selectCabRoute(tab, num) {
 const chkRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg',
-    title: 'Chikkamagalur <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span>',
+    title: 'Chikkamagalur <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'A perfect short getaway into the coffee land of Karnataka.<br><span style="font-size:0.9em;opacity:0.75;">ಕರ್ನಾಟಕದ ಕಾಫಿ ನಾಡಿಗೆ ಒಂದು ಅದ್ಭುತ ಕಿರು ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Mullayanagiri · ಮುಳ್ಳಯ್ಯನಗಿರಿ|🌿 Baba Budangiri · ಬಾಬಾ ಬುಡನ್‌ಗಿರಿ|🌊 Jhari Falls · ಝರಿ ಜಲಪಾತ'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Kudremukh_Peak.jpg/800px-Kudremukh_Peak.jpg',
-    title: 'Chikkamagalur <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span>',
+    title: 'Chikkamagalur <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'An extended retreat to explore the majestic Western Ghats in full.<br><span style="font-size:0.9em;opacity:0.75;">ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಲು ಸುದೀರ್ಘ ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Mullayanagiri · ಮುಳ್ಳಯ್ಯನಗಿರಿ|🌿 Kemmangundi · ಕೆಮ್ಮಣ್ಣುಗುಂಡಿ|🐅 Bhadra Wildlife · ಭದ್ರಾ ವನ್ಯಜೀವಿ|🌊 Hebbe Falls · ಹೆಬ್ಬೆ ಜಲಪಾತ'
   },
@@ -3121,13 +3193,13 @@ function selectChkRoute(tab, num) {
 const crgRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg',
-    title: 'Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</em></span>',
+    title: 'Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'Escape to the Scotland of India for misty hills and lush coffee estates.<br><span style="font-size:0.9em;opacity:0.75;">ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಕಾಫಿ ತೋಟಗಳ ಅದ್ಭುತ ಪ್ರವಾಸ.</span>',
     tags: '🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🐘 Dubare · ದುಬಾರೆ|🌅 Raja\'s Seat · ರಾಜಾ ಸೀಟ್|🛕 Omkareshwara · ಓಂಕಾರೇಶ್ವರ|🕉️ Talakaveri · ತಲಕಾವೇರಿ'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Nandi_Hills_Sunrise.jpg/800px-Nandi_Hills_Sunrise.jpg',
-    title: 'Coorg - Chikkamagalur <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ - ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</em></span>',
+    title: 'Coorg - Chikkamagalur <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ - ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'The ultimate Western Ghats experience covering the best of two beautiful hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಎರಡು ಸುಂದರ ಗಿರಿಧಾಮಗಳನ್ನು ಒಳಗೊಂಡ ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಅದ್ಭುತ ಅನುಭವ.</span>',
     tags: '⛰️ Mullayanagiri · ಮುಳ್ಳಯ್ಯನಗಿರಿ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🐘 Dubare · ದುಬಾರೆ|🌿 Kemmangundi · ಕೆಮ್ಮಣ್ಣುಗುಂಡಿ'
   }
@@ -3155,19 +3227,19 @@ const mysRoutes = {
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg',
-    title: 'Mysore - Ooty <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಊಟಿ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span>',
+    title: 'Mysore - Ooty <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಊಟಿ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'A quick getaway combining heritage with the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಪರಂಪರೆ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಅದ್ಭುತ ಸಂಗಮ.</span>',
     tags: '🏰 Mysore Palace · ಮೈಸೂರು ಅರಮನೆ|⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|🌺 Botanical Garden · ಬೊಟಾನಿಕಲ್ ಗಾರ್ಡನ್'
   },
   3: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Nilgiri_Mountain_Railway_Ooty.jpg/800px-Nilgiri_Mountain_Railway_Ooty.jpg',
-    title: 'Mysore Ooty Coonoor <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೂನೂರು <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span>',
+    title: 'Mysore Ooty Coonoor <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೂನೂರು <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'The classic Nilgiris experience with a touch of royal Mysore.<br><span style="font-size:0.9em;opacity:0.75;">ಮೈಸೂರಿನ ರಾಜವೈಭವದೊಂದಿಗೆ ನೀಲಗಿರಿಯ ಅದ್ಭುತ ಅನುಭವ.</span>',
     tags: '🚂 Toy Train · ಟಾಯ್ ಟ್ರೈನ್|🌿 Sims Park · ಸಿಮ್ಸ್ ಪಾರ್ಕ್|⛰️ Dolphin Nose · ಡಾಲ್ಫಿನ್ ನೋಸ್'
   },
   4: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pine_Forest_Ooty.jpg/800px-Pine_Forest_Ooty.jpg',
-    title: 'Mysore - Ooty Coonoor Filmy Chakkar <em>3N/4D & 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಊಟಿ ಕೂನೂರು ಫಿಲ್ಮಿ ಚಕ್ಕರ್ <em style="color:#FFD580;font-style:normal;">೩ರಾ/೪ಹ & ೪ರಾ/೫ಹ</em></span>',
+    title: 'Mysore - Ooty Coonoor Filmy Chakkar <em>3N/4D & 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಊಟಿ ಕೂನೂರು ಫಿಲ್ಮಿ ಚಕ್ಕರ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'Visit iconic shooting locations hidden within the Nilgiris.<br><span style="font-size:0.9em;opacity:0.75;">ನೀಲಗಿರಿಯಲ್ಲಿರುವ ಪ್ರಸಿದ್ಧ ಸಿನಿಮಾ ಚಿತ್ರೀಕರಣ ಸ್ಥಳಗಳ ಭೇಟಿ.</span>',
     tags: '🎬 Shooting Point · ಶೂಟಿಂಗ್ ಪಾಯಿಂಟ್|🌲 Pine Forest · ಪೈನ್ ಫಾರೆಸ್ಟ್|⛰️ Dodabetta Peak · ದೊಡ್ಡಬೆಟ್ಟ'
   },
@@ -3179,31 +3251,31 @@ const mysRoutes = {
   },
   6: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Edakkal_Caves.jpg/800px-Edakkal_Caves.jpg',
-    title: 'Mysore Ooty Wayanad <em>5N/6D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;">೫ರಾ/೬ಹ, ೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ</em></span>',
+    title: 'Mysore Ooty Wayanad <em>5N/6D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;">, , </em></span>',
     desc: 'Explore the diverse landscapes from palaces to Nilgiris and Wayanad forests.<br><span style="font-size:0.9em;opacity:0.75;">ಅರಮನೆ, ನೀಲಗಿರಿ ಮತ್ತು ವಯನಾಡ್ ಕಾಡುಗಳ ವೈವಿಧ್ಯಮಯ ಪ್ರವಾಸ.</span>',
     tags: '🐘 Wayanad Wildlife · ವಯನಾಡ್ ವನ್ಯಜೀವಿ|⛰️ Edakkal Caves · ಎಡಕಲ್ ಗುಹೆಗಳು|🌊 Soochipara Falls · ಸೂಚಿಪಾರ ಜಲಪಾತ'
   },
   7: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Dubare_Elephant_Camp.jpg/800px-Dubare_Elephant_Camp.jpg',
-    title: 'Mysore - Coorg <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</em></span>',
+    title: 'Mysore - Coorg <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'A perfect blend of culture, wildlife, and natural beauty.<br><span style="font-size:0.9em;opacity:0.75;">ಸಂಸ್ಕೃತಿ, ವನ್ಯಜೀವಿ ಮತ್ತು ಪ್ರಕೃತಿ ಸೌಂದರ್ಯದ ಅದ್ಭುತ ಸಂಗಮ.</span>',
     tags: '🐘 Dubare Camp · ದುಬಾರೆ ಆನೆ ಶಿಬಿರ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🏯 Golden Temple · ಸುವರ್ಣ ದೇವಾಲಯ'
   },
   8: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Wayanad_Banasura_Sagar_Dam.jpg/800px-Wayanad_Banasura_Sagar_Dam.jpg',
-    title: 'Mysore - Coorg - Wayanad <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ - ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;">೫ರಾ/೬ಹ</em></span>',
+    title: 'Mysore - Coorg - Wayanad <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ - ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Experience the ultimate nature circuit from Coorg to the hills of Wayanad.<br><span style="font-size:0.9em;opacity:0.75;">ಕೂರ್ಗಿನಿಂದ ವಯನಾಡಿನ ಗಿರಿಧಾಮಗಳವರೆಗೆ ಪ್ರಕೃತಿಯ ಮಡಿಲಲ್ಲಿ ಅದ್ಭುತ ಪ್ರವಾಸ.</span>',
     tags: '🐘 Dubare Camp · ದುಬಾರೆ ಆನೆ ಶಿಬಿರ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🌿 Banasura Dam · ಬಾಣಾಸುರ ಅಣೆಕಟ್ಟು'
   },
   9: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Edakkal_Caves.jpg/800px-Edakkal_Caves.jpg',
-    title: 'Mysore Wayanad <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</em></span>',
+    title: 'Mysore Wayanad <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'A quick dive into the lush green forests and caves of Wayanad.<br><span style="font-size:0.9em;opacity:0.75;">ವಯನಾಡಿನ ಹಚ್ಚ ಹಸಿರಿನ ಕಾಡುಗಳು ಮತ್ತು ಗುಹೆಗಳಿಗೆ ಒಂದು ಕಿರು ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Edakkal Caves · ಎಡಕಲ್ ಗುಹೆಗಳು|🌊 Soochipara Falls · ಸೂಚಿಪಾರ ಜಲಪಾತ|🐘 Wayanad Wildlife · ವಯನಾಡ್ ವನ್ಯಜೀವಿ'
   },
   10: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Meenakshi_Amman_Temple_Madurai.jpg/800px-Meenakshi_Amman_Temple_Madurai.jpg',
-    title: 'Mysore Ooty Kodai Madurai Rameswaram Kanyakumari <em>6N/7D & 7N/8D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೊಡೆಕಾನಲ್ ಮದುರೈ ರಾಮೇಶ್ವರಂ ಕನ್ಯಾಕುಮಾರಿ <em style="color:#FFD580;font-style:normal;">೬ರಾ/೭ಹ & ೭ರಾ/೮ಹ</em></span>',
+    title: 'Mysore Ooty Kodai Madurai Rameswaram Kanyakumari <em>6N/7D & 7N/8D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೊಡೆಕಾನಲ್ ಮದುರೈ ರಾಮೇಶ್ವರಂ ಕನ್ಯಾಕುಮಾರಿ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'The ultimate Southern India grand tour from palaces to the southern tip of India.<br><span style="font-size:0.9em;opacity:0.75;">ಅರಮನೆಗಳಿಂದ ಹಿಡಿದು ಭಾರತದ ದಕ್ಷಿಣ ತುದಿಯವರೆಗಿನ ಅಂತಿಮ ಮಹಾ ಪ್ರವಾಸ.</span>',
     tags: '🛕 Madurai Meenakshi · ಮದುರೈ ಮೀನಾಕ್ಷಿ|🌊 Kanyakumari · ಕನ್ಯಾಕುಮಾರಿ|🛕 Rameswaram · ರಾಮೇಶ್ವರಂ'
   }
@@ -3226,55 +3298,55 @@ function selectMysRoute(tab, num) {
 const kerRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg',
-    title: 'Munnar <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span>',
+    title: 'Munnar <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Escape into the endless tea plantations and misty mountains of Munnar.<br><span style="font-size:0.9em;opacity:0.75;">ಮುನ್ನಾರ್‌ನ ಚಹಾ ತೋಟಗಳು ಮತ್ತು ಮಂಜಿನ ಬೆಟ್ಟಗಳ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span>',
     tags: '🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು|⛰️ Mattupetty Dam · ಮಾಟ್ಟುಪೆಟ್ಟಿ ಆಣೆಕಟ್ಟು|🌺 Echo Point · ಎಕೋ ಪಾಯಿಂಟ್'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Edakkal_Caves.jpg/800px-Edakkal_Caves.jpg',
-    title: 'Wayanad <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</em></span>',
+    title: 'Wayanad <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'A nature lover\'s paradise featuring ancient caves, waterfalls, and wildlife.<br><span style="font-size:0.9em;opacity:0.75;">ಪ್ರಾಚೀನ ಗುಹೆಗಳು, ಜಲಪಾತಗಳು ಮತ್ತು ವನ್ಯಜೀವಿಗಳ ಪ್ರಕೃತಿ ಪ್ರೇಮಿಗಳ ಸ್ವರ್ಗ.</span>',
     tags: '🐘 Wayanad Wildlife · ವಯನಾಡ್ ವನ್ಯಜೀವಿ|⛰️ Edakkal Caves · ಎಡಕಲ್ ಗುಹೆಗಳು|🌊 Soochipara Falls · ಸೂಚಿಪಾರ ಜಲಪಾತ'
   },
   3: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Periyar_National_Park.jpg/800px-Periyar_National_Park.jpg',
-    title: 'Munnar - Thekkady <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ - ತೆಕ್ಕಡಿ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span>',
+    title: 'Munnar - Thekkady <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ - ತೆಕ್ಕಡಿ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Combine the hills of Munnar with the thrilling wildlife of Thekkady.<br><span style="font-size:0.9em;opacity:0.75;">ಮುನ್ನಾರ್‌ನ ಬೆಟ್ಟಗಳು ಮತ್ತು ತೆಕ್ಕಡಿಯ ವನ್ಯಜೀವಿಗಳ ಅದ್ಭುತ ಸಂಗಮ.</span>',
     tags: '🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು|🐅 Periyar Wildlife · ಪೆರಿಯಾರ್ ವನ್ಯಜೀವಿ|🐘 Elephant Ride · ಆನೆ ಸವಾರಿ'
   },
   4: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg',
-    title: 'Munnar Thekkady Alleppey <em>3N/4D & 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ <em style="color:#FFD580;font-style:normal;">೩ರಾ/೪ಹ & ೪ರಾ/೫ಹ</em></span>',
+    title: 'Munnar Thekkady Alleppey <em>3N/4D & 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'The complete Kerala triangle from hills to wildlife and serene backwaters.<br><span style="font-size:0.9em;opacity:0.75;">ಬೆಟ್ಟಗಳು, ವನ್ಯಜೀವಿ ಮತ್ತು ಹಿನ್ನೀರಿನ ಸಂಪೂರ್ಣ ಕೇರಳ ತ್ರಿಕೋನ ಪ್ರವಾಸ.</span>',
     tags: '🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು|🐅 Periyar Wildlife · ಪೆರಿಯಾರ್ ವನ್ಯಜೀವಿ|⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್'
   },
   5: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Kerala_Backwaters.jpg/800px-Kerala_Backwaters.jpg',
-    title: 'Munnar - Alleppey <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ - ಅಲೆಪ್ಪಿ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ & ೩ರಾ/೪ಹ</em></span>',
+    title: 'Munnar - Alleppey <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ - ಅಲೆಪ್ಪಿ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'A romantic escape pairing misty mountains with tranquil backwater cruising.<br><span style="font-size:0.9em;opacity:0.75;">ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಪ್ರಶಾಂತ ಹಿನ್ನೀರಿನ ವಿಹಾರದ ಸುಂದರ ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Munnar Hills · ಮುನ್ನಾರ್ ಬೆಟ್ಟಗಳು|🛶 Backwaters · ಹಿನ್ನೀರು|⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್'
   },
   6: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kovalam_Beach.jpg/800px-Kovalam_Beach.jpg',
-    title: 'Munnar Alleppey Kovalam <em>4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ಅಲೆಪ್ಪಿ ಕೋವಲಂ <em style="color:#FFD580;font-style:normal;">೪ರಾ/೫ಹ</em></span>',
+    title: 'Munnar Alleppey Kovalam <em>4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ಅಲೆಪ್ಪಿ ಕೋವಲಂ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Hills, backwaters, and beaches – experience the finest diversity of Kerala.<br><span style="font-size:0.9em;opacity:0.75;">ಬೆಟ್ಟಗಳು, ಹಿನ್ನೀರು ಮತ್ತು ಕಡಲತೀರಗಳು – ಕೇರಳದ ಅತ್ಯುತ್ತಮ ವೈವಿಧ್ಯಮಯ ಅನುಭವ.</span>',
     tags: '🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು|⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್|🏖️ Kovalam Beach · ಕೋವಲಂ ಕಡಲತೀರ'
   },
   7: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Padmanabhaswamy_Temple_Trivandrum.jpg/800px-Padmanabhaswamy_Temple_Trivandrum.jpg',
-    title: 'Munnar Thekkady Alleppey Trivandrum <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ ತಿರುವನಂತಪುರಂ <em style="color:#FFD580;font-style:normal;">೫ರಾ/೬ಹ</em></span>',
+    title: 'Munnar Thekkady Alleppey Trivandrum <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ ತೆಕ್ಕಡಿ ಅಲೆಪ್ಪಿ ತಿರುವನಂತಪುರಂ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'The grand Kerala expedition ending with the cultural heritage of Trivandrum.<br><span style="font-size:0.9em;opacity:0.75;">ತಿರುವನಂತಪುರಂನ ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆಯೊಂದಿಗೆ ಅಂತ್ಯಗೊಳ್ಳುವ ಭವ್ಯ ಕೇರಳ ಪ್ರವಾಸ.</span>',
     tags: '⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್|🏖️ Kovalam Beach · ಕೋವಲಂ ಕಡಲತೀರ|🛕 Padmanabhaswamy · ಪದ್ಮನಾಭಸ್ವಾಮಿ'
   },
   8: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Napier_Museum_Trivandrum.jpg/800px-Napier_Museum_Trivandrum.jpg',
-    title: 'Trivandrum <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ತಿರುವನಂತಪುರಂ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span>',
+    title: 'Trivandrum <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ತಿರುವನಂತಪುರಂ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Discover the rich history, museums, and temples of Kerala\'s capital city.<br><span style="font-size:0.9em;opacity:0.75;">ಕೇರಳದ ರಾಜಧಾನಿಯ ಶ್ರೀಮಂತ ಇತಿಹಾಸ, ವಸ್ತುಸಂಗ್ರಹಾಲಯಗಳು ಮತ್ತು ದೇವಾಲಯಗಳ ದರ್ಶನ.</span>',
     tags: '🛕 Padmanabhaswamy · ಪದ್ಮನಾಭಸ್ವಾಮಿ|🏛️ Napier Museum · ನೇಪಿಯರ್ ಮ್ಯೂಸಿಯಂ|🏖️ Kovalam Beach · ಕೋವಲಂ ಕಡಲತೀರ'
   },
   9: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Vivekananda_Rock_Memorial.jpg/800px-Vivekananda_Rock_Memorial.jpg',
-    title: 'Trivandrum - Kanyakumari <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ತಿರುವನಂತಪುರಂ - ಕನ್ಯಾಕುಮಾರಿ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ</em></span>',
+    title: 'Trivandrum - Kanyakumari <em>2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ತಿರುವನಂತಪುರಂ - ಕನ್ಯಾಕುಮಾರಿ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'From the capital of Kerala to the majestic southern tip of India.<br><span style="font-size:0.9em;opacity:0.75;">ಕೇರಳದ ರಾಜಧಾನಿಯಿಂದ ಭಾರತದ ಭವ್ಯ ದಕ್ಷಿಣ ತುದಿಯವರೆಗಿನ ಪ್ರವಾಸ.</span>',
     tags: '🛕 Padmanabhaswamy · ಪದ್ಮನಾಭಸ್ವಾಮಿ|🌊 Vivekananda Rock · ವಿವೇಕಾನಂದ ರಾಕ್|🌅 Sunset Point · ಸೂರ್ಯಾಸ್ತ ವೀಕ್ಷಣೆ'
   }
@@ -3297,19 +3369,19 @@ function selectKerRoute(tab, num) {
 const ootRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/800px-Ooty_Lake.jpg',
-    title: 'Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ, ೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ</em></span>',
+    title: 'Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span>',
     desc: 'Relax by the Ooty lake and explore the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಊಟಿ ಸರೋವರ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span>',
     tags: '⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|🌺 Botanical Garden · ಬೊಟಾನಿಕಲ್ ಗಾರ್ಡನ್|⛰️ Dodabetta Peak · ದೊಡ್ಡಬೆಟ್ಟ'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg',
-    title: 'Ooty - Kodaikanal <em>2N/3D, 3N/4D, 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">೨ರಾ/೩ಹ, ೩ರಾ/೪ಹ, ೪ರಾ/೫ಹ</em></span>',
+    title: 'Ooty - Kodaikanal <em>2N/3D, 3N/4D, 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">, , </em></span>',
     desc: 'The best of Tamil Nadu\'s hill stations in one memorable trip.<br><span style="font-size:0.9em;opacity:0.75;">ತಮಿಳುನಾಡಿನ ಅತ್ಯುತ್ತಮ ಗಿರಿಧಾಮಗಳ ಸುಂದರ ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🪨 Pillar Rocks · ಪಿಲ್ಲರ್ ರಾಕ್ಸ್'
   },
   3: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg',
-    title: 'Ooty - Kodaikanal - Munnar <em>6N/7D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;">೬ರಾ/೭ಹ</em></span>',
+    title: 'Ooty - Kodaikanal - Munnar <em>6N/7D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'An extended journey through South India\'s most iconic mountain ranges.<br><span style="font-size:0.9em;opacity:0.75;">ದಕ್ಷಿಣ ಭಾರತದ ಪ್ರಮುಖ ಗಿರಿಧಾಮಗಳ ಮೂಲಕ ಸುದೀರ್ಘ ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು'
   }
@@ -3331,13 +3403,13 @@ function selectOotRoute(tab, num) {
 const kodRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg',
-    title: 'Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ & ೨ರಾ/೩ಹ</em></span>',
+    title: 'Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
     desc: 'Experience the princess of hill stations with its star-shaped lake.<br><span style="font-size:0.9em;opacity:0.75;">ಗಿರಿಧಾಮಗಳ ರಾಜಕುಮಾರಿ ಮತ್ತು ನಕ್ಷತ್ರ ಆಕಾರದ ಸರೋವರದ ಸೌಂದರ್ಯ.</span>',
     tags: '⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🌲 Pine Forest · ಪೈನ್ ಫಾರೆಸ್ಟ್|🪨 Pillar Rocks · ಪಿಲ್ಲರ್ ರಾಕ್ಸ್'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg',
-    title: 'Kodaikanal - Munnar <em>4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;">೪ರಾ/೫ಹ</em></span>',
+    title: 'Kodaikanal - Munnar <em>4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ - ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Journey through the high ranges connecting Tamil Nadu to Kerala.<br><span style="font-size:0.9em;opacity:0.75;">ತಮಿಳುನಾಡು ಮತ್ತು ಕೇರಳವನ್ನು ಸಂಪರ್ಕಿಸುವ ಗಿರಿಧಾಮಗಳ ಪ್ರವಾಸ.</span>',
     tags: '⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🍃 Tea Gardens · ಚಹಾ ತೋಟಗಳು|🌺 Echo Point · ಎಕೋ ಪಾಯಿಂಟ್'
   }
@@ -3360,7 +3432,7 @@ function selectKodRoute(tab, num) {
 const goaRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg',
-    title: 'Goa Package <em>3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;">೩ರಾ/೪ಹ</em></span>',
+    title: 'Goa Package <em>3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Explore the sun-kissed beaches, historic churches, and vibrant culture of Goa.<br><span style="font-size:0.9em;opacity:0.75;">ಗೋವಾದ ಸುಂದರ ಕಡಲತೀರಗಳು, ಚರ್ಚ್‌ಗಳು ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಅದ್ಭುತ ಪ್ರವಾಸ.</span>',
     tags: '🏖️ Beaches · ಕಡಲತೀರಗಳು|⛪ Churches · ಚರ್ಚ್‌ಗಳು|🌴 Fort Aguada · ಅಗುಡಾ ಕೋಟೆ'
   }
@@ -3382,7 +3454,7 @@ function selectGoaRoute(tab, num) {
 const alpRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg',
-    title: 'Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;">೧ರಾ/೨ಹ</em></span>',
+    title: 'Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'A peaceful backwater cruise in Alleppey followed by the rich heritage of Cochin.<br><span style="font-size:0.9em;opacity:0.75;">ಅಲೆಪ್ಪಿಯ ಪ್ರಶಾಂತ ಹಿನ್ನೀರಿನ ವಿಹಾರ ಮತ್ತು ಕೊಚ್ಚಿಯ ಶ್ರೀಮಂತ ಪರಂಪರೆಯ ಪ್ರವಾಸ.</span>',
     tags: '⛵ Houseboat · ಹೌಸ್‌ಬೋಟ್|🛶 Backwaters · ಹಿನ್ನೀರು|🏰 Fort Kochi · ಫೋರ್ಟ್ ಕೊಚ್ಚಿ'
   }
