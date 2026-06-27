@@ -216,6 +216,7 @@
   .prev-slide { left: 10px; border-radius: 0 5px 5px 0; }
   .next-slide { right: 10px; border-radius: 5px 0 0 5px; }
   @media (max-width: 768px) {
+  .nd-badge { display: none !important; }
     .hero-nav { padding: 10px 8px; font-size: 18px; }
   }
   .hero-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 3; }
@@ -469,7 +470,7 @@
   .tours-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
-  .tours-grid { grid-template-columns: 1fr; }
+  .tours-grid { grid-template-columns: 1fr 1fr; gap: 8px; padding-left: 10px; padding-right: 10px; }
 }
 
   .tour-card {
@@ -548,6 +549,7 @@
 .dest-panel:hover .dest-panel-icon, .dest-panel.active .dest-panel-icon { transform: scale(1.2); margin-bottom: 10px; }
 
 @media (max-width: 768px) {
+  .nd-badge { display: none !important; }
   .dest-accordion { flex-direction: column; height: auto; }
   .dest-panel { min-height: 80px; }
   .dest-panel h3 { writing-mode: horizontal-tb; transform: none; }
@@ -1399,11 +1401,19 @@
 }
 
 @media (max-width: 768px) {
-  .tour-explorer { flex-direction: column; min-height: auto; }
-  .tex-left { width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 0; display: flex; flex-direction: row; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nd-badge { display: none !important; }
+  .tour-explorer { flex-direction: column; min-height: auto; border-radius: 12px; }
+  .tex-left { width: 100%; border-right: none; border-bottom: none; padding: 6px; display: flex; flex-direction: column; }
   .tex-left::-webkit-scrollbar { display: none; }
-  .tex-menu-item { flex: 0 0 85%; max-width: 300px; margin: 0 8px; }
-  .tex-header { width: 100%; padding: 8px 16px 10px; }
+  .tex-menu-item { flex: none; width: 100%; max-width: none; margin: 0; padding: 6px; gap: 8px; }
+  .tex-menu-item .tex-num { width: 22px; height: 22px; font-size: 11px; border-radius: 4px; }
+  .tex-menu-text strong { font-size: 11px !important; line-height: 1.2 !important; }
+  .tex-menu-text span { font-size: 9px !important; line-height: 1.2 !important; margin-top: 2px; }
+  .tex-menu-item::after { display: none; }
+  .tex-header { width: 100%; padding: 8px 8px 6px; margin-bottom: 4px; }
+  .tex-header .tex-eyebrow { font-size: 8px !important; margin-bottom: 2px !important; letter-spacing: 0.5px !important; }
+  .tex-header h3 { font-size: 12px !important; line-height: 1.3 !important; }
+  .tex-header::before { display: none; }
   .tex-panel { 
     flex-direction: column !important; 
     width: 95% !important; 
@@ -1523,6 +1533,7 @@
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 @media (max-width: 768px) {
+  .nd-badge { display: none !important; }
   #pkg-mys .tex-sub-tabs, #pkg-ker .tex-sub-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1551,23 +1562,11 @@
   animation: floatUp linear infinite;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
-.drop {
-  position: absolute;
-  background: linear-gradient(to bottom, rgba(100,160,255,0), rgba(60,130,220,0.6));
-  width: 2px;
-  height: 80px;
-  bottom: 100%;
-  animation: rainDrop 0.8s linear infinite;
-}
 @keyframes floatUp {
   0% { transform: translateY(0) rotate(0deg); opacity: 0; }
   10% { opacity: 0.6; }
   90% { opacity: 0.6; }
   100% { transform: translateY(-1200px) rotate(360deg); opacity: 0; }
-}
-@keyframes rainDrop {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(2000px); }
 }
 
 
@@ -1597,8 +1596,8 @@
 
 .bg-collage-chk {
   background-image:
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
+    url('images/hero/slide_6.webp'),
+    url('images/hero/slide_7.webp'),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sringeritemple.jpg/960px-Sringeritemple.jpg'),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Belur_street_towards_Chennakesava_temple.JPG/960px-Belur_street_towards_Chennakesava_temple.JPG');
   background-position: top left, top right, bottom left, bottom right;
@@ -1621,8 +1620,8 @@
   background-image:
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/960px-Mysore_Palace_Morning.jpg'),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Ooty_lake.jpg/960px-Ooty_lake.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg');
+    url('images/hero/slide_8.webp'),
+    url('images/hero/slide_9.webp');
   background-position: top left, top right, bottom left, bottom right;
   background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
   background-repeat: no-repeat;
@@ -1643,7 +1642,7 @@
   background-image:
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Ooty_lake.jpg/960px-Ooty_lake.jpg'),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/NMR_train_at_Ketti_05-02-26_75.jpeg/960px-NMR_train_at_Ketti_05-02-26_75.jpeg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
+    url('images/hero/slide_11.webp'),
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Arts_College_Hill_Ooty_Nilgiris_Mar21_A7C_00188.jpg/960px-Arts_College_Hill_Ooty_Nilgiris_Mar21_A7C_00188.jpg');
   background-position: top left, top right, bottom left, bottom right;
   background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
@@ -1653,9 +1652,9 @@
 .bg-collage-kod {
   background-image:
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Boating_in_Kodaikanal_Lake_with_Mist.jpg/960px-Boating_in_Kodaikanal_Lake_with_Mist.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Ooty_Lake.jpg/960px-Ooty_Lake.jpg');
+    url('images/hero/slide_5.webp'),
+    url('images/hero/slide_6.webp'),
+    url('images/hero/slide_7.webp');
   background-position: top left, top right, bottom left, bottom right;
   background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
   background-repeat: no-repeat;
@@ -1664,9 +1663,9 @@
 .bg-collage-goa {
   background-image:
     url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Palolem_Beach%2C_South_Goa.jpg/960px-Palolem_Beach%2C_South_Goa.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Doodhsagar_Fall.jpg/960px-Doodhsagar_Fall.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fort_aguada.jpg/960px-Fort_aguada.jpg'),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Front_Elevation_of_Basilica_of_Bom_Jesus.jpg/960px-Front_Elevation_of_Basilica_of_Bom_Jesus.jpg');
+    url('images/hero/slide_12.webp'),
+    url('images/hero/slide_13.webp'),
+    url('images/hero/slide_14.webp');
   background-position: top left, top right, bottom left, bottom right;
   background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
   background-repeat: no-repeat;
@@ -1820,6 +1819,7 @@
     100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
   }
   @media (max-width: 768px) {
+  .nd-badge { display: none !important; }
     .hero-bottom-left-badge {
       position: absolute;
       bottom: 10px;
@@ -2017,76 +2017,6 @@
 <!-- TOURS -->
 <section class="tours" id="tours">
   <div class="effects-container">
-    <i class="drop" style="left: 74.44859804668063%; animation-delay: 1.5463774233836667s; animation-duration: 0.8057874385058539s; height: 62.39731345854987px; opacity: 0.454279960754634;"></i>
-    <i class="drop" style="left: 17.463385707167912%; animation-delay: 0.24242533841782143s; animation-duration: 0.7754958120047719s; height: 32.07802306414182px; opacity: 0.47551666400444054;"></i>
-    <i class="drop" style="left: 52.40848296799708%; animation-delay: 1.361500404991435s; animation-duration: 0.6326284062888717s; height: 69.55528190030982px; opacity: 0.39300869270952316;"></i>
-    <i class="drop" style="left: 56.76974628489179%; animation-delay: 0.7901789098649197s; animation-duration: 0.8069347388436551s; height: 86.95246470183022px; opacity: 0.34814381965101726;"></i>
-    <i class="drop" style="left: 55.23678082406117%; animation-delay: 1.7922263655923092s; animation-duration: 0.8413011894439459s; height: 96.62221675468524px; opacity: 0.32191548703418793;"></i>
-    <i class="drop" style="left: 33.218907223127495%; animation-delay: 1.5739759974711056s; animation-duration: 0.5123446942598991s; height: 46.059437650113495px; opacity: 0.5222163175921744;"></i>
-    <i class="drop" style="left: 80.882873922333%; animation-delay: 1.948697083012729s; animation-duration: 0.6458317331961838s; height: 91.42783555993321px; opacity: 0.521219320520179;"></i>
-    <i class="drop" style="left: 89.47010972658185%; animation-delay: 1.7647132365881464s; animation-duration: 0.9441437664354009s; height: 37.18391856774798px; opacity: 0.4299969393889448;"></i>
-    <i class="drop" style="left: 57.23974835120224%; animation-delay: 1.9453306130399413s; animation-duration: 0.626682351187371s; height: 84.97967491683724px; opacity: 0.4081856274864051;"></i>
-    <i class="drop" style="left: 2.086952770192141%; animation-delay: 0.7502550784358488s; animation-duration: 0.5028770203123443s; height: 34.678832380945096px; opacity: 0.4556209422630089;"></i>
-    <i class="drop" style="left: 57.209254845004885%; animation-delay: 0.37826800488724577s; animation-duration: 0.9672431529375624s; height: 92.50110701803965px; opacity: 0.5757265083245755;"></i>
-    <i class="drop" style="left: 53.47780715736189%; animation-delay: 1.8249288955968483s; animation-duration: 0.9027017763280005s; height: 58.346061411049945px; opacity: 0.46610946725976704;"></i>
-    <i class="drop" style="left: 9.653828541168219%; animation-delay: 1.7803426544261136s; animation-duration: 0.7366977637620438s; height: 31.70894776701753px; opacity: 0.2007929939733898;"></i>
-    <i class="drop" style="left: 52.95842354144315%; animation-delay: 1.1375107975129317s; animation-duration: 0.6796540203365231s; height: 76.49947361535476px; opacity: 0.24653610815130184;"></i>
-    <i class="drop" style="left: 81.04611005335303%; animation-delay: 0.37262582499630126s; animation-duration: 0.5774202215068162s; height: 90.89856370620032px; opacity: 0.3543201259969171;"></i>
-    <i class="drop" style="left: 21.606797498921303%; animation-delay: 0.3616837224416267s; animation-duration: 0.9683978536143291s; height: 73.23402835378113px; opacity: 0.5200332993868895;"></i>
-    <i class="drop" style="left: 97.02351888114703%; animation-delay: 1.5981032776095918s; animation-duration: 0.55294413491045s; height: 96.0185683531831px; opacity: 0.5306588757698291;"></i>
-    <i class="drop" style="left: 95.40658997482781%; animation-delay: 0.4494884295064885s; animation-duration: 0.8755607041497604s; height: 39.02815929337939px; opacity: 0.30632899501475863;"></i>
-    <i class="drop" style="left: 3.5316875208413756%; animation-delay: 1.3200454469240248s; animation-duration: 0.7110290410838274s; height: 86.3712838842462px; opacity: 0.5233046734312508;"></i>
-    <i class="drop" style="left: 49.21839820409587%; animation-delay: 1.811321099103212s; animation-duration: 0.6843380192943689s; height: 45.95377398259248px; opacity: 0.4287430268454939;"></i>
-    <i class="drop" style="left: 23.19846839494485%; animation-delay: 1.2877812514208296s; animation-duration: 0.8603879304590354s; height: 51.634259554962554px; opacity: 0.33933547413224235;"></i>
-    <i class="drop" style="left: 13.730313865450661%; animation-delay: 1.0484380686902988s; animation-duration: 0.8756379124885922s; height: 90.96907397810718px; opacity: 0.5247320088554068;"></i>
-    <i class="drop" style="left: 64.4723976089632%; animation-delay: 0.9898011874513151s; animation-duration: 0.599060708894368s; height: 83.33083142062623px; opacity: 0.2742581781405579;"></i>
-    <i class="drop" style="left: 71.24983495624544%; animation-delay: 1.4594304889285121s; animation-duration: 0.6916246075891632s; height: 96.71249291906841px; opacity: 0.23337638466223695;"></i>
-    <i class="drop" style="left: 2.783034822249264%; animation-delay: 1.6889202095808356s; animation-duration: 0.6339167718849439s; height: 87.23541633010535px; opacity: 0.44506545236081196;"></i>
-    <i class="drop" style="left: 12.633793699456463%; animation-delay: 1.5934177557552747s; animation-duration: 0.7350185858000378s; height: 93.87169156305139px; opacity: 0.4713239374237998;"></i>
-    <i class="drop" style="left: 62.867950124603745%; animation-delay: 1.2939273498922552s; animation-duration: 0.9895318150062237s; height: 32.53067656160563px; opacity: 0.27394637403887456;"></i>
-    <i class="drop" style="left: 38.420537313742365%; animation-delay: 0.9979620452105817s; animation-duration: 0.5426682849055171s; height: 70.36271433258966px; opacity: 0.42583313412971163;"></i>
-    <i class="drop" style="left: 6.0966139919872875%; animation-delay: 0.8003640113234709s; animation-duration: 0.5601859966351977s; height: 59.61863586048577px; opacity: 0.3969643616233939;"></i>
-    <i class="drop" style="left: 72.03805047131931%; animation-delay: 1.2449124690514122s; animation-duration: 0.9904636657279862s; height: 55.79755495698561px; opacity: 0.5046781256272928;"></i>
-    <i class="drop" style="left: 92.73942046855%; animation-delay: 1.5163481063223687s; animation-duration: 0.7914870218991004s; height: 52.361067759280175px; opacity: 0.21684278514966465;"></i>
-    <i class="drop" style="left: 67.96257453884918%; animation-delay: 0.740901941353431s; animation-duration: 0.9703462729225393s; height: 96.8223017116136px; opacity: 0.3720676143990318;"></i>
-    <i class="drop" style="left: 35.17125549094883%; animation-delay: 1.321160462734162s; animation-duration: 0.7647816810086423s; height: 42.89902692456827px; opacity: 0.47513409120195593;"></i>
-    <i class="drop" style="left: 62.24161388516727%; animation-delay: 0.3555672194361206s; animation-duration: 0.5693790058871153s; height: 39.22900117207px; opacity: 0.4007586244912867;"></i>
-    <i class="drop" style="left: 91.29481651081562%; animation-delay: 0.24551474177681087s; animation-duration: 0.8480259936586223s; height: 63.422809707915704px; opacity: 0.4034905571844026;"></i>
-    <i class="drop" style="left: 3.003799900837756%; animation-delay: 0.04488194008272717s; animation-duration: 0.9476501287974919s; height: 67.54374491181697px; opacity: 0.4558731942885703;"></i>
-    <i class="drop" style="left: 0.16806325328705407%; animation-delay: 0.08719912964945276s; animation-duration: 0.51225376431952s; height: 77.9807930376564px; opacity: 0.5462064483530384;"></i>
-    <i class="drop" style="left: 37.41982193346779%; animation-delay: 1.6369541472484623s; animation-duration: 0.572330335916372s; height: 73.984036810301px; opacity: 0.5862158989524513;"></i>
-    <i class="drop" style="left: 26.41968821785925%; animation-delay: 0.08477014148254924s; animation-duration: 0.5094527689779424s; height: 84.03535514723622px; opacity: 0.44820119730622743;"></i>
-    <i class="drop" style="left: 54.064986909375456%; animation-delay: 0.5755282315501213s; animation-duration: 0.6419360366211109s; height: 44.532235176262226px; opacity: 0.4118457306368164;"></i>
-    <i class="drop" style="left: 22.4858348784863%; animation-delay: 0.6239113675858341s; animation-duration: 0.6645023903016121s; height: 60.22880817702121px; opacity: 0.42178677157875344;"></i>
-    <i class="drop" style="left: 40.18110659126184%; animation-delay: 1.8005106573538674s; animation-duration: 0.8840158740566151s; height: 79.35606612311295px; opacity: 0.25835696854935913;"></i>
-    <i class="drop" style="left: 99.61807051954689%; animation-delay: 1.7319254949228395s; animation-duration: 0.6691804798800168s; height: 56.206414486709605px; opacity: 0.3803156603470058;"></i>
-    <i class="drop" style="left: 84.48449321841518%; animation-delay: 0.882641997054052s; animation-duration: 0.6575502734845668s; height: 84.06025682230107px; opacity: 0.34084233329448665;"></i>
-    <i class="drop" style="left: 63.280370757361446%; animation-delay: 1.591313645638824s; animation-duration: 0.8662065754616558s; height: 57.22765151188211px; opacity: 0.2246823234772713;"></i>
-    <i class="drop" style="left: 59.961425785305025%; animation-delay: 1.7722269190262192s; animation-duration: 0.6417880178781024s; height: 50.29568211785882px; opacity: 0.506619967262331;"></i>
-    <i class="drop" style="left: 62.86305407562702%; animation-delay: 0.7731399593431207s; animation-duration: 0.8277933238562467s; height: 61.00459567177393px; opacity: 0.32265065177970154;"></i>
-    <i class="drop" style="left: 46.91413971701144%; animation-delay: 0.008901170706010708s; animation-duration: 0.9375884293564287s; height: 76.5809083735655px; opacity: 0.5431014332486925;"></i>
-    <i class="drop" style="left: 93.37968373486827%; animation-delay: 0.3322561067751384s; animation-duration: 0.5061375961359014s; height: 94.67688726348132px; opacity: 0.4343828427933235;"></i>
-    <i class="drop" style="left: 1.3572153606865145%; animation-delay: 1.6790083083971328s; animation-duration: 0.6019623208892614s; height: 83.55570781533123px; opacity: 0.5353846612015845;"></i>
-    <i class="drop" style="left: 57.23926461966437%; animation-delay: 1.7605301490550602s; animation-duration: 0.5187884853946918s; height: 38.14670646262253px; opacity: 0.4492422364349129;"></i>
-    <i class="drop" style="left: 14.601298010108144%; animation-delay: 1.9544958706288447s; animation-duration: 0.7736374825520836s; height: 56.082215464199976px; opacity: 0.3099279204631859;"></i>
-    <i class="drop" style="left: 23.641492693742617%; animation-delay: 1.7263964769866404s; animation-duration: 0.5618746876291671s; height: 83.40009570507986px; opacity: 0.37752531421823193;"></i>
-    <i class="drop" style="left: 5.209109164300196%; animation-delay: 1.2628581201898323s; animation-duration: 0.6623104810519728s; height: 51.07973604274086px; opacity: 0.507251923281729;"></i>
-    <i class="drop" style="left: 62.21327888616205%; animation-delay: 0.04433569153788053s; animation-duration: 0.6078867720975181s; height: 94.63259469557754px; opacity: 0.25719933509384013;"></i>
-    <i class="drop" style="left: 73.53630608518867%; animation-delay: 1.193082571429547s; animation-duration: 0.8921331121124163s; height: 64.75760614509332px; opacity: 0.3399884667824769;"></i>
-    <i class="drop" style="left: 18.111205512817286%; animation-delay: 0.8315446653682002s; animation-duration: 0.5139030970633436s; height: 74.02837585156496px; opacity: 0.47176380380354366;"></i>
-    <i class="drop" style="left: 65.3499563986646%; animation-delay: 1.9930782222486103s; animation-duration: 0.6498279620145571s; height: 72.4203230241456px; opacity: 0.20398196374977215;"></i>
-    <i class="drop" style="left: 76.46260680953503%; animation-delay: 1.4207798139489591s; animation-duration: 0.6267171629040049s; height: 75.01062063225892px; opacity: 0.5402319069506195;"></i>
-    <i class="drop" style="left: 17.32328317509716%; animation-delay: 0.35635896816605683s; animation-duration: 0.7822959761368183s; height: 37.16089197431558px; opacity: 0.47097903039853994;"></i>
-    <i class="drop" style="left: 21.173232859521473%; animation-delay: 0.8329095707946557s; animation-duration: 0.8786823519716107s; height: 95.96120890176488px; opacity: 0.35404502494404677;"></i>
-    <i class="drop" style="left: 18.590017977674222%; animation-delay: 1.0420186001624752s; animation-duration: 0.9323801676721408s; height: 84.91761679710214px; opacity: 0.5530311085800599;"></i>
-    <i class="drop" style="left: 75.61963688093391%; animation-delay: 1.0508405332490363s; animation-duration: 0.7324633710256567s; height: 53.120644703951214px; opacity: 0.4657369393106021;"></i>
-    <i class="drop" style="left: 4.759358740383024%; animation-delay: 1.6241534742050763s; animation-duration: 0.734425528860511s; height: 56.22061770498257px; opacity: 0.3979461359424475;"></i>
-    <i class="drop" style="left: 58.03596214989214%; animation-delay: 0.5127964450731335s; animation-duration: 0.8983831477322906s; height: 79.10990426457795px; opacity: 0.21729333166991496;"></i>
-    <i class="drop" style="left: 15.131302094847799%; animation-delay: 1.0527743505535385s; animation-duration: 0.5143033655328154s; height: 38.6551515173566px; opacity: 0.45541571295085953;"></i>
-    <i class="drop" style="left: 43.758807183968116%; animation-delay: 0.26462124537637055s; animation-duration: 0.5051320985606731s; height: 48.933605904653156px; opacity: 0.5934805743960021;"></i>
-    <i class="drop" style="left: 55.52842844239664%; animation-delay: 0.7825205492458718s; animation-duration: 0.6589374978634984s; height: 68.35293657750753px; opacity: 0.5120060493326506;"></i>
-    <i class="drop" style="left: 23.782997906942015%; animation-delay: 1.3561006401204148s; animation-duration: 0.552311035744494s; height: 85.67242313840484px; opacity: 0.44745508712803117;"></i>
-    <i class="drop" style="left: 49.56393442826435%; animation-delay: 1.056026316795798s; animation-duration: 0.9664072447971692s; height: 75.75456696988553px; opacity: 0.36252270370880835;"></i>
     <span class="tour-floater" style="left: 81.12173457296176%; animation-duration: 15.368151796171434s; animation-delay: 14.62264631901306s; font-size: 25.032669660822627px;">🏖️</span>
     <span class="tour-floater" style="left: 71.97056962296496%; animation-duration: 19.45392195775818s; animation-delay: 1.0729764893806037s; font-size: 20.155324260746916px;">⛰️</span>
     <span class="tour-floater" style="left: 15.285985137343772%; animation-duration: 18.704886126492546s; animation-delay: 15.931493767472308s; font-size: 30.70085278498993px;">🏖️</span>
@@ -2115,7 +2045,7 @@
     <!-- TOUR EXPLORER WIDGET -->
     
     <!-- Card 1: Bangalore Local -->
-    <div class="tour-explorer" id="tourExplorer" onclick="selectTexPackage(this, 'pkg-blr')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg');">
+    <div class="tour-explorer" id="tourExplorer" onclick="selectTexPackage(this, 'pkg-blr')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Bangalore Packages<br>ಬೆಂಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2170,7 +2100,7 @@
     </div>
 
     <!-- Card 2: 1 Day Cab Trip -->
-    <div class="tour-explorer" id="tourExplorerCab" onclick="selectTexPackage(this, 'pkg-cab')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Halebeedu_DSW.jpg/800px-Halebeedu_DSW.jpg');">
+    <div class="tour-explorer" id="tourExplorerCab" onclick="selectTexPackage(this, 'pkg-cab')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Bangalore Packages<br>ಬೆಂಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2231,7 +2161,7 @@
       </div>
 
     <!-- Tour Explorer 2: Chikkamagalur -->
-    <div class="tour-explorer" id="tourExplorer2" onclick="selectTexPackage(this, 'pkg-chk')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Mullayanagiri_Peak.jpg/800px-Mullayanagiri_Peak.jpg');">
+    <div class="tour-explorer" id="tourExplorer2" onclick="selectTexPackage(this, 'pkg-chk')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Chikkamagalur Packages<br>ಚಿಕ್ಕಮಗಳೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2251,7 +2181,7 @@
           <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-chk" id="chk-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-3a" id="chk-coin">3a</div>
             <div class="tex-panel-hero-content">
               <h2 id="chk-title">Chikkamagalur <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2291,17 +2221,17 @@
     </div>
 
     <!-- Tour Explorer 3: Coorg -->
-    <div class="tour-explorer" id="tourExplorer3" onclick="selectTexPackage(this, 'pkg-crg')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg');">
+    <div class="tour-explorer" id="tourExplorer3" onclick="selectTexPackage(this, 'pkg-crg')">
       <div class="tex-left">
         <div class="tex-header">
-          <span class="tex-eyebrow">Coorg Packages<br>ಕೂರ್ಗ್ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
+          <span class="tex-eyebrow">Coorg Packages<br>ಕೊಡಗು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
           <h3>Nature Retreat<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಪ್ರಕೃತಿ ತಾಣ</span></h3>
         </div>
         <div class="tex-menu-item" data-pkg="pkg-crg" style="--bg-img: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg');">
           <div class="tex-num">4</div>
           <div class="tex-menu-text">
             <strong>Coorg</strong>
-            <span>ಕೂರ್ಗ್</span>
+            <span>ಕೊಡಗು</span>
           </div>
         </div>
       </div>
@@ -2311,10 +2241,10 @@
           <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-crg" id="crg-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-4a" id="crg-coin">4a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="crg-title">Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span></h2>
+              <h2 id="crg-title">Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡಗು</span></h2>
               <p id="crg-desc">Escape to the Scotland of India for misty hills and lush coffee estates.<br><span style="font-size:0.9em;opacity:0.75;">ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಕಾಫಿ ತೋಟಗಳ ಅದ್ಭುತ ಪ್ರವಾಸ.</span></p>
               <div class="tex-place-tags" id="crg-tags">
                 <span class="tex-place-tag">🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ</span>
@@ -2344,7 +2274,7 @@
     </div>
 
     <!-- Tour Explorer 4: Mysore -->
-    <div class="tour-explorer" id="tourExplorer4" onclick="selectTexPackage(this, 'pkg-mys')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Mysore_Palace_Morning.jpg/800px-Mysore_Palace_Morning.jpg');">
+    <div class="tour-explorer" id="tourExplorer4" onclick="selectTexPackage(this, 'pkg-mys')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Mysore Packages<br>ಮೈಸೂರು ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2364,7 +2294,7 @@
           <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-mys" id="mys-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-5a" id="mys-coin">5a</div>
             <div class="tex-panel-hero-content">
               <h2 id="mys-title">Mysore <em>Full Day Sightseeing</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು <em style="color:#FFD580;font-style:normal;">ಪೂರ್ಣ ದಿನದ ದರ್ಶನ</em></span></h2>
@@ -2454,7 +2384,7 @@
 
     
     <!-- Tour Explorer 5: Kerala Special -->
-    <div class="tour-explorer" id="tourExplorer5" onclick="selectTexPackage(this, 'pkg-ker')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Munnar_hillstation.jpg/800px-Munnar_hillstation.jpg');">
+    <div class="tour-explorer" id="tourExplorer5" onclick="selectTexPackage(this, 'pkg-ker')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Kerala Packages<br>ಕೇರಳ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2475,7 +2405,7 @@
           <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-ker" id="ker-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-6a" id="ker-coin">6a</div>
             <div class="tex-panel-hero-content">
               <h2 id="ker-title">Munnar <em>2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2558,7 +2488,7 @@
 
     
     <!-- Tour Explorer 6: Ooty -->
-    <div class="tour-explorer" id="tourExplorer6" onclick="selectTexPackage(this, 'pkg-oot')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Ooty_Lake.jpg');">
+    <div class="tour-explorer" id="tourExplorer6" onclick="selectTexPackage(this, 'pkg-oot')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Ooty Packages<br>ಊಟಿ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2578,7 +2508,7 @@
           <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-oot" id="oot-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-7a" id="oot-coin">7a</div>
             <div class="tex-panel-hero-content">
               <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span></h2>
@@ -2618,7 +2548,7 @@
     </div>
 
     <!-- Tour Explorer 7: Kodaikanal -->
-    <div class="tour-explorer" id="tourExplorer7" onclick="selectTexPackage(this, 'pkg-kod')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg');">
+    <div class="tour-explorer" id="tourExplorer7" onclick="selectTexPackage(this, 'pkg-kod')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Kodaikanal Packages<br>ಕೊಡೆಕಾನಲ್ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2638,7 +2568,7 @@
           <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-kod" id="kod-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-8a" id="kod-coin">8a</div>
             <div class="tex-panel-hero-content">
               <h2 id="kod-title">Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;"> & </em></span></h2>
@@ -2672,7 +2602,7 @@
 
     
     <!-- Tour Explorer 8: Goa -->
-    <div class="tour-explorer" id="tourExplorer8" onclick="selectTexPackage(this, 'pkg-goa')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Palolem_Beach_Goa_India.jpg/800px-Palolem_Beach_Goa_India.jpg');">
+    <div class="tour-explorer" id="tourExplorer8" onclick="selectTexPackage(this, 'pkg-goa')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Goa Packages<br>ಗೋವಾ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2692,7 +2622,7 @@
           <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-goa" id="goa-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-9a" id="goa-coin">9a</div>
             <div class="tex-panel-hero-content">
               <h2 id="goa-title">Goa Package <em>3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2718,7 +2648,7 @@
     </div>
 
     <!-- Tour Explorer 9: Alleppey -->
-    <div class="tour-explorer" id="tourExplorer9" onclick="selectTexPackage(this, 'pkg-alp')" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Alleppey_Houseboat.jpg/800px-Alleppey_Houseboat.jpg');">
+    <div class="tour-explorer" id="tourExplorer9" onclick="selectTexPackage(this, 'pkg-alp')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Alleppey Packages<br>ಅಲೆಪ್ಪಿ ಪ್ಯಾಕೇಜ್‌ಗಳು</span>
@@ -2738,7 +2668,7 @@
           <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-alp" id="alp-hero">
             <div class="tex-panel-hero-overlay"></div>
-            <div style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-10a" id="alp-coin">10a</div>
             <div class="tex-panel-hero-content">
               <h2 id="alp-title">Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -3181,7 +3111,7 @@ const t = {
     brand_name:"S.S.B. Package & Holidays<br><span class='sub-name kn-font'>ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್</span>",brand_sub:"Shirdi Sai Baba • Nandan Cabs",govt_badge:"Authorised by Govt. of Karnataka, Dept. of Tourism",nav_tours:"Tour Packages",nav_dest:"Destinations",nav_about:"About Us",nav_book:"📞 Book Now",hero_eyebrow:"Sai Baba's Blessings on Every Journey",hero_h2:"Discover <em>India's</em> Most Sacred & Beautiful Destinations",hero_p:"From the divine darshan of Tirupathi Balaji to the misty hills of Ooty and backwaters of Alleppey — we've been crafting unforgettable journeys from Bangalore since decades.",hero_btn1:"🗺️ View All Packages",hero_btn2:"📞 Call Us Now",stat1_num:"27+",stat1_label:"Tour Packages",stat2_num:"15+",stat2_label:"Destinations",stat3_num:"3★",stat3_label:"Hotel Options",cat_eyebrow:"What we offer",cat_h2:"Tour Categories",cat1_h:"Pilgrimage Tours",cat1_p:"Tirupathi, Shirdi, Rameshwaram & more",cat2_h:"Hill Station Tours",cat2_p:"Ooty, Kodai, Munnar, Coorg, Coonur",cat3_h:"Honeymoon Special",cat3_p:"Romantic packages for newlyweds",cat4_h:"Beach Packages",cat4_p:"Goa, Pondicherry, Kanyakumari, Kovalam",cat5_h:"Houseboat Tours",cat5_p:"Alleppey & Kumarakom backwaters",cat6_h:"City Sightseeing",cat6_p:"Bangalore, Mysore day tours",sp_eyebrow:"Our Signature Offering",sp_h2:"Tirupathi Balaji Special VIP Darshan",sp_p:"Experience the divine blessings of Lord Venkateswara with our exclusive VIP Darshan package — complete with comfortable hotel accommodation and guided tour arrangements.",sp_btn:"Enquire About Tirupathi VIP Darshan",sp_f1_h:"VIP Darshan",sp_f1_p:"Skip the queues with special entry",sp_f2_h:"Hotel Included",sp_f2_p:"Comfortable accommodation near temple",sp_f3_h:"AC Transport",sp_f3_p:"Comfortable journey from Bangalore",sp_f4_h:"Tour Guide",sp_f4_p:"Expert local guide included",tours_eyebrow:"27 handcrafted journeys",tours_h2:"All Tour Packages",tours_p:"Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.",more_tours:"And many more packages available — Tours #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"Enquire About Any Package",enquire:"Enquire",call_price:"Call for Price",includes:"Includes:",dest_eyebrow:"Where we take you",dest_h2:"Sight Seeing at Every Destination",why_eyebrow:"Why choose us",why_h2:"The S.S.B. Difference",why1_h:"Govt. Authorised",why1_p:"Officially authorised by the Government of Karnataka, Department of Tourism. Travel with complete trust and confidence.",why2_h:"Luxury Coaches",why2_p:"Travel in comfort with our luxury 2×2 push-back seat coaches and Mini Luxury Coaches for a relaxed journey.",why3_h:"Hotel Options",why3_p:"Choose from Deluxe, Super Deluxe, Star, Luxury, Home Stay or Resort to suit your budget and preference.",why4_h:"Expert Guides",why4_p:"Knowledgeable local guides at every destination ensure you don't miss any important sight or story.",why5_h:"All Inclusive",why5_p:"Hotel accommodation, entrance fees, and guide charges included in most packages. No hidden surprises.",why6_h:"24/7 Support",why6_p:"Multiple contact numbers ensure we're always reachable for any assistance during your journey.",contact_h2:"Plan Your Dream Journey",contact_p:"Contact us today for custom packages, group tours, hotel reservations, and VIP Tirupathi Darshan arrangements.",addr_h:"Our Office",addr_v:"#32, Hotel Suprabhatha Building, Ananda Rao Circle, Bangalore – 560 009",call_h:"Call Us",email_h:"Email",web_h:"Website",form_h:"Quick Enquiry",form_name:"Your Name",form_name_ph:"Enter your full name",form_mob:"Mobile Number",form_mob_ph:"Enter your mobile number",form_tour:"Tour Package",form_tour_ph:"Select a package",form_persons:"Number of Persons",form_persons_ph:"How many people?",form_msg:"Message",form_msg_ph:"Any specific requirements, dates, or questions...",form_submit:"Send Enquiry 🙏",footer_brand_p:"Shirdi Sai Baba Package & Holidays | Nandan Cabs &bull; Authorised by Govt. of Karnataka, Dept. of Tourism &bull; Serving travellers from Bangalore since decades.",footer_tours_h:"Our Tours",footer_dest_h:"Destinations",footer_contact_h:"Contact",footer_copy:"© 2026 S.S.B. Package & Holidays | Nandan Cabs. All rights reserved.",footer_copy2:"Authorised by Govt. of Karnataka, Department of Tourism | Ananda Rao Circle, Bangalore – 560 009",fare_per_head:"Fare Per Head",tour_badge_local:"Local",tour_badge_daytr:"Day Tour",tour_badge_honey:"Honeymoon Special",tour_badge_hill:"Hill Station",tour_badge_pop:"Popular",tour_badge_ext:"Extended",tour_badge_nat:"Nature",tour_badge_wild:"Wildlife",tour_badge_combo:"Combo",tour_badge_best:"Best Seller",tour_badge_kerala:"Kerala",tour_badge_mega:"Mega Tour",tour_badge_beach:"Beach Special",tour_badge_hboat:"Houseboat",day_label_covers:"Covers",day_label_returns:"Returns",day_label_batch1:"Batch 1",day_label_batch2:"Batch 2",day_label_stay:"Stay",day_label_special:"Special",day_label_option1:"Option 1",day_label_option2:"Option 2",day_label_option3:"Option 3"
   },
   kn: {
-    brand_name:"ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್",brand_sub:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್",govt_badge:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯ ಅಧಿಕೃತ ಮಾನ್ಯತೆ ಪಡೆದಿದೆ",nav_tours:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",nav_dest:"ತಾಣಗಳು",nav_about:"ನಮ್ಮ ಬಗ್ಗೆ",nav_book:"📞 ಈಗಲೇ ಬುಕ್ ಮಾಡಿ",hero_eyebrow:"ಪ್ರತಿ ಪ್ರಯಾಣದಲ್ಲೂ ಸಾಯಿ ಬಾಬಾರ ಆಶೀರ್ವಾದ",hero_h2:"<em>ಭಾರತದ</em> ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",hero_p:"ತಿರುಪತಿ ಬಾಲಾಜಿ ದರ್ಶನದಿಂದ ಹಿಡಿದು ಊಟಿಯ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಅಲ್ಲೆಪ್ಪಿಯ ಹಿನ್ನೀರಿನವರೆಗೆ — ಬೆಂಗಳೂರಿನಿಂದ ಅವಿಸ್ಮರಣೀಯ ಪ್ರವಾಸಗಳನ್ನು ಏರ್ಪಡಿಸುತ್ತಿದ್ದೇವೆ.",hero_btn1:"🗺️ ಎಲ್ಲಾ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ನೋಡಿ",hero_btn2:"📞 ಈಗಲೇ ಕರೆ ಮಾಡಿ",stat1_num:"೨೭+",stat1_label:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",stat2_num:"೧೫+",stat2_label:"ತಾಣಗಳು",stat3_num:"೩★",stat3_label:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",cat_eyebrow:"ನಾವು ನೀಡುವ ಸೇವೆಗಳು",cat_h2:"ಟೂರ್ ವರ್ಗಗಳು",cat1_h:"ಯಾತ್ರಾ ಪ್ರವಾಸ",cat1_p:"ತಿರುಪತಿ, ಶಿರಡಿ, ರಾಮೇಶ್ವರಂ ಮತ್ತು ಇನ್ನಷ್ಟು",cat2_h:"ಗಿರಿಧಾಮ ಪ್ರವಾಸ",cat2_p:"ಊಟಿ, ಕೊಡೈ, ಮುನ್ನಾರ್, ಕೂರ್ಗ್, ಕೂನೂರ್",cat3_h:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",cat3_p:"ನವವಿವಾಹಿತರಿಗಾಗಿ ರೊಮ್ಯಾಂಟಿಕ್ ಪ್ಯಾಕೇಜ್",cat4_h:"ಬೀಚ್ ಪ್ಯಾಕೇಜ್",cat4_p:"ಗೋವಾ, ಪಾಂಡಿಚೇರಿ, ಕನ್ಯಾಕುಮಾರಿ, ಕೋವಳಂ",cat5_h:"ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ",cat5_p:"ಅಲ್ಲೆಪ್ಪಿ ಮತ್ತು ಕುಮರಕೋಂ ಹಿನ್ನೀರು",cat6_h:"ನಗರ ದರ್ಶನ",cat6_p:"ಬೆಂಗಳೂರು, ಮೈಸೂರು ದಿನ ಪ್ರವಾಸ",sp_eyebrow:"ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ",sp_h2:"ತಿರುಪತಿ ಬಾಲಾಜಿ ಸ್ಪೆಷಲ್ VIP ದರ್ಶನ",sp_p:"ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಆಶೀರ್ವಾದ ಪಡೆಯಿರಿ — ಹೋಟೆಲ್ ವಸತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಸೇರಿದ ವಿಶೇಷ VIP ದರ್ಶನ ಪ್ಯಾಕೇಜ್.",sp_btn:"ತಿರುಪತಿ VIP ದರ್ಶನ ವಿಚಾರಿಸಿ",sp_f1_h:"VIP ದರ್ಶನ",sp_f1_p:"ವಿಶೇಷ ಪ್ರವೇಶದೊಂದಿಗೆ ಕ್ಯೂ ತಪ್ಪಿಸಿ",sp_f2_h:"ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ",sp_f2_p:"ದೇವಸ್ಥಾನ ಸಮೀಪ ಆರಾಮದಾಯಕ ವಸತಿ",sp_f3_h:"AC ವಾಹನ",sp_f3_p:"ಬೆಂಗಳೂರಿನಿಂದ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ",sp_f4_h:"ಮಾರ್ಗದರ್ಶಿ",sp_f4_p:"ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿ ಒಳಗೊಂಡಿದೆ",tours_eyebrow:"೨೭ ವಿಶೇಷ ಪ್ರವಾಸಗಳು",tours_h2:"ಎಲ್ಲಾ ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",tours_p:"ಬೆಂಗಳೂರಿನಿಂದ ಹೊರಡುವ ಪ್ರವಾಸಗಳು. ಹೋಟೆಲ್ ವಸತಿ, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",more_tours:"ಇನ್ನೂ ಅನೇಕ ಪ್ಯಾಕೇಜ್‌ಗಳು ಲಭ್ಯ — ಟೂರ್ #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",enquire:"ವಿಚಾರಿಸಿ",call_price:"ಬೆಲೆಗೆ ಕರೆ ಮಾಡಿ",includes:"ಒಳಗೊಂಡಿದೆ:",dest_eyebrow:"ನಾವು ಕರೆದೊಯ್ಯುವ ತಾಣಗಳು",dest_h2:"ಪ್ರತಿ ತಾಣದ ದರ್ಶನ ಸ್ಥಳಗಳು",why_eyebrow:"ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು",why_h2:"ಎಸ್.ಎಸ್.ಬಿ. ವಿಶೇಷತೆ",why1_h:"ಸರ್ಕಾರ ಅಧಿಕೃತ",why1_p:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತವಾಗಿ ಮಾನ್ಯತೆ ಪಡೆದಿದ್ದೇವೆ.",why2_h:"ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳು",why2_p:"ಲಕ್ಷರಿ 2×2 ಪುಶ್‌ಬ್ಯಾಕ್ ಸೀಟ್ ಕೋಚ್ ಮತ್ತು ಮಿನಿ ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳಲ್ಲಿ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ.",why3_h:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",why3_p:"ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ತಕ್ಕಂತೆ ಡೀಲಕ್ಸ್, ಸೂಪರ್ ಡೀಲಕ್ಸ್, ಸ್ಟಾರ್, ಲಕ್ಷರಿ, ಹೋಮ್ ಸ್ಟೇ ಆಯ್ಕೆ ಮಾಡಿ.",why4_h:"ತಜ್ಞ ಮಾರ್ಗದರ್ಶಿಗಳು",why4_p:"ಪ್ರತಿ ತಾಣದಲ್ಲೂ ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿಗಳು ನಿಮ್ಮ ಜೊತೆ ಇರುತ್ತಾರೆ.",why5_h:"ಎಲ್ಲವೂ ಸೇರಿದೆ",why5_p:"ಹೆಚ್ಚಿನ ಪ್ಯಾಕೇಜ್‌ಗಳಲ್ಲಿ ಹೋಟೆಲ್, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",why6_h:"೨೪/೭ ಬೆಂಬಲ",why6_p:"ಅನೇಕ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳ ಮೂಲಕ ನಾವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸೇವೆಗೆ ಸಿದ್ಧ.",contact_h2:"ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ",contact_p:"ಕಸ್ಟಮ್ ಪ್ಯಾಕೇಜ್, ಗ್ರೂಪ್ ಟೂರ್, ಹೋಟೆಲ್ ಕಾಯ್ದಿರಿಸುವಿಕೆ ಮತ್ತು ತಿರುಪತಿ VIP ದರ್ಶನಕ್ಕಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ.",addr_h:"ನಮ್ಮ ಕಚೇರಿ",addr_v:"#32, ಹೋಟೆಲ್ ಸುಪ್ರಭಾತ ಬಿಲ್ಡಿಂಗ್, ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",call_h:"ಕರೆ ಮಾಡಿ",email_h:"ಇಮೇಲ್",web_h:"ವೆಬ್‌ಸೈಟ್",form_h:"ತ್ವರಿತ ವಿಚಾರಣೆ",form_name:"ನಿಮ್ಮ ಹೆಸರು",form_name_ph:"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ",form_mob:"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",form_mob_ph:"ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",form_tour:"ಟೂರ್ ಪ್ಯಾಕೇಜ್",form_tour_ph:"ಪ್ಯಾಕೇಜ್ ಆರಿಸಿ",form_persons:"ವ್ಯಕ್ತಿಗಳ ಸಂಖ್ಯೆ",form_persons_ph:"ಎಷ್ಟು ಜನ?",form_msg:"ಸಂದೇಶ",form_msg_ph:"ನಿಮ್ಮ ಅಗತ್ಯತೆಗಳು, ದಿನಾಂಕ ಅಥವಾ ಪ್ರಶ್ನೆಗಳು...",form_submit:"ವಿಚಾರಣೆ ಕಳುಹಿಸಿ 🙏",footer_brand_p:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್ &bull; ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ &bull; ದಶಕಗಳಿಂದ ಬೆಂಗಳೂರಿನಿಂದ ಪ್ರವಾಸಿಗರಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದೇವೆ.",footer_tours_h:"ನಮ್ಮ ಟೂರ್‌ಗಳು",footer_dest_h:"ತಾಣಗಳು",footer_contact_h:"ಸಂಪರ್ಕ",footer_copy:"© 2026 ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್. ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",footer_copy2:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ | ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",fare_per_head:"ತಲಾ ದರ",tour_badge_local:"ಸ್ಥಳೀಯ",tour_badge_daytr:"ದಿನ ಪ್ರವಾಸ",tour_badge_honey:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",tour_badge_hill:"ಗಿರಿಧಾಮ",tour_badge_pop:"ಜನಪ್ರಿಯ",tour_badge_ext:"ದೀರ್ಘ ಪ್ರವಾಸ",tour_badge_nat:"ಪ್ರಕೃತಿ",tour_badge_wild:"ವನ್ಯಜೀವಿ",tour_badge_combo:"ಸಂಯೋಜನೆ",tour_badge_best:"ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ",tour_badge_kerala:"ಕೇರಳ",tour_badge_mega:"ಮಹಾ ಪ್ರವಾಸ",tour_badge_beach:"ಬೀಚ್ ಸ್ಪೆಷಲ್",tour_badge_hboat:"ಹೌಸ್‌ಬೋಟ್",day_label_covers:"ಒಳಗೊಂಡಿದೆ",day_label_returns:"ವಾಪಸಾತಿ",day_label_batch1:"ಬ್ಯಾಚ್ 1",day_label_batch2:"ಬ್ಯಾಚ್ 2",day_label_stay:"ವಸತಿ",day_label_special:"ವಿಶೇಷ",day_label_option1:"ಆಯ್ಕೆ 1",day_label_option2:"ಆಯ್ಕೆ 2",day_label_option3:"ಆಯ್ಕೆ 3"
+    brand_name:"ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್",brand_sub:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ • ನಂದನ್ ಕ್ಯಾಬ್ಸ್",govt_badge:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯ ಅಧಿಕೃತ ಮಾನ್ಯತೆ ಪಡೆದಿದೆ",nav_tours:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",nav_dest:"ತಾಣಗಳು",nav_about:"ನಮ್ಮ ಬಗ್ಗೆ",nav_book:"📞 ಈಗಲೇ ಬುಕ್ ಮಾಡಿ",hero_eyebrow:"ಪ್ರತಿ ಪ್ರಯಾಣದಲ್ಲೂ ಸಾಯಿ ಬಾಬಾರ ಆಶೀರ್ವಾದ",hero_h2:"<em>ಭಾರತದ</em> ಪವಿತ್ರ ಮತ್ತು ಸುಂದರ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",hero_p:"ತಿರುಪತಿ ಬಾಲಾಜಿ ದರ್ಶನದಿಂದ ಹಿಡಿದು ಊಟಿಯ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಅಲ್ಲೆಪ್ಪಿಯ ಹಿನ್ನೀರಿನವರೆಗೆ — ಬೆಂಗಳೂರಿನಿಂದ ಅವಿಸ್ಮರಣೀಯ ಪ್ರವಾಸಗಳನ್ನು ಏರ್ಪಡಿಸುತ್ತಿದ್ದೇವೆ.",hero_btn1:"🗺️ ಎಲ್ಲಾ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ನೋಡಿ",hero_btn2:"📞 ಈಗಲೇ ಕರೆ ಮಾಡಿ",stat1_num:"೨೭+",stat1_label:"ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",stat2_num:"೧೫+",stat2_label:"ತಾಣಗಳು",stat3_num:"೩★",stat3_label:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",cat_eyebrow:"ನಾವು ನೀಡುವ ಸೇವೆಗಳು",cat_h2:"ಟೂರ್ ವರ್ಗಗಳು",cat1_h:"ಯಾತ್ರಾ ಪ್ರವಾಸ",cat1_p:"ತಿರುಪತಿ, ಶಿರಡಿ, ರಾಮೇಶ್ವರಂ ಮತ್ತು ಇನ್ನಷ್ಟು",cat2_h:"ಗಿರಿಧಾಮ ಪ್ರವಾಸ",cat2_p:"ಊಟಿ, ಕೊಡೈ, ಮುನ್ನಾರ್, ಕೊಡಗು, ಕೂನೂರ್",cat3_h:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",cat3_p:"ನವವಿವಾಹಿತರಿಗಾಗಿ ರೊಮ್ಯಾಂಟಿಕ್ ಪ್ಯಾಕೇಜ್",cat4_h:"ಬೀಚ್ ಪ್ಯಾಕೇಜ್",cat4_p:"ಗೋವಾ, ಪಾಂಡಿಚೇರಿ, ಕನ್ಯಾಕುಮಾರಿ, ಕೋವಳಂ",cat5_h:"ಹೌಸ್‌ಬೋಟ್ ಪ್ರವಾಸ",cat5_p:"ಅಲ್ಲೆಪ್ಪಿ ಮತ್ತು ಕುಮರಕೋಂ ಹಿನ್ನೀರು",cat6_h:"ನಗರ ದರ್ಶನ",cat6_p:"ಬೆಂಗಳೂರು, ಮೈಸೂರು ದಿನ ಪ್ರವಾಸ",sp_eyebrow:"ನಮ್ಮ ವಿಶೇಷ ಸೇವೆ",sp_h2:"ತಿರುಪತಿ ಬಾಲಾಜಿ ಸ್ಪೆಷಲ್ VIP ದರ್ಶನ",sp_p:"ಶ್ರೀ ವೆಂಕಟೇಶ್ವರ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಆಶೀರ್ವಾದ ಪಡೆಯಿರಿ — ಹೋಟೆಲ್ ವಸತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಸೇರಿದ ವಿಶೇಷ VIP ದರ್ಶನ ಪ್ಯಾಕೇಜ್.",sp_btn:"ತಿರುಪತಿ VIP ದರ್ಶನ ವಿಚಾರಿಸಿ",sp_f1_h:"VIP ದರ್ಶನ",sp_f1_p:"ವಿಶೇಷ ಪ್ರವೇಶದೊಂದಿಗೆ ಕ್ಯೂ ತಪ್ಪಿಸಿ",sp_f2_h:"ಹೋಟೆಲ್ ಒಳಗೊಂಡಿದೆ",sp_f2_p:"ದೇವಸ್ಥಾನ ಸಮೀಪ ಆರಾಮದಾಯಕ ವಸತಿ",sp_f3_h:"AC ವಾಹನ",sp_f3_p:"ಬೆಂಗಳೂರಿನಿಂದ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ",sp_f4_h:"ಮಾರ್ಗದರ್ಶಿ",sp_f4_p:"ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿ ಒಳಗೊಂಡಿದೆ",tours_eyebrow:"೨೭ ವಿಶೇಷ ಪ್ರವಾಸಗಳು",tours_h2:"ಎಲ್ಲಾ ಟೂರ್ ಪ್ಯಾಕೇಜ್‌ಗಳು",tours_p:"ಬೆಂಗಳೂರಿನಿಂದ ಹೊರಡುವ ಪ್ರವಾಸಗಳು. ಹೋಟೆಲ್ ವಸತಿ, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",more_tours:"ಇನ್ನೂ ಅನೇಕ ಪ್ಯಾಕೇಜ್‌ಗಳು ಲಭ್ಯ — ಟೂರ್ #6A, #7, #8A, #9, #10, #11, #14, #15, #16, #18, #19, #21, #22, #23, #24, #25, #26",more_btn:"ಯಾವುದೇ ಪ್ಯಾಕೇಜ್ ಬಗ್ಗೆ ವಿಚಾರಿಸಿ",enquire:"ವಿಚಾರಿಸಿ",call_price:"ಬೆಲೆಗೆ ಕರೆ ಮಾಡಿ",includes:"ಒಳಗೊಂಡಿದೆ:",dest_eyebrow:"ನಾವು ಕರೆದೊಯ್ಯುವ ತಾಣಗಳು",dest_h2:"ಪ್ರತಿ ತಾಣದ ದರ್ಶನ ಸ್ಥಳಗಳು",why_eyebrow:"ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು",why_h2:"ಎಸ್.ಎಸ್.ಬಿ. ವಿಶೇಷತೆ",why1_h:"ಸರ್ಕಾರ ಅಧಿಕೃತ",why1_p:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತವಾಗಿ ಮಾನ್ಯತೆ ಪಡೆದಿದ್ದೇವೆ.",why2_h:"ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳು",why2_p:"ಲಕ್ಷರಿ 2×2 ಪುಶ್‌ಬ್ಯಾಕ್ ಸೀಟ್ ಕೋಚ್ ಮತ್ತು ಮಿನಿ ಲಕ್ಷರಿ ಕೋಚ್‌ಗಳಲ್ಲಿ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ.",why3_h:"ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು",why3_p:"ನಿಮ್ಮ ಬಜೆಟ್‌ಗೆ ತಕ್ಕಂತೆ ಡೀಲಕ್ಸ್, ಸೂಪರ್ ಡೀಲಕ್ಸ್, ಸ್ಟಾರ್, ಲಕ್ಷರಿ, ಹೋಮ್ ಸ್ಟೇ ಆಯ್ಕೆ ಮಾಡಿ.",why4_h:"ತಜ್ಞ ಮಾರ್ಗದರ್ಶಿಗಳು",why4_p:"ಪ್ರತಿ ತಾಣದಲ್ಲೂ ಅನುಭವಿ ಸ್ಥಳೀಯ ಮಾರ್ಗದರ್ಶಿಗಳು ನಿಮ್ಮ ಜೊತೆ ಇರುತ್ತಾರೆ.",why5_h:"ಎಲ್ಲವೂ ಸೇರಿದೆ",why5_p:"ಹೆಚ್ಚಿನ ಪ್ಯಾಕೇಜ್‌ಗಳಲ್ಲಿ ಹೋಟೆಲ್, ಪ್ರವೇಶ ಶುಲ್ಕ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿ ಶುಲ್ಕ ಒಳಗೊಂಡಿದೆ.",why6_h:"೨೪/೭ ಬೆಂಬಲ",why6_p:"ಅನೇಕ ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳ ಮೂಲಕ ನಾವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಸೇವೆಗೆ ಸಿದ್ಧ.",contact_h2:"ನಿಮ್ಮ ಕನಸಿನ ಪ್ರಯಾಣ ಯೋಜಿಸಿ",contact_p:"ಕಸ್ಟಮ್ ಪ್ಯಾಕೇಜ್, ಗ್ರೂಪ್ ಟೂರ್, ಹೋಟೆಲ್ ಕಾಯ್ದಿರಿಸುವಿಕೆ ಮತ್ತು ತಿರುಪತಿ VIP ದರ್ಶನಕ್ಕಾಗಿ ಇಂದೇ ಸಂಪರ್ಕಿಸಿ.",addr_h:"ನಮ್ಮ ಕಚೇರಿ",addr_v:"#32, ಹೋಟೆಲ್ ಸುಪ್ರಭಾತ ಬಿಲ್ಡಿಂಗ್, ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",call_h:"ಕರೆ ಮಾಡಿ",email_h:"ಇಮೇಲ್",web_h:"ವೆಬ್‌ಸೈಟ್",form_h:"ತ್ವರಿತ ವಿಚಾರಣೆ",form_name:"ನಿಮ್ಮ ಹೆಸರು",form_name_ph:"ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ",form_mob:"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",form_mob_ph:"ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ",form_tour:"ಟೂರ್ ಪ್ಯಾಕೇಜ್",form_tour_ph:"ಪ್ಯಾಕೇಜ್ ಆರಿಸಿ",form_persons:"ವ್ಯಕ್ತಿಗಳ ಸಂಖ್ಯೆ",form_persons_ph:"ಎಷ್ಟು ಜನ?",form_msg:"ಸಂದೇಶ",form_msg_ph:"ನಿಮ್ಮ ಅಗತ್ಯತೆಗಳು, ದಿನಾಂಕ ಅಥವಾ ಪ್ರಶ್ನೆಗಳು...",form_submit:"ವಿಚಾರಣೆ ಕಳುಹಿಸಿ 🙏",footer_brand_p:"ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್ &bull; ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ &bull; ದಶಕಗಳಿಂದ ಬೆಂಗಳೂರಿನಿಂದ ಪ್ರವಾಸಿಗರಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದೇವೆ.",footer_tours_h:"ನಮ್ಮ ಟೂರ್‌ಗಳು",footer_dest_h:"ತಾಣಗಳು",footer_contact_h:"ಸಂಪರ್ಕ",footer_copy:"© 2026 ಎಸ್.ಎಸ್.ಬಿ. ಪ್ಯಾಕೇಜ್ & ಹಾಲಿಡೇಸ್ | ನಂದನ್ ಕ್ಯಾಬ್ಸ್. ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",footer_copy2:"ಕರ್ನಾಟಕ ಸರ್ಕಾರ, ಪ್ರವಾಸೋದ್ಯಮ ಇಲಾಖೆಯಿಂದ ಅಧಿಕೃತ | ಆನಂದ ರಾವ್ ಸರ್ಕಲ್, ಬೆಂಗಳೂರು – 560 009",fare_per_head:"ತಲಾ ದರ",tour_badge_local:"ಸ್ಥಳೀಯ",tour_badge_daytr:"ದಿನ ಪ್ರವಾಸ",tour_badge_honey:"ಹನಿಮೂನ್ ಸ್ಪೆಷಲ್",tour_badge_hill:"ಗಿರಿಧಾಮ",tour_badge_pop:"ಜನಪ್ರಿಯ",tour_badge_ext:"ದೀರ್ಘ ಪ್ರವಾಸ",tour_badge_nat:"ಪ್ರಕೃತಿ",tour_badge_wild:"ವನ್ಯಜೀವಿ",tour_badge_combo:"ಸಂಯೋಜನೆ",tour_badge_best:"ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ",tour_badge_kerala:"ಕೇರಳ",tour_badge_mega:"ಮಹಾ ಪ್ರವಾಸ",tour_badge_beach:"ಬೀಚ್ ಸ್ಪೆಷಲ್",tour_badge_hboat:"ಹೌಸ್‌ಬೋಟ್",day_label_covers:"ಒಳಗೊಂಡಿದೆ",day_label_returns:"ವಾಪಸಾತಿ",day_label_batch1:"ಬ್ಯಾಚ್ 1",day_label_batch2:"ಬ್ಯಾಚ್ 2",day_label_stay:"ವಸತಿ",day_label_special:"ವಿಶೇಷ",day_label_option1:"ಆಯ್ಕೆ 1",day_label_option2:"ಆಯ್ಕೆ 2",day_label_option3:"ಆಯ್ಕೆ 3"
   }
 };
 
@@ -3505,13 +3435,13 @@ function selectChkRoute(tab, num) {
 const crgRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abbey_Falls_Kodagu.jpg/800px-Abbey_Falls_Kodagu.jpg',
-    title: 'Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
+    title: 'Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡಗು</span>',
     desc: 'Escape to the Scotland of India for misty hills and lush coffee estates.<br><span style="font-size:0.9em;opacity:0.75;">ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಕಾಫಿ ತೋಟಗಳ ಅದ್ಭುತ ಪ್ರವಾಸ.</span>',
     tags: '🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🐘 Dubare · ದುಬಾರೆ|🌅 Raja\'s Seat · ರಾಜಾ ಸೀಟ್|🛕 Omkareshwara · ಓಂಕಾರೇಶ್ವರ|🕉️ Talakaveri · ತಲಕಾವೇರಿ'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Nandi_Hills_Sunrise.jpg/800px-Nandi_Hills_Sunrise.jpg',
-    title: 'Coorg - Chikkamagalur <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೂರ್ಗ್ - ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"> & </em></span>',
+    title: 'Coorg - Chikkamagalur <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡಗು - ಚಿಕ್ಕಮಗಳೂರು</span>',
     desc: 'The ultimate Western Ghats experience covering the best of two beautiful hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಎರಡು ಸುಂದರ ಗಿರಿಧಾಮಗಳನ್ನು ಒಳಗೊಂಡ ಪಶ್ಚಿಮ ಘಟ್ಟಗಳ ಅದ್ಭುತ ಅನುಭವ.</span>',
     tags: '⛰️ Mullayanagiri · ಮುಳ್ಳಯ್ಯನಗಿರಿ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🐘 Dubare · ದುಬಾರೆ|🌿 Kemmangundi · ಕೆಮ್ಮಣ್ಣುಗುಂಡಿ'
   }
@@ -3571,13 +3501,13 @@ const mysRoutes = {
   },
   7: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Dubare_Elephant_Camp.jpg/960px-Dubare_Elephant_Camp.jpg',
-    title: 'Mysore - Coorg <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ <em style="color:#FFD580;font-style:normal;"> & </em></span>',
+    title: 'Mysore - Coorg <em>2N/3D & 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೊಡಗು</span>',
     desc: 'A perfect blend of culture, wildlife, and natural beauty.<br><span style="font-size:0.9em;opacity:0.75;">ಸಂಸ್ಕೃತಿ, ವನ್ಯಜೀವಿ ಮತ್ತು ಪ್ರಕೃತಿ ಸೌಂದರ್ಯದ ಅದ್ಭುತ ಸಂಗಮ.</span>',
     tags: '🐘 Dubare Camp · ದುಬಾರೆ ಆನೆ ಶಿಬಿರ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🏯 Golden Temple · ಸುವರ್ಣ ದೇವಾಲಯ'
   },
   8: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Wayanad_Banasura_Sagar_Dam.jpg/800px-Wayanad_Banasura_Sagar_Dam.jpg',
-    title: 'Mysore - Coorg - Wayanad <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೂರ್ಗ್ - ವಯನಾಡ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
+    title: 'Mysore - Coorg - Wayanad <em>5N/6D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು - ಕೊಡಗು - ವಯನಾಡ್</span>',
     desc: 'Experience the ultimate nature circuit from Coorg to the hills of Wayanad.<br><span style="font-size:0.9em;opacity:0.75;">ಕೂರ್ಗಿನಿಂದ ವಯನಾಡಿನ ಗಿರಿಧಾಮಗಳವರೆಗೆ ಪ್ರಕೃತಿಯ ಮಡಿಲಲ್ಲಿ ಅದ್ಭುತ ಪ್ರವಾಸ.</span>',
     tags: '🐘 Dubare Camp · ದುಬಾರೆ ಆನೆ ಶಿಬಿರ|🌊 Abbey Falls · ಅಬ್ಬೆ ಜಲಪಾತ|🌿 Banasura Dam · ಬಾಣಾಸುರ ಅಣೆಕಟ್ಟು'
   },
