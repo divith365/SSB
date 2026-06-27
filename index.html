@@ -1226,6 +1226,7 @@
 
 /* RIGHT DETAIL AREA */
 .tex-right {
+  overscroll-behavior: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 10000;
@@ -1238,6 +1239,7 @@
   transition: 0.3s ease;
 }
 .tex-right.modal-open {
+  overscroll-behavior: none;
   visibility: visible;
   opacity: 1;
 }
@@ -1432,14 +1434,16 @@
     flex: 0 1 auto !important; 
     max-height: 55% !important;
     min-height: 0 !important;
-    overflow-y: auto !important; 
+    overflow-y: auto !important;
+    overscroll-behavior: none !important; 
   }
   .tex-sub-tabs { width: 100%; border-right: none; border-top: 2px solid rgba(255,255,255,0.06); }
   .tex-sub-tab { border-left: none; border-bottom: 3px solid transparent; }
   .tex-sub-tab:nth-child(1).tex-sub-active, .tex-sub-tab:nth-child(4).tex-sub-active, .tex-sub-tab:nth-child(7).tex-sub-active { border-bottom-color: #FFB43C; }
   .tex-sub-tab:nth-child(2).tex-sub-active, .tex-sub-tab:nth-child(5).tex-sub-active { border-bottom-color: #64B4FF; }
   .tex-sub-tab:nth-child(3).tex-sub-active, .tex-sub-tab:nth-child(6).tex-sub-active { border-bottom-color: #50C88C; }
-  .tex-right { min-height: 400px; }
+  .tex-right {
+  overscroll-behavior: none; min-height: 400px; }
 }
 
 
@@ -1930,6 +1934,7 @@
     grid-template-columns: repeat(2, 1fr) !important;
     align-content: start;
     overflow-y: auto !important;
+    overscroll-behavior: none !important;
     flex: 1 !important;
     min-height: 0 !important;
   }
@@ -3410,6 +3415,33 @@ function selectTexPackage(item, panelId) {
   if(overlay) overlay.classList.add('modal-open');
   if(window.innerWidth <= 768) {
     document.body.style.overflow = 'hidden';
+    // Add touchmove listener to prevent scroll chaining on older mobile browsers
+    if (!overlay.dataset.scrollLocked) {
+      overlay.addEventListener('touchmove', function(e) {
+        // Only allow scrolling inside the sub-tabs
+        const subTabs = e.target.closest('.tex-sub-tabs');
+        if (!subTabs) {
+          e.preventDefault();
+        } else {
+          // If trying to scroll past top or bottom of subTabs, prevent it
+          const isAtTop = subTabs.scrollTop === 0;
+          const isAtBottom = subTabs.scrollHeight - subTabs.scrollTop <= subTabs.clientHeight + 1;
+          const scrollingUp = e.touches[0].clientY > (subTabs.dataset.lastY || e.touches[0].clientY);
+          const scrollingDown = e.touches[0].clientY < (subTabs.dataset.lastY || e.touches[0].clientY);
+          
+          if ((isAtTop && scrollingUp) || (isAtBottom && scrollingDown)) {
+            e.preventDefault();
+          }
+        }
+      }, { passive: false });
+      
+      overlay.addEventListener('touchstart', function(e) {
+        const subTabs = e.target.closest('.tex-sub-tabs');
+        if (subTabs) subTabs.dataset.lastY = e.touches[0].clientY;
+      }, { passive: true });
+      
+      overlay.dataset.scrollLocked = "true";
+    }
     const subTabs = targetPanel.querySelector('.tex-sub-tabs');
     if (subTabs) {
       let indicator = targetPanel.querySelector('.mobile-scroll-indicator');
