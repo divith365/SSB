@@ -669,14 +669,14 @@
     .topbar div:last-child { align-self:flex-end; }
 
     /* Hero */
-    .hero { padding:20px 18px 200px; min-height:auto; text-align: center; }
+    .hero { padding:40px 18px 120px; min-height:85vh; display:flex; flex-direction:column; justify-content:center; text-align: center; }
     .hero h2 { font-size:14px; line-height: 1.25; margin-bottom: 12px; }
     .hero-eyebrow { font-size: 8px; margin-bottom: 8px; display: block; }
     .hero-content { margin-top: 20px; display: flex; flex-direction: column; align-items: center; }
     .hero-content p { font-size: 14px; margin-bottom: 20px; text-align: center; }
-    .hero-popular-packages { margin-top: 10px !important; margin-bottom: 15px !important; width: 100% !important; justify-content: flex-start !important; flex-wrap: nowrap !important; gap: 8px !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .hero-popular-packages { margin-top: 10px !important; margin-bottom: 15px !important; width: 100% !important; justify-content: center !important; flex-wrap: wrap !important; gap: 8px !important; overflow-x: visible !important; }
     .hero-popular-packages::-webkit-scrollbar { display: none; }
-    .hero-popular-packages > span { font-size: 10.5px !important; margin-right: 4px !important; width: auto !important; text-align: left; margin-bottom: 0 !important; flex-shrink: 0; }
+    .hero-popular-packages > span { font-size: 10.5px !important; margin-right: 0 !important; width: 100% !important; text-align: center; margin-bottom: 4px !important; flex-shrink: 0; }
     .hero-popular-packages > a { font-size: 5px !important; padding: 4px 8px !important; flex: 0 0 auto !important; text-align: center; white-space: nowrap; }
     .hero-stats { display: none !important; }
     .hero-btns { display: none !important; }
