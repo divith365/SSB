@@ -1523,8 +1523,7 @@
 #pkg-mys .tex-sub-tabs, #pkg-ker .tex-sub-tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  overflow: visible;
-  height: auto;
+  /* Removed overflow: visible and height: auto to allow scrolling */
 }
 #pkg-mys .tex-sub-tab, #pkg-ker .tex-sub-tab {
   min-width: 0;
@@ -1896,8 +1895,10 @@
   .tex-sub-tabs {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    overflow: visible !important;
-    height: auto !important;
+    align-content: start;
+    overflow-y: auto !important;
+    flex: 1 !important;
+    min-height: 0 !important;
   }
   .tex-sub-tab {
     min-width: 0 !important;
