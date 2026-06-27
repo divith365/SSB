@@ -1,0 +1,50 @@
+{
+  "chk": [
+    "NOT_FOUND",
+    "NOT_FOUND",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sringeritemple.jpg/960px-Sringeritemple.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Belur_street_towards_Chennakesava_temple.JPG/960px-Belur_street_towards_Chennakesava_temple.JPG"
+  ],
+  "crg": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Abbey_Falls_New.jpg/960px-Abbey_Falls_New.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kaveri_by_Dubare_Forest.jpg/960px-Kaveri_by_Dubare_Forest.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/c/c6/Raja_seat_madikeri.JPG",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bylakuppe._Mysore_%285%29.jpg/960px-Bylakuppe._Mysore_%285%29.jpg"
+  ],
+  "mys": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mysore_Palace_Morning.jpg/960px-Mysore_Palace_Morning.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Ooty_lake.jpg/960px-Ooty_lake.jpg",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ],
+  "ker": [
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ],
+  "oot": [
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ],
+  "kod": [
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ],
+  "goa": [
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ],
+  "alp": [
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR",
+    "JSON_ERROR"
+  ]
+}
