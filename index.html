@@ -1479,25 +1479,25 @@
 .tex-panel.tex-panel-active .tex-sub-tab:nth-child(6) { animation-delay: 0.3s; }
 
 
-#pkg-mys .tex-sub-tabs {
+#pkg-mys .tex-sub-tabs, #pkg-ker .tex-sub-tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   overflow: visible;
   height: auto;
 }
-#pkg-mys .tex-sub-tab {
+#pkg-mys .tex-sub-tab, #pkg-ker .tex-sub-tab {
   min-width: 0;
   width: auto;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 @media (max-width: 768px) {
-  #pkg-mys .tex-sub-tabs {
+  #pkg-mys .tex-sub-tabs, #pkg-ker .tex-sub-tabs {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 480px) {
-  #pkg-mys .tex-sub-tabs {
+  #pkg-mys .tex-sub-tabs, #pkg-ker .tex-sub-tabs {
     grid-template-columns: 1fr;
   }
 }
