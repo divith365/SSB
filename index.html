@@ -1516,6 +1516,55 @@
   }
 }
 
+
+/* Background Effects Animation */
+.tours { position: relative; overflow: hidden; }
+.effects-container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.tour-floater {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0;
+  bottom: -50px;
+  animation: floatUp linear infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.drop {
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(100,160,255,0), rgba(60,130,220,0.6));
+  width: 2px;
+  height: 80px;
+  bottom: 100%;
+  animation: rainDrop 0.8s linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-1200px) rotate(360deg); opacity: 0; }
+}
+@keyframes rainDrop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(2000px); }
+}
+
+
+.bg-collage-blr {
+  background-image: 
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Vidhana_Soudha_2012.jpg/800px-Vidhana_Soudha_2012.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/ISKCON_Banglaore_Temple.jpg/800px-ISKCON_Banglaore_Temple.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/High_Court_of_Karnataka%2C_Bangalore_MMK.jpg/800px-High_Court_of_Karnataka%2C_Bangalore_MMK.jpg'),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cubbon_Park_W.jpg/800px-Cubbon_Park_W.jpg') !important;
+  background-position: top left, top right, bottom left, bottom right !important;
+  background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5% !important;
+  background-repeat: no-repeat !important;
+}
+
 </style>
 </head>
 <body>
@@ -1849,6 +1898,94 @@
 
 <!-- TOURS -->
 <section class="tours" id="tours">
+  <div class="effects-container">
+    <i class="drop" style="left: 74.44859804668063%; animation-delay: 1.5463774233836667s; animation-duration: 0.8057874385058539s; height: 62.39731345854987px; opacity: 0.454279960754634;"></i>
+    <i class="drop" style="left: 17.463385707167912%; animation-delay: 0.24242533841782143s; animation-duration: 0.7754958120047719s; height: 32.07802306414182px; opacity: 0.47551666400444054;"></i>
+    <i class="drop" style="left: 52.40848296799708%; animation-delay: 1.361500404991435s; animation-duration: 0.6326284062888717s; height: 69.55528190030982px; opacity: 0.39300869270952316;"></i>
+    <i class="drop" style="left: 56.76974628489179%; animation-delay: 0.7901789098649197s; animation-duration: 0.8069347388436551s; height: 86.95246470183022px; opacity: 0.34814381965101726;"></i>
+    <i class="drop" style="left: 55.23678082406117%; animation-delay: 1.7922263655923092s; animation-duration: 0.8413011894439459s; height: 96.62221675468524px; opacity: 0.32191548703418793;"></i>
+    <i class="drop" style="left: 33.218907223127495%; animation-delay: 1.5739759974711056s; animation-duration: 0.5123446942598991s; height: 46.059437650113495px; opacity: 0.5222163175921744;"></i>
+    <i class="drop" style="left: 80.882873922333%; animation-delay: 1.948697083012729s; animation-duration: 0.6458317331961838s; height: 91.42783555993321px; opacity: 0.521219320520179;"></i>
+    <i class="drop" style="left: 89.47010972658185%; animation-delay: 1.7647132365881464s; animation-duration: 0.9441437664354009s; height: 37.18391856774798px; opacity: 0.4299969393889448;"></i>
+    <i class="drop" style="left: 57.23974835120224%; animation-delay: 1.9453306130399413s; animation-duration: 0.626682351187371s; height: 84.97967491683724px; opacity: 0.4081856274864051;"></i>
+    <i class="drop" style="left: 2.086952770192141%; animation-delay: 0.7502550784358488s; animation-duration: 0.5028770203123443s; height: 34.678832380945096px; opacity: 0.4556209422630089;"></i>
+    <i class="drop" style="left: 57.209254845004885%; animation-delay: 0.37826800488724577s; animation-duration: 0.9672431529375624s; height: 92.50110701803965px; opacity: 0.5757265083245755;"></i>
+    <i class="drop" style="left: 53.47780715736189%; animation-delay: 1.8249288955968483s; animation-duration: 0.9027017763280005s; height: 58.346061411049945px; opacity: 0.46610946725976704;"></i>
+    <i class="drop" style="left: 9.653828541168219%; animation-delay: 1.7803426544261136s; animation-duration: 0.7366977637620438s; height: 31.70894776701753px; opacity: 0.2007929939733898;"></i>
+    <i class="drop" style="left: 52.95842354144315%; animation-delay: 1.1375107975129317s; animation-duration: 0.6796540203365231s; height: 76.49947361535476px; opacity: 0.24653610815130184;"></i>
+    <i class="drop" style="left: 81.04611005335303%; animation-delay: 0.37262582499630126s; animation-duration: 0.5774202215068162s; height: 90.89856370620032px; opacity: 0.3543201259969171;"></i>
+    <i class="drop" style="left: 21.606797498921303%; animation-delay: 0.3616837224416267s; animation-duration: 0.9683978536143291s; height: 73.23402835378113px; opacity: 0.5200332993868895;"></i>
+    <i class="drop" style="left: 97.02351888114703%; animation-delay: 1.5981032776095918s; animation-duration: 0.55294413491045s; height: 96.0185683531831px; opacity: 0.5306588757698291;"></i>
+    <i class="drop" style="left: 95.40658997482781%; animation-delay: 0.4494884295064885s; animation-duration: 0.8755607041497604s; height: 39.02815929337939px; opacity: 0.30632899501475863;"></i>
+    <i class="drop" style="left: 3.5316875208413756%; animation-delay: 1.3200454469240248s; animation-duration: 0.7110290410838274s; height: 86.3712838842462px; opacity: 0.5233046734312508;"></i>
+    <i class="drop" style="left: 49.21839820409587%; animation-delay: 1.811321099103212s; animation-duration: 0.6843380192943689s; height: 45.95377398259248px; opacity: 0.4287430268454939;"></i>
+    <i class="drop" style="left: 23.19846839494485%; animation-delay: 1.2877812514208296s; animation-duration: 0.8603879304590354s; height: 51.634259554962554px; opacity: 0.33933547413224235;"></i>
+    <i class="drop" style="left: 13.730313865450661%; animation-delay: 1.0484380686902988s; animation-duration: 0.8756379124885922s; height: 90.96907397810718px; opacity: 0.5247320088554068;"></i>
+    <i class="drop" style="left: 64.4723976089632%; animation-delay: 0.9898011874513151s; animation-duration: 0.599060708894368s; height: 83.33083142062623px; opacity: 0.2742581781405579;"></i>
+    <i class="drop" style="left: 71.24983495624544%; animation-delay: 1.4594304889285121s; animation-duration: 0.6916246075891632s; height: 96.71249291906841px; opacity: 0.23337638466223695;"></i>
+    <i class="drop" style="left: 2.783034822249264%; animation-delay: 1.6889202095808356s; animation-duration: 0.6339167718849439s; height: 87.23541633010535px; opacity: 0.44506545236081196;"></i>
+    <i class="drop" style="left: 12.633793699456463%; animation-delay: 1.5934177557552747s; animation-duration: 0.7350185858000378s; height: 93.87169156305139px; opacity: 0.4713239374237998;"></i>
+    <i class="drop" style="left: 62.867950124603745%; animation-delay: 1.2939273498922552s; animation-duration: 0.9895318150062237s; height: 32.53067656160563px; opacity: 0.27394637403887456;"></i>
+    <i class="drop" style="left: 38.420537313742365%; animation-delay: 0.9979620452105817s; animation-duration: 0.5426682849055171s; height: 70.36271433258966px; opacity: 0.42583313412971163;"></i>
+    <i class="drop" style="left: 6.0966139919872875%; animation-delay: 0.8003640113234709s; animation-duration: 0.5601859966351977s; height: 59.61863586048577px; opacity: 0.3969643616233939;"></i>
+    <i class="drop" style="left: 72.03805047131931%; animation-delay: 1.2449124690514122s; animation-duration: 0.9904636657279862s; height: 55.79755495698561px; opacity: 0.5046781256272928;"></i>
+    <i class="drop" style="left: 92.73942046855%; animation-delay: 1.5163481063223687s; animation-duration: 0.7914870218991004s; height: 52.361067759280175px; opacity: 0.21684278514966465;"></i>
+    <i class="drop" style="left: 67.96257453884918%; animation-delay: 0.740901941353431s; animation-duration: 0.9703462729225393s; height: 96.8223017116136px; opacity: 0.3720676143990318;"></i>
+    <i class="drop" style="left: 35.17125549094883%; animation-delay: 1.321160462734162s; animation-duration: 0.7647816810086423s; height: 42.89902692456827px; opacity: 0.47513409120195593;"></i>
+    <i class="drop" style="left: 62.24161388516727%; animation-delay: 0.3555672194361206s; animation-duration: 0.5693790058871153s; height: 39.22900117207px; opacity: 0.4007586244912867;"></i>
+    <i class="drop" style="left: 91.29481651081562%; animation-delay: 0.24551474177681087s; animation-duration: 0.8480259936586223s; height: 63.422809707915704px; opacity: 0.4034905571844026;"></i>
+    <i class="drop" style="left: 3.003799900837756%; animation-delay: 0.04488194008272717s; animation-duration: 0.9476501287974919s; height: 67.54374491181697px; opacity: 0.4558731942885703;"></i>
+    <i class="drop" style="left: 0.16806325328705407%; animation-delay: 0.08719912964945276s; animation-duration: 0.51225376431952s; height: 77.9807930376564px; opacity: 0.5462064483530384;"></i>
+    <i class="drop" style="left: 37.41982193346779%; animation-delay: 1.6369541472484623s; animation-duration: 0.572330335916372s; height: 73.984036810301px; opacity: 0.5862158989524513;"></i>
+    <i class="drop" style="left: 26.41968821785925%; animation-delay: 0.08477014148254924s; animation-duration: 0.5094527689779424s; height: 84.03535514723622px; opacity: 0.44820119730622743;"></i>
+    <i class="drop" style="left: 54.064986909375456%; animation-delay: 0.5755282315501213s; animation-duration: 0.6419360366211109s; height: 44.532235176262226px; opacity: 0.4118457306368164;"></i>
+    <i class="drop" style="left: 22.4858348784863%; animation-delay: 0.6239113675858341s; animation-duration: 0.6645023903016121s; height: 60.22880817702121px; opacity: 0.42178677157875344;"></i>
+    <i class="drop" style="left: 40.18110659126184%; animation-delay: 1.8005106573538674s; animation-duration: 0.8840158740566151s; height: 79.35606612311295px; opacity: 0.25835696854935913;"></i>
+    <i class="drop" style="left: 99.61807051954689%; animation-delay: 1.7319254949228395s; animation-duration: 0.6691804798800168s; height: 56.206414486709605px; opacity: 0.3803156603470058;"></i>
+    <i class="drop" style="left: 84.48449321841518%; animation-delay: 0.882641997054052s; animation-duration: 0.6575502734845668s; height: 84.06025682230107px; opacity: 0.34084233329448665;"></i>
+    <i class="drop" style="left: 63.280370757361446%; animation-delay: 1.591313645638824s; animation-duration: 0.8662065754616558s; height: 57.22765151188211px; opacity: 0.2246823234772713;"></i>
+    <i class="drop" style="left: 59.961425785305025%; animation-delay: 1.7722269190262192s; animation-duration: 0.6417880178781024s; height: 50.29568211785882px; opacity: 0.506619967262331;"></i>
+    <i class="drop" style="left: 62.86305407562702%; animation-delay: 0.7731399593431207s; animation-duration: 0.8277933238562467s; height: 61.00459567177393px; opacity: 0.32265065177970154;"></i>
+    <i class="drop" style="left: 46.91413971701144%; animation-delay: 0.008901170706010708s; animation-duration: 0.9375884293564287s; height: 76.5809083735655px; opacity: 0.5431014332486925;"></i>
+    <i class="drop" style="left: 93.37968373486827%; animation-delay: 0.3322561067751384s; animation-duration: 0.5061375961359014s; height: 94.67688726348132px; opacity: 0.4343828427933235;"></i>
+    <i class="drop" style="left: 1.3572153606865145%; animation-delay: 1.6790083083971328s; animation-duration: 0.6019623208892614s; height: 83.55570781533123px; opacity: 0.5353846612015845;"></i>
+    <i class="drop" style="left: 57.23926461966437%; animation-delay: 1.7605301490550602s; animation-duration: 0.5187884853946918s; height: 38.14670646262253px; opacity: 0.4492422364349129;"></i>
+    <i class="drop" style="left: 14.601298010108144%; animation-delay: 1.9544958706288447s; animation-duration: 0.7736374825520836s; height: 56.082215464199976px; opacity: 0.3099279204631859;"></i>
+    <i class="drop" style="left: 23.641492693742617%; animation-delay: 1.7263964769866404s; animation-duration: 0.5618746876291671s; height: 83.40009570507986px; opacity: 0.37752531421823193;"></i>
+    <i class="drop" style="left: 5.209109164300196%; animation-delay: 1.2628581201898323s; animation-duration: 0.6623104810519728s; height: 51.07973604274086px; opacity: 0.507251923281729;"></i>
+    <i class="drop" style="left: 62.21327888616205%; animation-delay: 0.04433569153788053s; animation-duration: 0.6078867720975181s; height: 94.63259469557754px; opacity: 0.25719933509384013;"></i>
+    <i class="drop" style="left: 73.53630608518867%; animation-delay: 1.193082571429547s; animation-duration: 0.8921331121124163s; height: 64.75760614509332px; opacity: 0.3399884667824769;"></i>
+    <i class="drop" style="left: 18.111205512817286%; animation-delay: 0.8315446653682002s; animation-duration: 0.5139030970633436s; height: 74.02837585156496px; opacity: 0.47176380380354366;"></i>
+    <i class="drop" style="left: 65.3499563986646%; animation-delay: 1.9930782222486103s; animation-duration: 0.6498279620145571s; height: 72.4203230241456px; opacity: 0.20398196374977215;"></i>
+    <i class="drop" style="left: 76.46260680953503%; animation-delay: 1.4207798139489591s; animation-duration: 0.6267171629040049s; height: 75.01062063225892px; opacity: 0.5402319069506195;"></i>
+    <i class="drop" style="left: 17.32328317509716%; animation-delay: 0.35635896816605683s; animation-duration: 0.7822959761368183s; height: 37.16089197431558px; opacity: 0.47097903039853994;"></i>
+    <i class="drop" style="left: 21.173232859521473%; animation-delay: 0.8329095707946557s; animation-duration: 0.8786823519716107s; height: 95.96120890176488px; opacity: 0.35404502494404677;"></i>
+    <i class="drop" style="left: 18.590017977674222%; animation-delay: 1.0420186001624752s; animation-duration: 0.9323801676721408s; height: 84.91761679710214px; opacity: 0.5530311085800599;"></i>
+    <i class="drop" style="left: 75.61963688093391%; animation-delay: 1.0508405332490363s; animation-duration: 0.7324633710256567s; height: 53.120644703951214px; opacity: 0.4657369393106021;"></i>
+    <i class="drop" style="left: 4.759358740383024%; animation-delay: 1.6241534742050763s; animation-duration: 0.734425528860511s; height: 56.22061770498257px; opacity: 0.3979461359424475;"></i>
+    <i class="drop" style="left: 58.03596214989214%; animation-delay: 0.5127964450731335s; animation-duration: 0.8983831477322906s; height: 79.10990426457795px; opacity: 0.21729333166991496;"></i>
+    <i class="drop" style="left: 15.131302094847799%; animation-delay: 1.0527743505535385s; animation-duration: 0.5143033655328154s; height: 38.6551515173566px; opacity: 0.45541571295085953;"></i>
+    <i class="drop" style="left: 43.758807183968116%; animation-delay: 0.26462124537637055s; animation-duration: 0.5051320985606731s; height: 48.933605904653156px; opacity: 0.5934805743960021;"></i>
+    <i class="drop" style="left: 55.52842844239664%; animation-delay: 0.7825205492458718s; animation-duration: 0.6589374978634984s; height: 68.35293657750753px; opacity: 0.5120060493326506;"></i>
+    <i class="drop" style="left: 23.782997906942015%; animation-delay: 1.3561006401204148s; animation-duration: 0.552311035744494s; height: 85.67242313840484px; opacity: 0.44745508712803117;"></i>
+    <i class="drop" style="left: 49.56393442826435%; animation-delay: 1.056026316795798s; animation-duration: 0.9664072447971692s; height: 75.75456696988553px; opacity: 0.36252270370880835;"></i>
+    <span class="tour-floater" style="left: 81.12173457296176%; animation-duration: 15.368151796171434s; animation-delay: 14.62264631901306s; font-size: 25.032669660822627px;">🏖️</span>
+    <span class="tour-floater" style="left: 71.97056962296496%; animation-duration: 19.45392195775818s; animation-delay: 1.0729764893806037s; font-size: 20.155324260746916px;">⛰️</span>
+    <span class="tour-floater" style="left: 15.285985137343772%; animation-duration: 18.704886126492546s; animation-delay: 15.931493767472308s; font-size: 30.70085278498993px;">🏖️</span>
+    <span class="tour-floater" style="left: 5.260419521618101%; animation-duration: 32.111008781238084s; animation-delay: 6.158076785325632s; font-size: 30.700242144289295px;">🚌</span>
+    <span class="tour-floater" style="left: 71.33482797708623%; animation-duration: 21.52376092419986s; animation-delay: 3.9632812235918036s; font-size: 16.813424336793723px;">🌴</span>
+    <span class="tour-floater" style="left: 80.6981921353704%; animation-duration: 20.04353839373816s; animation-delay: 19.75632046446559s; font-size: 20.499303559602467px;">🏖️</span>
+    <span class="tour-floater" style="left: 24.116572402293894%; animation-duration: 24.04236941387849s; animation-delay: 6.304882503505915s; font-size: 33.906176237238775px;">⛰️</span>
+    <span class="tour-floater" style="left: 86.88349898964658%; animation-duration: 25.03837709605055s; animation-delay: 4.225226308045049s; font-size: 34.33072126585632px;">🐘</span>
+    <span class="tour-floater" style="left: 23.764323541536772%; animation-duration: 30.110327695548847s; animation-delay: 9.174241908404415s; font-size: 26.882480860611487px;">📸</span>
+    <span class="tour-floater" style="left: 76.99085769890361%; animation-duration: 27.79658933395653s; animation-delay: 0.8729777449890808s; font-size: 35.30304830898979px;">🐘</span>
+    <span class="tour-floater" style="left: 25.576393951100556%; animation-duration: 30.568539231559267s; animation-delay: 7.642488204861905s; font-size: 34.93069773323709px;">🌴</span>
+    <span class="tour-floater" style="left: 46.625369636320805%; animation-duration: 15.046722707001766s; animation-delay: 8.423321460579576s; font-size: 35.001665971106554px;">🚌</span>
+    <span class="tour-floater" style="left: 52.93724654743804%; animation-duration: 24.57794603995059s; animation-delay: 6.7049995244244265s; font-size: 26.007944884290453px;">📸</span>
+    <span class="tour-floater" style="left: 11.655369270404737%; animation-duration: 23.679109500186666s; animation-delay: 13.210487006288021s; font-size: 36.7394469441772px;">🌴</span>
+    <span class="tour-floater" style="left: 83.36991652552885%; animation-duration: 18.593551149717364s; animation-delay: 3.548950853108934s; font-size: 35.88949631949056px;">🧳</span>
+  </div>
+
   <div class="section-title">
     <span class="eyebrow" data-t="tours_eyebrow">27 handcrafted journeys</span>
     <h2 data-t="tours_h2">All Tour Packages</h2>
@@ -1878,7 +2015,7 @@
         <!-- Package 1: Bangalore Local -->
         <div class="tex-panel tex-panel-active" id="pkg-blr" onclick="event.stopPropagation();">
           <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open');" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
-          <div class="tex-panel-hero" id="blr-hero" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vidhana_Soudha_Bangalore_India.jpg/800px-Vidhana_Soudha_Bangalore_India.jpg');">
+          <div class="tex-panel-hero bg-collage-blr" id="blr-hero">
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-tab-coin coin-1a" id="blr-coin">1a</div>
             <div class="tex-panel-hero-content">
