@@ -2830,18 +2830,53 @@
       </div>
     </div>
 
-    <!-- Card 12: Hotel Stay Info (Non-Clickable) -->
-    <div class="tour-explorer" id="tourExplorer11" style="cursor: default;">
+    <!-- Card 12: Hotel Stay Info -->
+    <div class="tour-explorer" id="tourExplorer11" onclick="selectTexPackage(this, 'pkg-hotels')">
       <div class="tex-left">
         <div class="tex-header">
           <span class="tex-eyebrow">Hotel Accommodation<br>ಹೋಟೆಲ್ ವಸತಿ</span>
           <h3>Stay Options<br><span style="font-family:'Inter',sans-serif;font-size:0.7em;font-weight:500;opacity:0.75;">ಉಳಿದುಕೊಳ್ಳುವ ಆಯ್ಕೆಗಳು</span></h3>
         </div>
-        <div class="tex-menu-item" style="--bg-img: url('images/hero/slide_15.webp'); border-bottom: none; cursor: default;">
+        <div class="tex-menu-item" data-pkg="pkg-hotels" style="--bg-img: url('images/hero/hotel_deluxe.webp'); border-bottom: none;">
           <div class="tex-num" style="background: var(--saffron);">🏨</div>
           <div class="tex-menu-text">
             <strong>We Provide Tour packages with:</strong>
-            
+            <span>ಹೋಟೆಲ್ ಆಯ್ಕೆಗಳು</span>
+          </div>
+        </div>
+      </div>
+      <div class="tex-right" id="texModalOverlay11" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
+        <div class="tex-panel" id="pkg-hotels" onclick="event.stopPropagation();">
+          <button onclick="document.getElementById('texModalOverlay11').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <div class="tex-panel-hero bg-collage-hotels" id="hotels-hero" style="flex: 1 1 100% !important; border-radius: 16px;">
+            <div class="tex-panel-hero-overlay"></div>
+            <div class="tex-panel-hero-content">
+              <h2 id="hotels-title">Deluxe Hotel<br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span></h2>
+              <p id="hotels-desc">Comfortable and affordable stay for your family.<br><span style="font-size:0.9em;opacity:0.75;">ನಿಮ್ಮ ಕುಟುಂಬಕ್ಕೆ ಆರಾಮದಾಯಕ ಮತ್ತು ಕೈಗೆಟಕುವ ವಸತಿ.</span></p>
+              <div class="tex-place-tags" id="hotels-tags">
+                <span class="tex-place-tag">Comfortable · ಆರಾಮದಾಯಕ</span>
+              </div>
+            </div>
+          </div>
+          <div class="tex-sub-tabs">
+            <div class="tex-sub-tab tex-sub-active" onclick="selectHotelsRoute(this,1)">
+              <div class="tex-sub-icon">🏨</div>
+              <div class="tex-sub-info">
+                <strong>Deluxe Hotel</strong>
+              </div>
+            </div>
+            <div class="tex-sub-tab" onclick="selectHotelsRoute(this,2)">
+              <div class="tex-sub-icon">🌟</div>
+              <div class="tex-sub-info">
+                <strong>Super Deluxe Hotel</strong>
+              </div>
+            </div>
+            <div class="tex-sub-tab" onclick="selectHotelsRoute(this,3)">
+              <div class="tex-sub-icon">✨</div>
+              <div class="tex-sub-info">
+                <strong>Star Hotel</strong>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3942,6 +3977,39 @@ function selectAlpRoute(tab, num) {
   const coinClass = {1:'coin-10a'};
   if(coin){ coin.textContent = coinMap[num]; coin.className = 'tex-tab-coin ' + coinClass[num]; }
 }
+
+const hotelsRoutes = {
+  1: {
+    img: 'images/hero/hotel_deluxe.webp',
+    title: 'Deluxe Hotel<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span>',
+    desc: 'Comfortable and affordable stay for your family.<br><span style="font-size:0.9em;opacity:0.75;">ನಿಮ್ಮ ಕುಟುಂಬಕ್ಕೆ ಆರಾಮದಾಯಕ ಮತ್ತು ಕೈಗೆಟಕುವ ವಸತಿ.</span>',
+    tags: 'Comfortable · ಆರಾಮದಾಯಕ|Budget Friendly · ಬಜೆಟ್ ಸ್ನೇಹಿ'
+  },
+  2: {
+    img: 'images/hero/hotel_super_deluxe.webp',
+    title: 'Super Deluxe Hotel<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಸೂಪರ್ ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span>',
+    desc: 'Upgraded rooms with better amenities and premium feel.<br><span style="font-size:0.9em;opacity:0.75;">ಉತ್ತಮ ಸೌಲಭ್ಯಗಳೊಂದಿಗೆ ಪ್ರೀಮಿಯಂ ಅನುಭವ.</span>',
+    tags: 'Premium · ಪ್ರೀಮಿಯಂ|Spacious · ವಿಶಾಲವಾದ'
+  },
+  3: {
+    img: 'images/hero/hotel_star.webp',
+    title: 'Star Hotel<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಸ್ಟಾರ್ ಹೋಟೆಲ್</span>',
+    desc: 'Luxury star accommodation with swimming pool and top-tier services.<br><span style="font-size:0.9em;opacity:0.75;">ಐಷಾರಾಮಿ ಸ್ಟಾರ್ ವಸತಿ ಮತ್ತು ಅತ್ಯುತ್ತಮ ಸೇವೆಗಳು.</span>',
+    tags: 'Luxury · ಐಷಾರಾಮಿ|Swimming Pool · ಈಜುಕೊಳ|Top Tier · ಉನ್ನತ ಶ್ರೇಣಿ'
+  }
+};
+function selectHotelsRoute(tab, num) {
+  document.querySelectorAll('#pkg-hotels .tex-sub-tab').forEach(t => t.classList.remove('tex-sub-active'));
+  tab.classList.add('tex-sub-active');
+  const r = hotelsRoutes[num];
+  const hero = document.getElementById('hotels-hero');
+  hero.className = 'tex-panel-hero bg-collage-hotels';
+  hero.style.backgroundImage = `url('${r.img}')`;
+  document.getElementById('hotels-title').innerHTML = r.title;
+  document.getElementById('hotels-desc').innerHTML = r.desc;
+  document.getElementById('hotels-tags').innerHTML = r.tags.split('|').map(t => `<span class="tex-place-tag">${t}</span>`).join('');
+}
+
 
   // Apply dynamic backgrounds to sub-tabs
   function applySubTabBackgrounds(selector, routes) {
