@@ -1424,12 +1424,14 @@
     border-radius: 16px !important; 
   }
   .tex-panel-hero { 
-    flex: 0 0 45% !important; 
-    height: 45% !important; 
-    min-height: 200px !important;
+    flex: 1 1 auto !important; 
+    height: auto !important; 
+    min-height: 250px !important;
   }
   .tex-sub-tabs { 
-    flex: 1 !important; 
+    flex: 0 1 auto !important; 
+    max-height: 55% !important;
+    min-height: 0 !important;
     overflow-y: auto !important; 
   }
   .tex-sub-tabs { width: 100%; border-right: none; border-top: 2px solid rgba(255,255,255,0.06); }
@@ -1585,10 +1587,10 @@
     url('images/hero/slide_9.webp'),
     url('images/hero/slide_11.webp'),
     url('images/hero/slide_12.webp'),
-    url('images/hero/slide_13.webp');
-  background-position: top left, top right, bottom left, bottom right;
-  background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%;
-  background-repeat: no-repeat;
+    url('images/hero/slide_13.webp') !important;
+  background-position: top left, top right, bottom left, bottom right !important;
+  background-size: 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5%, 50.5% 50.5% !important;
+  background-repeat: no-repeat !important;
 }
 
 
@@ -3413,13 +3415,13 @@ const cabRoutes = {
     tags: '🛕 Yediyuru · ಯೇದಿಯೂರು|🛕 Adichunchanagiri · ಆದಿಚುಂಚನಗಿರಿ|🕌 Sravanabelagola · ಶ್ರವಣಬೆಳಗೊಳ|🏛️ Belur · ಬೇಲೂರು|🏛️ Halebeedu · ಹಳೇಬೀಡು'
   },
   2: {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Nandi_Hills_Sunrise.jpg/960px-Nandi_Hills_Sunrise.jpg',
+    img: 'images/hero/slide_11.webp',
     title: '<em>Hills & Nature</em> Circuit<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;"><em style="color:#FFD580;font-style:normal;">ಬೆಟ್ಟ ಮತ್ತು ಪ್ರಕೃತಿ</em> ಸರ್ಕಿಟ್</span>',
     desc: 'Sunrise, hilltop shrines and serene nature — a refreshing escape from the city.<br><span style="font-size:0.9em;opacity:0.75;">ಸೂರ್ಯೋದಯ, ಬೆಟ್ಟದ ದೇವಾಲಯಗಳು ಮತ್ತು ಪ್ರಶಾಂತ ಪ್ರಕೃತಿ — ನಗರದಿಂದ ಮನೋಲ್ಲಾಸದ ಪ್ರಯಾಣ.</span>',
     tags: '⛰️ Siddagange · ಸಿದ್ಧಗಂಗೆ|🌄 Shivagange · ಶಿವಗಂಗೆ|💧 Namadachilume · ನಾಮದಚಿಲುಮೆ|⛰️ Mandaragiri Hills · ಮಂದರಗಿರಿ|🛕 Goravanahalli Laxmi · ಗೊರವನಹಳ್ಳಿ ಲಕ್ಷ್ಮಿ'
   },
   3: {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Shivanasamudra_Falls.jpg/960px-Shivanasamudra_Falls.jpg',
+    img: 'images/hero/slide_12.webp',
     title: '<em>Riverside</em> Circuit<br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;"><em style="color:#FFD580;font-style:normal;">ನದಿ ತಟ</em> ಸರ್ಕಿಟ್</span>',
     desc: 'Rivers, waterfalls, ancient temples and the mystic sands of Talakadu.<br><span style="font-size:0.9em;opacity:0.75;">ನದಿಗಳು, ಜಲಪಾತಗಳು, ಪ್ರಾಚೀನ ದೇವಾಲಯಗಳು ಮತ್ತು ತಲಕಾಡಿನ ರಹಸ್ಯಮಯ ಮರಳು.</span>',
     tags: '🏰 Srirangapatna · ಶ್ರೀರಂಗಪಟ್ಟಣ|💧 Shivanasamudra Bluff · ಶಿವನಸಮುದ್ರ|🛕 Somanatha Temple · ಸೋಮನಾಥ ದೇವಾಲಯ|🏖️ Talakadu · ತಲಕಾಡು'
@@ -3431,7 +3433,10 @@ function selectCabRoute(tab, num) {
   const r = cabRoutes[num];
   const hero = document.getElementById('cab-hero');
   hero.className = 'tex-panel-hero bg-collage-cab';
-  hero.style.backgroundImage = '';
+  hero.style.backgroundImage = "url('" + r.img + "')";
+  hero.style.backgroundPosition = "center center";
+  hero.style.backgroundSize = "cover";
+  hero.style.backgroundRepeat = "no-repeat";
   document.getElementById('cab-title').innerHTML = r.title;
   document.getElementById('cab-desc').innerHTML = r.desc;
   document.getElementById('cab-tags').innerHTML = r.tags.split('|').map(t => `<span class="tex-place-tag">${t}</span>`).join('');
