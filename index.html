@@ -692,6 +692,8 @@
 
     /* Sections */
     section { padding:48px 16px; }
+    #tours { padding-top: 16px; padding-bottom: 16px; }
+    #tours .section-title { margin-bottom: 16px; }
     .section-title h2 { font-size:22px; }
 
     /* Cards */
@@ -1208,8 +1210,8 @@
 }
 
 @media (max-width: 600px) {
-  .tex-menu-text strong { font-size: 23px; }
-  .tex-menu-text span { font-size: 18px; color: #ffffff; margin-top: 8px; }
+  .tex-menu-text strong { font-size: 27px; }
+  .tex-menu-text span { font-size: 21px; color: #ffffff; margin-top: 8px; }
 }
 .tex-menu-item.tex-active .tex-menu-text strong { color: #FFD580; }
 .tex-menu-item.tex-active .tex-menu-text span { color: #FFD580; opacity: 1; }
@@ -1559,6 +1561,7 @@
   overflow: hidden;
 }
 .tour-floater {
+  display: none !important;
   position: absolute;
   font-size: 24px;
   opacity: 0;
@@ -2129,8 +2132,8 @@
   </div>
 
   <div class="section-title">
-    <span class="eyebrow" data-t="tours_eyebrow">27 handcrafted journeys</span>
-    <h2 data-t="tours_h2">All Tour Packages</h2>
+    <!-- <span class="eyebrow" data-t="tours_eyebrow">27 handcrafted journeys</span> -->
+    <h2 data-t="tours_h2" style="font-family: 'Playfair Display', serif; font-weight: 800; font-style: italic;">All Tour Packages</h2>
     <p data-t="tours_p">Departing from Bangalore. Hotel accommodation, entrance fees & guide charges included unless stated otherwise.</p>
     <div class="divider"></div>
   </div>
