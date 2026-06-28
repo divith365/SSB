@@ -1425,13 +1425,17 @@
     border-radius: 16px !important; 
   }
   .tex-panel-hero { 
-    flex: 1 1 auto !important; 
+    flex: none !important; 
     height: auto !important; 
-    min-height: 250px !important;
+    min-height: 0 !important;
+    padding: 24px 16px 12px !important;
+  }
+  .tex-panel-hero-content p, .tex-place-tags {
+    display: none !important;
   }
   .tex-sub-tabs { 
-    flex: 0 1 auto !important; 
-    max-height: 55% !important;
+    flex: none !important; 
+    max-height: none !important;
     min-height: 0 !important;
     overflow-y: auto !important;
     overscroll-behavior: none !important; 
