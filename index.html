@@ -3685,15 +3685,42 @@ const pkgNames = {
 let _waLastPkg    = null;  // e.g. 'pkg-mys'
 let _waLastOption = null;  // e.g. 'Mysore - Ooty 2N/3D'
 
+// Section-aware messages for main page
+const sectionMessages = {
+  'tirupathi-special': 'Hi SSB!\nI\'m interested in the *Tirupathi Balaji VIP Darshan Package*.\nPlease share details, dates and pricing. 🙏',
+  'shirdi-special':    'Hi SSB!\nI\'m interested in the *Shirdi Sai Baba Darshan Package*.\nPlease share details, dates and pricing. 🙏',
+  'tours':             'Hi SSB!\nI\'m interested in your tour packages.\nPlease share details and pricing. 🙏',
+  'destinations':      'Hi SSB!\nI\'m exploring your destinations.\nCan you suggest a suitable package for me? 🙏',
+  'about':             'Hi SSB!\nI\'d like to know more about S.S.B. Package & Holidays.\nPlease share details. 🙏',
+  'contact':           'Hi SSB!\nI came across your website and would like to enquire about a tour package.\nPlease share details. 🙏',
+};
+let _waLastSection = null;
+
+(function() {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) _waLastSection = entry.target.id;
+    });
+  }, { threshold: 0.3 });
+  ['tirupathi-special','shirdi-special','tours','destinations','about','contact'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+})();
+
 function openWhatsApp(e) {
   e.preventDefault();
-  let msg = 'Hi SSB! 👋\nI\'m interested in a tour package.\nPlease share details and pricing.';
+  let msg;
   if (_waLastPkg && pkgNames[_waLastPkg]) {
-    msg = 'Hi SSB! 👋\nI\'m interested in the *' + pkgNames[_waLastPkg] + '*.';
+    msg = 'Hi SSB!\nI\'m interested in the *' + pkgNames[_waLastPkg] + '*.';
     if (_waLastOption) {
       msg += '\n📍 Specifically: *' + _waLastOption + '*';
     }
     msg += '\n\nPlease share details and pricing. 🙏';
+  } else if (_waLastSection && sectionMessages[_waLastSection]) {
+    msg = sectionMessages[_waLastSection];
+  } else {
+    msg = 'Hi SSB!\nI\'m interested in a tour package.\nPlease share details and pricing. 🙏';
   }
   const url = 'https://wa.me/919880782128?text=' + encodeURIComponent(msg);
   window.open(url, '_blank');
