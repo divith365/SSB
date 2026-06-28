@@ -1260,6 +1260,7 @@
   position: relative;
   box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
+  .tex-panel > button { top: 40px !important; right: 20px !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
 .tex-panel.tex-panel-active {
   display: flex;
   animation: texFadeIn 0.4s ease;
@@ -1284,8 +1285,8 @@
   text-align: center;
 }
 .tex-panel-hero-content h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-family: \'Playfair Display\', serif;
+  font-size: 22px;
   font-style: italic;
   letter-spacing: 1px;
   font-weight: 800;
@@ -1425,12 +1426,13 @@
     max-height: 100vh !important; 
     border-radius: 0 !important; 
   }
+  .tex-panel > button { top: 40px !important; right: 20px !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
   .tex-panel-hero { 
     display: block !important;
     flex: none !important; 
     height: auto !important; 
     min-height: 0 !important;
-    padding: 32px 16px 12px !important;
+    padding: 70px 16px 12px !important;
   }
   .tex-panel-hero-content p, .tex-place-tags {
     display: none !important;
@@ -2311,14 +2313,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectChkRoute(this,1)" style="position:relative;">
               <div class="tex-sub-icon">☕</div>
               <div class="tex-sub-info">
-                <strong>1N/2D</strong>
+                <strong>1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">1N/2D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">3a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectChkRoute(this,2)" style="position:relative;">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>2N/3D</strong>
+                <strong>2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">3b</div>
             </div>
@@ -2371,14 +2373,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectCrgRoute(this,1)" style="position:relative;">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Coorg 1N/2D & 2N/3D</strong>
+                <strong>Coorg 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡಗು 1N/2D & 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">4a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectCrgRoute(this,2)" style="position:relative;">
               <div class="tex-sub-icon">⛰️</div>
               <div class="tex-sub-info">
-                <strong>Coorg - Chikkamagalur 2N/3D & 3N/4D</strong>
+                <strong>Coorg - Chikkamagalur 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡಗು - ಚಿಕ್ಕಮಗಳೂರು 2N/3D & 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">4b</div>
             </div>
@@ -2431,21 +2433,21 @@
             <div class="tex-sub-tab" onclick="selectMysRoute(this,2)">
               <div class="tex-sub-icon">🚂</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Ooty 1N/2D</strong>
+                <strong>Mysore - Ooty 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಊಟಿ 1N/2D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,3)">
               <div class="tex-sub-icon">☕</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Coonoor 2N/3D</strong>
+                <strong>Mysore Ooty Coonoor 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೂನೂರು 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5c</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,4)">
               <div class="tex-sub-icon">🎬</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Ooty Coonoor Filmy Chakkar 3N/4D & 4N/5D</strong>
+                <strong>Mysore - Ooty Coonoor Filmy Chakkar 3N/4D & 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಊಟಿ ಕೂನೂರು ಫಿಲ್ಮಿ ಚಕ್ಕರ್ 3N/4D & 4N/5D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5d</div>
             </div>
@@ -2459,35 +2461,35 @@
             <div class="tex-sub-tab" onclick="selectMysRoute(this,6)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Wayanad 5N/6D, 2N/3D & 3N/4D</strong>
+                <strong>Mysore Ooty Wayanad 5N/6D, 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ವಯನಾಡ್ 5N/6D, 2N/3D & 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5f</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,7)">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Coorg 2N/3D & 3N/4D</strong>
+                <strong>Mysore - Coorg 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಕೊಡಗು 2N/3D & 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5g</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,8)">
               <div class="tex-sub-icon">🌿</div>
               <div class="tex-sub-info">
-                <strong>Mysore - Coorg - Wayanad 5N/6D</strong>
+                <strong>Mysore - Coorg - Wayanad 5N/6D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು - ಕೊಡಗು - ವಯನಾಡ್ 5N/6D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5h</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,9)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Mysore Wayanad 2N/3D & 3N/4D</strong>
+                <strong>Mysore Wayanad 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ವಯನಾಡ್ 2N/3D & 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5i</div>
             </div>
             <div class="tex-sub-tab" onclick="selectMysRoute(this,10)">
               <div class="tex-sub-icon">🛕</div>
               <div class="tex-sub-info">
-                <strong>Mysore Ooty Kodai Madurai Rameswaram Kanyakumari 6N/7D & 7N/8D</strong>
+                <strong>Mysore Ooty Kodai Madurai Rameswaram Kanyakumari 6N/7D & 7N/8D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮೈಸೂರು ಊಟಿ ಕೊಡೈ ಮಧುರೈ ರಾಮೇಶ್ವರಂ ಕನ್ಯಾಕುಮಾರಿ 6N/7D & 7N/8D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">5j</div>
             </div>
@@ -2535,63 +2537,63 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectKerRoute(this,1)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Munnar 2N/3D</strong>
+                <strong>Munnar 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,2)">
               <div class="tex-sub-icon">🐘</div>
               <div class="tex-sub-info">
-                <strong>Wayanad 1N/2D & 2N/3D</strong>
+                <strong>Wayanad 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ವಯನಾಡ್ 1N/2D & 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,3)">
               <div class="tex-sub-icon">🐅</div>
               <div class="tex-sub-info">
-                <strong>Munnar - Thekkady 2N/3D</strong>
+                <strong>Munnar - Thekkady 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ - ತೇಕ್ಕಡಿ 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6c</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,4)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Munnar Thekkady Alleppey 3N/4D & 4N/5D</strong>
+                <strong>Munnar Thekkady Alleppey 3N/4D & 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ತೇಕ್ಕಡಿ ಅಲೆಪ್ಪಿ 3N/4D & 4N/5D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6d</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,5)">
               <div class="tex-sub-icon">🛶</div>
               <div class="tex-sub-info">
-                <strong>Munnar - Alleppey 2N/3D & 3N/4D</strong>
+                <strong>Munnar - Alleppey 2N/3D & 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ - ಅಲೆಪ್ಪಿ 2N/3D & 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6e</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,6)">
               <div class="tex-sub-icon">🏖️</div>
               <div class="tex-sub-info">
-                <strong>Munnar Alleppey Kovalam 4N/5D</strong>
+                <strong>Munnar Alleppey Kovalam 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ಅಲೆಪ್ಪಿ ಕೋವಲಂ 4N/5D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6f</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,7)">
               <div class="tex-sub-icon">🌴</div>
               <div class="tex-sub-info">
-                <strong>Munnar Thekkady Alleppey Trivandrum 5N/6D</strong>
+                <strong>Munnar Thekkady Alleppey Trivandrum 5N/6D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಮುನ್ನಾರ್ ತೇಕ್ಕಡಿ ಅಲೆಪ್ಪಿ ತಿರುವನಂತಪುರಂ 5N/6D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6g</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,8)">
               <div class="tex-sub-icon">🛕</div>
               <div class="tex-sub-info">
-                <strong>Trivandrum 1N/2D</strong>
+                <strong>Trivandrum 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ತಿರುವನಂತಪುರಂ 1N/2D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6h</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKerRoute(this,9)">
               <div class="tex-sub-icon">🌊</div>
               <div class="tex-sub-info">
-                <strong>Trivandrum - Kanyakumari 2N/3D</strong>
+                <strong>Trivandrum - Kanyakumari 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ತಿರುವನಂತಪುರಂ - ಕನ್ಯಾಕುಮಾರಿ 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">6i</div>
             </div>
@@ -2638,21 +2640,21 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectOotRoute(this,1)">
               <div class="tex-sub-icon">⛰️</div>
               <div class="tex-sub-info">
-                <strong>Ooty 1N/2D, 2N/3D, 3N/4D</strong>
+                <strong>Ooty 1N/2D, 2N/3D, 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ 1N/2D, 2N/3D, 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectOotRoute(this,2)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Ooty - Kodaikanal 2N/3D, 3N/4D, 4N/5D</strong>
+                <strong>Ooty - Kodaikanal 2N/3D, 3N/4D, 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ - ಕೊಡೈಕೆನಾಲ್ 2N/3D, 3N/4D, 4N/5D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7b</div>
             </div>
             <div class="tex-sub-tab" onclick="selectOotRoute(this,3)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Ooty - Kodaikanal - Munnar 6N/7D</strong>
+                <strong>Ooty - Kodaikanal - Munnar 6N/7D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಊಟಿ - ಕೊಡೈಕೆನಾಲ್ - ಮುನ್ನಾರ್ 6N/7D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(80,200,140,0.85);color:#051a10;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">7c</div>
             </div>
@@ -2698,14 +2700,14 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectKodRoute(this,1)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Kodaikanal 1N/2D & 2N/3D</strong>
+                <strong>Kodaikanal 1N/2D & 2N/3D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೈಕೆನಾಲ್ 1N/2D & 2N/3D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">8a</div>
             </div>
             <div class="tex-sub-tab" onclick="selectKodRoute(this,2)">
               <div class="tex-sub-icon">🍃</div>
               <div class="tex-sub-info">
-                <strong>Kodaikanal - Munnar 4N/5D</strong>
+                <strong>Kodaikanal - Munnar 4N/5D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೈಕೆನಾಲ್ - ಮುನ್ನಾರ್ 4N/5D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">8b</div>
             </div>
@@ -2752,7 +2754,7 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectGoaRoute(this,1)">
               <div class="tex-sub-icon">🏖️</div>
               <div class="tex-sub-info">
-                <strong>Goa Package 3N/4D</strong>
+                <strong>Goa Package 3N/4D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ 3N/4D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">9a</div>
             </div>
@@ -2798,7 +2800,7 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectAlpRoute(this,1)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Alleppey Houseboat - Cochin 1N/2D</strong>
+                <strong>Alleppey Houseboat - Cochin 1N/2D<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ 1N/2D</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:28px;height:24px;border-radius:12px;background:rgba(100,180,255,0.85);color:#0a1528;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">10a</div>
             </div>
@@ -2881,19 +2883,19 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectHotelsRoute(this,1)">
               <div class="tex-sub-icon">🏨</div>
               <div class="tex-sub-info">
-                <strong>Deluxe Hotel</strong>
+                <strong>Deluxe Hotel<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span></strong>
               </div>
             </div>
             <div class="tex-sub-tab" onclick="selectHotelsRoute(this,2)">
               <div class="tex-sub-icon">🌟</div>
               <div class="tex-sub-info">
-                <strong>Super Deluxe Hotel</strong>
+                <strong>Super Deluxe Hotel<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಸೂಪರ್ ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span></strong>
               </div>
             </div>
             <div class="tex-sub-tab" onclick="selectHotelsRoute(this,3)">
               <div class="tex-sub-icon">✨</div>
               <div class="tex-sub-info">
-                <strong>Star Hotel</strong>
+                <strong>Star Hotel<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಸ್ಟಾರ್ ಹೋಟೆಲ್</span></strong>
               </div>
             </div>
           </div>
