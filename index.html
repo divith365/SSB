@@ -755,18 +755,37 @@
   .loader-logo-kn { transform: rotateY(0deg); }
   .loader-logo-wrap.flipped .loader-logo-en { transform: rotateY(0deg); }
   .loader-logo-wrap.flipped .loader-logo-kn { transform: rotateY(-180deg); }
-  .loader-text {
+  .loader-welcome {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: -10px;
+    animation: loader-pulse 1.5s ease-in-out infinite;
+  }
+  .loader-brand {
     font-family: 'Playfair Display', serif;
-    font-size: 22px; font-weight: 900;
+    font-size: 38px; font-weight: 900;
     color: var(--gold);
     letter-spacing: 2px;
     text-align: center;
+    line-height: 1.1;
+    text-shadow: 0 0 40px rgba(232,180,42,0.5), 0 2px 8px rgba(0,0,0,0.6);
     animation: loader-pulse 1.5s ease-in-out infinite;
   }
-  .loader-sub {
+  @media (max-width: 480px) {
+    .loader-brand { font-size: 26px; letter-spacing: 1px; }
+    .loader-welcome { font-size: 13px; }
+  }
+  .loader-text {
     font-family: 'Noto Sans Kannada', sans-serif;
-    font-size: 14px; color: rgba(255,255,255,0.6);
-    text-align: center; letter-spacing: 1px;
+    font-size: 15px; font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2px;
+    text-align: center;
+    animation: loader-pulse 1.5s ease-in-out infinite;
   }
   .loader-dots { display:flex; gap:8px; margin-top:4px; }
   .loader-dots span {
@@ -1810,8 +1829,9 @@
     <img src="ssb_logo_kannada.png" alt="SSB Kannada Logo" class="loader-logo-kn">
     <img src="ssb_logo_v3.png"      alt="SSB English Logo" class="loader-logo-en">
   </div>
+  <div class="loader-welcome">Welcome to</div>
+  <div class="loader-brand">S.S.B. Package &amp; Holidays</div>
   <div class="loader-text">ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ</div>
-  <div class="loader-sub">S.S.B Package &amp; Holidays · Nandan Cabs</div>
   <div class="loader-dots"><span></span><span></span><span></span></div>
 </div>
 
