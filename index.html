@@ -1260,7 +1260,7 @@
   position: relative;
   box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
-  .tex-panel > button { top: 15px !important; right: 15px !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
+  .tex-panel-hero > button { bottom: 15px !important; right: 15px !important; top: auto !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
 .tex-panel.tex-panel-active {
   display: flex;
   animation: texFadeIn 0.4s ease;
@@ -1272,7 +1272,7 @@
 
 /* Panel text area (no longer a huge photo space) */
 .tex-panel-hero {
-  padding: 32px 24px 16px;
+  padding: 24px 24px 60px;
   position: relative;
   background-image: none !important; /* Removed photos as requested */
   background: #1e2240; /* match panel bg */
@@ -1426,13 +1426,13 @@
     max-height: 100vh !important; 
     border-radius: 0 !important; 
   }
-  .tex-panel > button { top: 20px !important; right: 16px !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
+  .tex-panel-hero > button { bottom: 15px !important; right: 15px !important; top: auto !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 36px !important; height: 36px !important; }
   .tex-panel-hero { 
     display: block !important;
     flex: none !important; 
     height: auto !important; 
     min-height: 0 !important;
-    padding: 55px 16px 12px !important;
+    padding: 24px 16px 60px !important;
   }
   .tex-panel-hero-content p, .tex-place-tags {
     display: none !important;
@@ -1458,9 +1458,9 @@
 .tex-panel-hero { position: relative; }
 .tex-tab-coin {
   position: absolute;
-  top: 15px;
+  bottom: 15px;
   left: 15px;
-  bottom: auto;
+  top: auto;
   right: auto;
   width: 40px; height: 40px;
   border-radius: 50%;
@@ -2180,10 +2180,10 @@
       <div class="tex-right" id="texModalOverlay1" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 1: Bangalore Local -->
         <div class="tex-panel tex-panel-active" id="pkg-blr" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-blr" id="blr-hero">
+            <button onclick="document.getElementById('texModalOverlay1').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="tex-tab-coin coin-1a" id="blr-coin">1a</div>
+            <div class="tex-tab-coin coin-1a" id="blr-coin">#1a</div>
             <div class="tex-panel-hero-content">
               <h2>Bangalore <em>Half Day</em> Package<br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಬೆಂಗಳೂರು <em style="color:#FFD580;font-style:normal;">ಅರ್ಧ ದಿನ</em> ಪ್ಯಾಕೇಜ್</span></h2>
               <p id="blr-desc">A curated morning or evening tour covering Bangalore's must-see landmarks.<br><span style="font-size:0.9em;opacity:0.75;">ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ತಾಣಗಳ ವಿಶೇಷ ದರ್ಶನ.</span></p>
@@ -2235,10 +2235,10 @@
       <div class="tex-right" id="texModalOverlayCab" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 2: 1 Day Cab Trip -->
         <div class="tex-panel" id="pkg-cab" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-cab" id="cab-hero">
+            <button onclick="document.getElementById('texModalOverlayCab').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="tex-tab-coin coin-2a" id="cab-coin">2a</div>
+            <div class="tex-tab-coin coin-2a" id="cab-coin">#2a</div>
             <div class="tex-panel-hero-content">
               <h2 id="cab-title"><em>Heritage</em> Circuit<br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಪಾರಂಪರಿಕ <em style="color:#FFD580;font-style:normal;">ತಾಣಗಳ ದರ್ಶನ</em></span></h2>
               <p id="cab-desc">Trace ancient Karnataka's golden age through its timeless temples and shrines.<br><span style="font-size:0.9em;opacity:0.75;">ಕರ್ನಾಟಕದ ಪ್ರಾಚೀನ ಸುವರ್ಣಯುಗದ ದೇವಾಲಯಗಳು ಮತ್ತು ಪುಣ್ಯಕ್ಷೇತ್ರಗಳ ದರ್ಶನ.</span></p>
@@ -2296,11 +2296,11 @@
       <div class="tex-right" id="texModalOverlay2" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 3: Chikkamagalur -->
         <div class="tex-panel tex-panel-active" id="pkg-chk" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-chk" id="chk-hero">
+            <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-3a" id="chk-coin">3a</div>
+            <div class="tex-tab-coin coin-3a" id="chk-coin">#3a</div>
             <div class="tex-panel-hero-content">
               <h2 id="chk-title">Chikkamagalur <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="chk-desc">A perfect short getaway into the coffee land of Karnataka.<br><span style="font-size:0.9em;opacity:0.75;">ಕರ್ನಾಟಕದ ಕಾಫಿ ನಾಡಿಗೆ ಒಂದು ಅದ್ಭುತ ಕಿರು ಪ್ರವಾಸ.</span></p>
@@ -2356,11 +2356,11 @@
       <div class="tex-right" id="texModalOverlay3" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 4: Coorg -->
         <div class="tex-panel tex-panel-active" id="pkg-crg" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-crg" id="crg-hero">
+            <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-4a" id="crg-coin">4a</div>
+            <div class="tex-tab-coin coin-4a" id="crg-coin">#4a</div>
             <div class="tex-panel-hero-content">
               <h2 id="crg-title">Coorg <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡಗು</span></h2>
               <p id="crg-desc">Escape to the Scotland of India for misty hills and lush coffee estates.<br><span style="font-size:0.9em;opacity:0.75;">ಭಾರತದ ಸ್ಕಾಟ್‌ಲ್ಯಾಂಡ್ ಮಂಜಿನ ಬೆಟ್ಟಗಳು ಮತ್ತು ಕಾಫಿ ತೋಟಗಳ ಅದ್ಭುತ ಪ್ರವಾಸ.</span></p>
@@ -2409,11 +2409,11 @@
       <div class="tex-right" id="texModalOverlay4" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 5: Mysore -->
         <div class="tex-panel tex-panel-active" id="pkg-mys" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-mys" id="mys-hero">
+            <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-5a" id="mys-coin">5a</div>
+            <div class="tex-tab-coin coin-5a" id="mys-coin">#5a</div>
             <div class="tex-panel-hero-content">
               <h2 id="mys-title">Mysore <em>Full Day Sightseeing</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು <em style="color:#FFD580;font-style:normal;">ಪೂರ್ಣ ದಿನದ ದರ್ಶನ</em></span></h2>
               <p id="mys-desc">Explore the City of Palaces and its royal heritage.<br><span style="font-size:0.9em;opacity:0.75;">ಅರಮನೆಗಳ ನಗರ ಮತ್ತು ಅದರ ರಾಜಮನೆತನದ ಪರಂಪರೆಯನ್ನು ಅನ್ವೇಷಿಸಿ.</span></p>
@@ -2520,11 +2520,11 @@
       <div class="tex-right" id="texModalOverlay5" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <!-- Package 6: Kerala -->
         <div class="tex-panel tex-panel-active" id="pkg-ker" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-ker" id="ker-hero">
+            <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-6a" id="ker-coin">6a</div>
+            <div class="tex-tab-coin coin-6a" id="ker-coin">#6a</div>
             <div class="tex-panel-hero-content">
               <h2 id="ker-title">Munnar <em>2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="ker-desc">Escape into the endless tea plantations and misty mountains of Munnar.<br><span style="font-size:0.9em;opacity:0.75;">ಮುನ್ನಾರ್‌ನ ಚಹಾ ತೋಟಗಳು ಮತ್ತು ಮಂಜಿನ ಬೆಟ್ಟಗಳ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span></p>
@@ -2623,11 +2623,11 @@
       </div>
       <div class="tex-right" id="texModalOverlay6" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-oot" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-oot" id="oot-hero">
+            <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-7a" id="oot-coin">7a</div>
+            <div class="tex-tab-coin coin-7a" id="oot-coin">#7a</div>
             <div class="tex-panel-hero-content">
               <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span></h2>
               <p id="oot-desc">Relax by the Ooty lake and explore the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಊಟಿ ಸರೋವರ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span></p>
@@ -2683,11 +2683,11 @@
       </div>
       <div class="tex-right" id="texModalOverlay7" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-kod" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-kod" id="kod-hero">
+            <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-8a" id="kod-coin">8a</div>
+            <div class="tex-tab-coin coin-8a" id="kod-coin">#8a</div>
             <div class="tex-panel-hero-content">
               <h2 id="kod-title">Kodaikanal <em>1N/2D & 2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;"> & </em></span></h2>
               <p id="kod-desc">Experience the princess of hill stations with its star-shaped lake.<br><span style="font-size:0.9em;opacity:0.75;">ಗಿರಿಧಾಮಗಳ ರಾಜಕುಮಾರಿ ಮತ್ತು ನಕ್ಷತ್ರ ಆಕಾರದ ಸರೋವರದ ಸೌಂದರ್ಯ.</span></p>
@@ -2737,11 +2737,11 @@
       </div>
       <div class="tex-right" id="texModalOverlay8" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-goa" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-goa" id="goa-hero">
+            <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-9a" id="goa-coin">9a</div>
+            <div class="tex-tab-coin coin-9a" id="goa-coin">#9a</div>
             <div class="tex-panel-hero-content">
               <h2 id="goa-title">Goa Package <em>3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="goa-desc">Explore the sun-kissed beaches, historic churches, and vibrant culture of Goa.<br><span style="font-size:0.9em;opacity:0.75;">ಗೋವಾದ ಸುಂದರ ಕಡಲತೀರಗಳು, ಚರ್ಚ್‌ಗಳು ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಅದ್ಭುತ ಪ್ರವಾಸ.</span></p>
@@ -2783,11 +2783,11 @@
       </div>
       <div class="tex-right" id="texModalOverlay9" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel tex-panel-active" id="pkg-alp" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-alp" id="alp-hero">
+            <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
-            <div class="tex-tab-coin coin-10a" id="alp-coin">10a</div>
+            <div class="tex-tab-coin coin-10a" id="alp-coin">#10a</div>
             <div class="tex-panel-hero-content">
               <h2 id="alp-title">Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="alp-desc">A peaceful backwater cruise in Alleppey followed by the rich heritage of Cochin.<br><span style="font-size:0.9em;opacity:0.75;">ಅಲೆಪ್ಪಿಯ ಪ್ರಶಾಂತ ಹಿನ್ನೀರಿನ ವಿಹಾರ ಮತ್ತು ಕೊಚ್ಚಿಯ ಶ್ರೀಮಂತ ಪರಂಪರೆಯ ಪ್ರವಾಸ.</span></p>
@@ -2829,7 +2829,7 @@
       </div>
       <div class="tex-right" id="texModalOverlay10" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel" id="pkg-north" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay10').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
+          <button onclick="document.getElementById('texModalOverlay10').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <!-- Hero only, no sub-tabs for this card -->
           <div class="tex-panel-hero bg-collage-north" id="north-hero" style="flex: 1 1 100% !important; height: 100% !important; min-height: 100% !important; border-radius: 16px;">
             <div class="tex-panel-hero-overlay"></div>
@@ -2870,8 +2870,8 @@
       </div>
       <div class="tex-right" id="texModalOverlay11" onclick="this.classList.remove('modal-open'); document.body.style.overflow=''; event.stopPropagation();">
         <div class="tex-panel" id="pkg-hotels" onclick="event.stopPropagation();">
-          <button onclick="document.getElementById('texModalOverlay11').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
           <div class="tex-panel-hero bg-collage-hotels" id="hotels-hero" style="background-image: url('images/hero/hotel_deluxe.webp'); background-size: cover; background-position: center;">
+            <button onclick="document.getElementById('texModalOverlay11').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
             <div class="tex-panel-hero-content">
               <h2 id="hotels-title">Deluxe Hotel<br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಡೀಲಕ್ಸ್ ಹೋಟೆಲ್</span></h2>
@@ -3617,7 +3617,7 @@ function selectBlrSub(tab, type) {
     title.innerHTML = 'Bangalore <em>Half Day</em> Package<br><span style="font-family:\'Inter\', sans-serif;font-size:0.55em;opacity:0.9;font-weight:500;">ಬೆಂಗಳೂರು <em style="color:#FFD580;font-style:normal;">ಅರ್ಧ ದಿನ</em> ಪ್ಯಾಕೇಜ್</span>';
     desc.innerHTML = 'A curated morning or evening tour covering Bangalore\'s must-see landmarks.<br><span style="font-size:0.9em;opacity:0.75;">ಬೆಂಗಳೂರಿನ ಪ್ರಮುಖ ತಾಣಗಳ ವಿಶೇಷ ದರ್ಶನ.</span>';
     tags.innerHTML = '<span class="tex-place-tag">🛕 Bull Temple · ದೊಡ್ಡ ಗಣಪತಿ</span><span class="tex-place-tag">🌳 Lalbagh · ಲಾಲ್‌ಬಾಗ್</span><span class="tex-place-tag">🏛️ Vidhana Soudha · ವಿಧಾನ ಸೌಧ</span><span class="tex-place-tag">🌿 Cubbon Park · ಕಬ್ಬನ್ ಪಾರ್ಕ್</span>';
-    if(coin){ coin.textContent='1a'; coin.className='tex-tab-coin coin-1a'; }
+    if(coin){ coin.textContent='#1a'; coin.className='tex-tab-coin coin-1a'; }
   } else {
     hero.style.backgroundImage = "url('images/beach.jpg')";
     hero.style.backgroundPosition = "center center";
@@ -3625,7 +3625,7 @@ function selectBlrSub(tab, type) {
     title.innerHTML = 'Bangalore <em>Full Day</em> Package<br><span style="font-family:\'Inter\', sans-serif;font-size:0.55em;opacity:0.9;font-weight:500;">ಬೆಂಗಳೂರು <em style="color:#FFD580;font-style:normal;">ಪೂರ್ಣ ದಿನ</em> ಪ್ಯಾಕೇಜ್</span>';
     desc.innerHTML = 'An all-day journey through the Garden City\'s heritage, culture & spiritual sites.<br><span style="font-size:0.9em;opacity:0.75;">ತೋಟಗಳ ನಗರದ ಐತಿಹಾಸಿಕ, ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕ ತಾಣಗಳ ಪೂರ್ಣ ದಿನದ ಪ್ರವಾಸ.</span>';
     tags.innerHTML = '<span class="tex-place-tag">🛕 ISKCON Temple · ಇಸ್ಕಾನ್</span><span class="tex-place-tag">🏰 Tippu Palace · ಟಿಪ್ಪು ಅರಮನೆ</span><span class="tex-place-tag">🌳 Lalbagh · ಲಾಲ್‌ಬಾಗ್</span><span class="tex-place-tag">🏛️ Vidhana Soudha · ವಿಧಾನ ಸೌಧ</span><span class="tex-place-tag">⛪ St. Mark\'s · ಸೆಂಟ್ ಮಾರ್ಕ್ಸ್</span>';
-    if(coin){ coin.textContent='1b'; coin.className='tex-tab-coin coin-1b'; }
+    if(coin){ coin.textContent='#1b'; coin.className='tex-tab-coin coin-1b'; }
   }
 }
 
