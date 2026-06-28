@@ -1750,7 +1750,19 @@
   40% { transform: translateX(-50%) translateY(-5px); }
   60% { transform: translateX(-50%) translateY(-3px); }
 }
+/* Force completely hide all photo collages on all cards */
+.tex-panel-hero, .tex-panel-hero[class*="bg-collage-"], .tex-panel-hero[style] {
+  background-image: none !important;
+}
 
+/* Hide the colored circular badges (1a, 1b) from sub options */
+.tex-sub-tab > div[style*="border-radius:50%"] {
+  display: none !important;
+}
+
+/* Remove backgrounds from sub options tabs */
+.tex-sub-tab { background: transparent !important; }
+.tex-sub-active { background: transparent !important; border-color: #FFD580 !important; }
 </style>
 
 </head>
