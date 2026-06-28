@@ -1251,8 +1251,7 @@
   display: none;
   width: 95%;
   max-width: 900px;
-  aspect-ratio: 1 / 1;
-  min-height: 500px;
+  height: auto;
   max-height: 95vh;
   background: #1e2240;
   border-radius: 20px;
@@ -1270,19 +1269,15 @@
   to { opacity:1; transform: translateX(0); }
 }
 
-/* Panel has a hero photo top area + sub-options row */
+/* Panel text area (no longer a huge photo space) */
 .tex-panel-hero {
-  flex: 1;
-  height: auto;
+  padding: 32px 24px 16px;
   position: relative;
-  background-size: cover;
-  background-position: center;
   background-image: none !important; /* Removed photos as requested */
-  overflow: hidden;
+  background: #1e2240; /* match panel bg */
 }
 .tex-panel-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10,8,30,0.85) 0%, rgba(10,8,30,0.5) 50%, rgba(10,8,30,0.15) 100%);
+  display: none; /* remove gradient overlay */
 }
 .tex-panel-hero-content {
   position: relative; z-index: 2;
