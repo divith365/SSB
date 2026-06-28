@@ -3414,19 +3414,26 @@
   const logoWrap = document.getElementById('loader-logo-wrap');
   const loaderText = loader.querySelector('.loader-text');
 
-  // After 1.4s flip to English
+  // After 2.8s flip to English logo
   setTimeout(() => {
     logoWrap.classList.add('flipped');
     loaderText.textContent = 'Sai Baba\'s Blessings on Every Journey';
     loaderText.style.fontFamily = "'Playfair Display', serif";
-  }, 1400);
+  }, 2800);
 
-  // After 2.8s hide loader
+  // After 4.2s flip back to Kannada logo
+  setTimeout(() => {
+    logoWrap.classList.remove('flipped');
+    loaderText.textContent = 'ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ';
+    loaderText.style.fontFamily = "'Noto Sans Kannada', sans-serif";
+  }, 4200);
+
+  // After 5.6s hide loader
   setTimeout(() => {
     loader.classList.add('hidden');
     // trigger scroll reveal for elements already in view
     revealObserver && document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el => revealObserver.observe(el));
-  }, 2800);
+  }, 5600);
 })();
 
 // ── SCROLL REVEAL ──
