@@ -1435,7 +1435,7 @@
     min-height: 0 !important;
     padding: 24px 16px 15px !important;
   }
-  .tex-panel-hero-content p, .tex-place-tags {
+  .tex-panel-hero-content p {
     display: none !important;
   }
   .tex-sub-tabs { 
@@ -2630,7 +2630,7 @@
             <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-7a" id="oot-coin">#7a</div>
             <div class="tex-panel-hero-content">
-              <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span></h2>
+              <h2 id="oot-title">Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
               <p id="oot-desc">Relax by the Ooty lake and explore the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಊಟಿ ಸರೋವರ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span></p>
               <div class="tex-place-tags" id="oot-tags">
                 <span class="tex-place-tag">⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ</span>
@@ -2703,7 +2703,7 @@
             <div class="tex-sub-tab tex-sub-active" onclick="selectKodRoute(this,1)">
               <div class="tex-sub-icon">⛵</div>
               <div class="tex-sub-info">
-                <strong>Kodaikanal 1 Night / 2 Days & 2 Nights / 3 Days Package<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೈಕೆನಾಲ್ 1 ರಾತ್ರಿ / 2 ದಿನ & 2 ರಾತ್ರಿ / 3 ದಿನದ ಪ್ಯಾಕೇಜ್</span></strong>
+                <strong>Kodaikanal 1 Night / 2 Days & 2 Nights / 3 Days Package<br><span style="font-size:0.85em;color:#FFD580;font-weight:500;">ಕೊಡೈಕೆನಾಲ್ 1 ರಾತ್ರಿ / 2 ದಿನ ಮತ್ತು 2 ರಾತ್ರಿ / 3 ದಿನದ ಪ್ಯಾಕೇಜ್</span></strong>
               </div>
               <div style="position:absolute;bottom:8px;right:10px;width:24px;height:24px;border-radius:50%;background:rgba(255,180,60,0.85);color:#1a0f07;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);">8a</div>
             </div>
@@ -3890,13 +3890,13 @@ function selectKerRoute(tab, num) {
 const ootRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Ooty_Lake.jpg',
-    title: 'Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">, , </em></span>',
+    title: 'Ooty <em>1N/2D, 2N/3D, 3N/4D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'Relax by the Ooty lake and explore the queen of hill stations.<br><span style="font-size:0.9em;opacity:0.75;">ಊಟಿ ಸರೋವರ ಮತ್ತು ಗಿರಿಧಾಮಗಳ ರಾಣಿಯ ಸೌಂದರ್ಯವನ್ನು ಸವಿಯಿರಿ.</span>',
     tags: '⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|🌺 Botanical Garden · ಬೊಟಾನಿಕಲ್ ಗಾರ್ಡನ್|⛰️ Dodabetta Peak · ದೊಡ್ಡಬೆಟ್ಟ'
   },
   2: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg',
-    title: 'Ooty - Kodaikanal <em>2N/3D, 3N/4D, 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">, , </em></span>',
+    title: 'Ooty - Kodaikanal <em>2N/3D, 3N/4D, 4N/5D</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ - ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;"></em></span>',
     desc: 'The best of Tamil Nadu\'s hill stations in one memorable trip.<br><span style="font-size:0.9em;opacity:0.75;">ತಮಿಳುನಾಡಿನ ಅತ್ಯುತ್ತಮ ಗಿರಿಧಾಮಗಳ ಸುಂದರ ಪ್ರವಾಸ.</span>',
     tags: '⛰️ Ooty Lake · ಊಟಿ ಸರೋವರ|⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🪨 Pillar Rocks · ಪಿಲ್ಲರ್ ರಾಕ್ಸ್'
   },
@@ -3926,7 +3926,7 @@ function selectOotRoute(tab, num) {
 const kodRoutes = {
   1: {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Kodaikanal_Lake.jpg/800px-Kodaikanal_Lake.jpg',
-    title: 'Kodaikanal <em>1 Night / 2 Days & 2 Nights / 3 Days Package</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">1 ರಾತ್ರಿ / 2 ದಿನ & 2 ರಾತ್ರಿ / 3 ದಿನದ ಪ್ಯಾಕೇಜ್</em></span>',
+    title: 'Kodaikanal <em>1 Night / 2 Days & 2 Nights / 3 Days Package</em><br><span style="font-family:\'Inter\',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೆಕಾನಲ್ <em style="color:#FFD580;font-style:normal;">1 ರಾತ್ರಿ / 2 ದಿನ ಮತ್ತು 2 ರಾತ್ರಿ / 3 ದಿನದ ಪ್ಯಾಕೇಜ್</em></span>',
     desc: 'Experience the princess of hill stations with its star-shaped lake.<br><span style="font-size:0.9em;opacity:0.75;">ಗಿರಿಧಾಮಗಳ ರಾಜಕುಮಾರಿ ಮತ್ತು ನಕ್ಷತ್ರ ಆಕಾರದ ಸರೋವರದ ಸೌಂದರ್ಯ.</span>',
     tags: '⛵ Kodai Lake · ಕೊಡೆಕಾನಲ್ ಸರೋವರ|🌲 Pine Forest · ಪೈನ್ ಫಾರೆಸ್ಟ್|🪨 Pillar Rocks · ಪಿಲ್ಲರ್ ರಾಕ್ಸ್'
   },
