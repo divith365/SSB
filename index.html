@@ -757,31 +757,67 @@
   .loader-logo-wrap.flipped .loader-logo-kn { transform: rotateY(-180deg); }
   .loader-welcome {
     font-family: 'Inter', sans-serif;
-    font-size: 16px; font-weight: 500;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 4px;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 5px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: -10px;
+    margin-bottom: 4px;
     animation: loader-pulse 1.5s ease-in-out infinite;
+  }
+  /* SSB 3-column grid */
+  .loader-ssb-grid {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    align-items: flex-start;
+    animation: loader-pulse 1.5s ease-in-out infinite;
+  }
+  .loader-ssb-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .loader-ssb-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow:
+      0 0 20px rgba(255,200,80,0.95),
+      0 0 50px rgba(232,140,42,0.75),
+      0 0 90px rgba(255,160,30,0.4),
+      0 2px 8px rgba(0,0,0,0.9);
+  }
+  .loader-ssb-word {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,210,100,0.85);
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
   .loader-brand {
     font-family: 'Playfair Display', serif;
-    font-size: 38px; font-weight: 900;
+    font-size: 22px; font-weight: 700;
     color: #ffffff;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-align: center;
-    line-height: 1.1;
+    line-height: 1.2;
     text-shadow:
-      0 0 20px rgba(255,200,80,0.9),
-      0 0 50px rgba(232,140,42,0.7),
-      0 0 90px rgba(255,160,30,0.4),
+      0 0 20px rgba(255,200,80,0.7),
+      0 0 50px rgba(232,140,42,0.5),
       0 2px 8px rgba(0,0,0,0.8);
     animation: loader-pulse 1.5s ease-in-out infinite;
+    margin-top: -4px;
   }
   @media (max-width: 480px) {
-    .loader-brand { font-size: 26px; letter-spacing: 1px; }
-    .loader-welcome { font-size: 13px; }
+    .loader-ssb-letter { font-size: 48px; }
+    .loader-ssb-grid { gap: 18px; }
+    .loader-brand { font-size: 17px; letter-spacing: 2px; }
+    .loader-welcome { font-size: 11px; }
   }
   .loader-text {
     font-family: 'Noto Sans Kannada', sans-serif;
@@ -1834,7 +1870,21 @@
     <img src="ssb_logo_v3.png"      alt="SSB English Logo" class="loader-logo-en">
   </div>
   <div class="loader-welcome">Welcome to</div>
-  <div class="loader-brand">S.S.B. Package &amp; Holidays</div>
+  <div class="loader-ssb-grid">
+    <div class="loader-ssb-col">
+      <span class="loader-ssb-letter">S</span>
+      <span class="loader-ssb-word">Shirdi</span>
+    </div>
+    <div class="loader-ssb-col">
+      <span class="loader-ssb-letter">S</span>
+      <span class="loader-ssb-word">Sai</span>
+    </div>
+    <div class="loader-ssb-col">
+      <span class="loader-ssb-letter">B</span>
+      <span class="loader-ssb-word">Baba</span>
+    </div>
+  </div>
+  <div class="loader-brand">Package &amp; Holidays</div>
   <div class="loader-text">ಶಿರಡಿ ಸಾಯಿ ಬಾಬಾ ಆಶೀರ್ವಾದ</div>
   <div class="loader-dots"><span></span><span></span><span></span></div>
 </div>
