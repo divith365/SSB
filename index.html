@@ -1417,20 +1417,14 @@
   .tex-header::before { display: none; }
   .tex-panel { 
     flex-direction: column !important; 
-    width: 95% !important; 
+    width: 100% !important; 
     max-width: 100% !important; 
     aspect-ratio: auto !important; 
-    height: 90vh !important; 
-    max-height: 90vh !important; 
-    border-radius: 16px !important; 
+    height: 100vh !important; 
+    max-height: 100vh !important; 
+    border-radius: 0 !important; 
   }
   .tex-panel-hero { 
-    flex: none !important; 
-    height: auto !important; 
-    min-height: 0 !important;
-    padding: 24px 16px 12px !important;
-  }
-  .tex-panel-hero-content p, .tex-place-tags {
     display: none !important;
   }
   .tex-sub-tabs { 
@@ -1439,6 +1433,7 @@
     min-height: 0 !important;
     overflow-y: auto !important;
     overscroll-behavior: none !important; 
+    margin-top: 60px !important;
   }
   .tex-sub-tabs { width: 100%; border-right: none; border-top: 2px solid rgba(255,255,255,0.06); }
   .tex-sub-tab { border-left: none; border-bottom: 3px solid transparent; }
