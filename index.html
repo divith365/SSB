@@ -1272,7 +1272,8 @@
 
 /* Panel text area (no longer a huge photo space) */
 .tex-panel-hero {
-  padding: 24px 24px 60px;
+  flex-shrink: 0;
+  padding: 30px 24px 60px;
   position: relative;
   background-image: none !important; /* Removed photos as requested */
   background: #1e2240; /* match panel bg */
@@ -2317,7 +2318,7 @@
           <div class="tex-panel-hero bg-collage-chk" id="chk-hero">
             <button onclick="document.getElementById('texModalOverlay2').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-3a" id="chk-coin">#3a</div>
             <div class="tex-panel-hero-content">
               <h2 id="chk-title">Chikkamagalur <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಚಿಕ್ಕಮಗಳೂರು <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2377,7 +2378,7 @@
           <div class="tex-panel-hero bg-collage-crg" id="crg-hero">
             <button onclick="document.getElementById('texModalOverlay3').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-4a" id="crg-coin">#4a</div>
             <div class="tex-panel-hero-content">
               <h2 id="crg-title">Coorg <em>1 Night / 2 Days Package</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡಗು <em style="color:#FFD580;font-style:normal;">1 ರಾತ್ರಿ / 2 ದಿನದ ಪ್ಯಾಕೇಜ್</em></span></h2>
@@ -2444,7 +2445,7 @@
           <div class="tex-panel-hero bg-collage-mys" id="mys-hero">
             <button onclick="document.getElementById('texModalOverlay4').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-5a" id="mys-coin">#5a</div>
             <div class="tex-panel-hero-content">
               <h2 id="mys-title">Mysore <em>Full Day Package</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮೈಸೂರು <em style="color:#FFD580;font-style:normal;">ಪೂರ್ಣ ದಿನದ ಪ್ಯಾಕೇಜ್</em></span></h2>
@@ -2597,7 +2598,7 @@
           <div class="tex-panel-hero bg-collage-ker" id="ker-hero">
             <button onclick="document.getElementById('texModalOverlay5').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-6a" id="ker-coin">#6a</div>
             <div class="tex-panel-hero-content">
               <h2 id="ker-title">Munnar <em>2N/3D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಮುನ್ನಾರ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2721,7 +2722,7 @@
           <div class="tex-panel-hero bg-collage-oot" id="oot-hero">
             <button onclick="document.getElementById('texModalOverlay6').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-7a" id="oot-coin">#7a</div>
             <div class="tex-panel-hero-content">
               <h2 id="oot-title">Ooty <em>1 Night / 2 Days Package</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಊಟಿ <em style="color:#FFD580;font-style:normal;">1 ರಾತ್ರಿ / 2 ದಿನದ ಪ್ಯಾಕೇಜ್</em></span></h2>
@@ -2809,7 +2810,7 @@
           <div class="tex-panel-hero bg-collage-kod" id="kod-hero">
             <button onclick="document.getElementById('texModalOverlay7').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-8a" id="kod-coin">#8a</div>
             <div class="tex-panel-hero-content">
               <h2 id="kod-title">Kodaikanal <em>1 Night / 2 Days Package</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಕೊಡೈಕೆನಾಲ್ <em style="color:#FFD580;font-style:normal;">1 ರಾತ್ರಿ / 2 ದಿನದ ಪ್ಯಾಕೇಜ್</em></span></h2>
@@ -2870,7 +2871,7 @@
           <div class="tex-panel-hero bg-collage-goa" id="goa-hero">
             <button onclick="document.getElementById('texModalOverlay8').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-9a" id="goa-coin">#9a</div>
             <div class="tex-panel-hero-content">
               <h2 id="goa-title">Goa Package <em>3N/4D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಗೋವಾ ಪ್ಯಾಕೇಜ್ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
@@ -2916,7 +2917,7 @@
           <div class="tex-panel-hero bg-collage-alp" id="alp-hero">
             <button onclick="document.getElementById('texModalOverlay9').classList.remove('modal-open'); document.body.style.overflow='';" style="position: absolute; bottom: 15px; right: 15px; top: auto; background: rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.8); color: white; width: 28px; height: 28px; border-radius: 50%; font-size: 16px; cursor: pointer; z-index: 10100; display: flex; align-items: center; justify-content: center; transition: 0.2s;">&times;</button>
             <div class="tex-panel-hero-overlay"></div>
-            <div class="nd-badge" style="position:absolute;top:45px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
+            <div class="nd-badge" style="position:absolute;top:15px;left:15px;background:rgba(0,0,0,0.6);color:rgba(255,255,255,0.9);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,0.2);z-index:10;backdrop-filter:blur(4px);letter-spacing:0.5px;">N - Nights | D - Days</div>
             <div class="tex-tab-coin coin-10a" id="alp-coin">#10a</div>
             <div class="tex-panel-hero-content">
               <h2 id="alp-title">Alleppey Houseboat - Cochin <em>1N/2D</em><br><span style="font-family:'Inter',sans-serif;font-size:0.55em;opacity:0.8;font-weight:500;">ಅಲೆಪ್ಪಿ ಹೌಸ್‌ಬೋಟ್ - ಕೊಚ್ಚಿ <em style="color:#FFD580;font-style:normal;"></em></span></h2>
