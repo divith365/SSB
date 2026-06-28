@@ -1192,7 +1192,7 @@
 .tex-menu-text strong {
   display: block;
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 900;
   color: var(--saffron);
   line-height: 1.3;
@@ -1202,7 +1202,7 @@
 .tex-menu-text span {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 800;
   color: #FFD580;
   margin-top: 4px;
@@ -1211,8 +1211,8 @@
 
 @media (max-width: 600px) {
   .tex-menu-text { display: block; text-align: left; }
-  .tex-menu-text strong { display: inline; font-size: 30px !important; line-height: 1.2 !important; margin: 0; }
-  .tex-menu-text span { display: inline; font-size: 30px !important; line-height: 1.2 !important; color: #ffffff !important; margin-left: 8px; }
+  .tex-menu-text strong { display: inline; line-height: 1.2 !important; margin: 0; }
+  .tex-menu-text span { display: inline; line-height: 1.2 !important; color: #ffffff !important; margin-left: 8px; }
 }
 .tex-menu-item.tex-active .tex-menu-text strong { color: #FFD580; }
 .tex-menu-item.tex-active .tex-menu-text span { color: #FFD580; opacity: 1; }
@@ -1411,8 +1411,9 @@
   .tex-left::-webkit-scrollbar { display: none; }
   .tex-menu-item { flex: none; width: 100%; max-width: none; margin: 0; padding: 6px; gap: 8px; }
   .tex-menu-item .tex-num { width: 22px; height: 22px; font-size: 11px; border-radius: 4px; }
-  .tex-menu-text strong { font-size: 11px !important; line-height: 1.2 !important; }
-  .tex-menu-text span { font-size: 9px !important; line-height: 1.2 !important; margin-top: 2px; }
+  .tex-menu-text { display: block; text-align: left; }
+  .tex-menu-text strong { display: inline; line-height: 1.2 !important; margin: 0; }
+  .tex-menu-text span { display: inline; line-height: 1.2 !important; color: #ffffff !important; margin-left: 8px; margin-top: 0; }
   .tex-menu-item::after { display: none; }
   .tex-header { width: 100%; padding: 8px 8px 6px; margin-bottom: 4px; }
   .tex-header .tex-eyebrow { font-size: 8px !important; margin-bottom: 2px !important; letter-spacing: 0.5px !important; }
