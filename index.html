@@ -1228,20 +1228,23 @@
 
 /* RIGHT DETAIL AREA */
 .tex-right {
-  overscroll-behavior: none;
+  overscroll-behavior: contain;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 10000;
   background: rgba(0,0,0,0.8);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 0;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s ease;
 }
 .tex-right.modal-open {
-  overscroll-behavior: none;
+  overscroll-behavior: contain;
   visibility: visible;
   opacity: 1;
 }
@@ -1252,12 +1255,13 @@
   width: 95%;
   max-width: 900px;
   height: auto;
-  max-height: 95vh;
+  max-height: none;
   background: #1e2240;
   border-radius: 20px;
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
   box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 }
   .tex-panel-hero > button { bottom: 15px !important; right: 15px !important; top: auto !important; z-index: 100000 !important; background: rgba(0,0,0,0.9) !important; width: 32px !important; height: 32px !important; font-size: 14px !important; }
